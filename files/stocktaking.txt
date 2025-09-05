@@ -1,0 +1,6 @@
+{"id": 10, "name": "clarinete", "lot": 77}
+{"id": 11, "name": "trombon", "lot": 50}
+{"id": 12, "name": "trompeta", "lot": 162}
+{"id": 1, "name": "Saxofon", "lot": 95}
+{"id": 2, "name": "Corno", "lot": 13}
+{"id": 3, "name": "Flauta", "lot": 0}

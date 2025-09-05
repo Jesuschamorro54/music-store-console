@@ -1,0 +1,23 @@
+{"id": 1, "client": 123, "products": {"trombon": 1}, "date": "2020-12-15"}
+{"id": 2, "client": 123, "products": {"trombon": 1, "clarinete": 5}, "date": "2021-02-20"}
+{"id": 3, "client": 123, "products": {"clarinete": 4}, "date": "2020-05-06"}
+{"id": 4, "client": 123, "products": {"clarinete": 2}, "date": "2020-02-05"}
+{"id": 5, "client": 123, "products": {"clarinete": 5}, "date": "2020-06-30"}
+{"id": 6, "client": 123, "products": {"trombon": 2, "trompeta": 5}, "date": "2021-04-20"}
+{"id": 7, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-06-18"}
+{"id": 8, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-06-19"}
+{"id": 9, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-06-20"}
+{"id": 10, "client": 123, "products": {"clarinete": 2, "trompeta": 5}, "date": "2021-06-21"}
+{"id": 11, "client": 654, "products": {"trompeta": 1}, "date": "2021-05-22"}
+{"id": 12, "client": 987, "products": {"saxofon": 3}, "date": "2021-05-22"}
+{"id": 13, "client": 987, "products": {"saxofon": 1}, "date": "2021-05-22"}
+{"id": 14, "client": 654, "products": {"trompeta": 1}, "date": "2021-05-23"}
+{"id": 15, "client": 654, "products": {"trompeta": 1}, "date": "2021-05-22"}
+{"id": 16, "client": 654, "products": {"trompeta": 6}, "date": "2021-05-23"}
+{"id": 17, "client": 987, "products": {"saxofon": 3}, "date": "2021-05-24"}
+{"id": 18, "client": 654, "products": {"saxofon": 3}, "date": "2021-05-23"}
+{"id": 19, "client": 654, "products": {"saxofon": 3}, "date": "2021-05-23"}
+{"id": 20, "client": 654, "products": {"saxofon": 3}, "date": "2021-05-23"}
+{"id": 21, "client": 123, "products": {"trombon": 5, "trompeta": 5, "saxofon": 5}, "date": "2021-06-05"}
+{"id": 22, "client": 123, "products": {"Clarinete": 1}, "date": "2021-06-05"}
+{"id": 23, "client": 123, "products": {"flauta": 5, "corno": 2, "saxofon": 5}, "date": "2021-05-28"}

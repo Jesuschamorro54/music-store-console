@@ -1,0 +1,12 @@
+{"id": 1, "supplier": 1245, "products": {"trombon": 5}, "date": "2021-05-22"}
+{"id": 2, "supplier": 1234, "products": {"saxofon": 7}, "date": "2021-05-22"}
+{"id": 3, "supplier": 1234, "products": {"saxofon": 10, "Trompeta": 15}, "date": "2021-06-01"}
+{"id": 4, "supplier": 1234, "products": {"clarinete": 2, "Trompeta": 15}, "date": "2021-06-01"}
+{"id": 5, "supplier": 1234, "products": {"clarinete": 5, "trompeta": 15}, "date": "2021-06-01"}
+{"id": 6, "supplier": 1234, "products": {"clarinete": 5, "trompeta": 5}, "date": "2021-06-01"}
+{"id": 7, "supplier": 1234, "products": {"clarinete": 5, "trompeta": 5, "saxofon": 5}, "date": "2021-06-03"}
+{"id": 8, "supplier": 1234, "products": {"clarinete": 5, "Trompeta": 5, "saxofon": 5}, "date": "2021-06-03"}
+{"id": 9, "supplier": 1234, "products": {"clarinete": 5, "trombon": 5, "trompeta": 5, "saxofon": 5}, "date": "2021-06-04"}
+{"id": 10, "supplier": 1234, "products": {"clarinete": 5, "Trompeta": 5}, "date": "2021-06-04"}
+{"id": 11, "supplier": 1234, "products": {"trompeta": 2, "clarinete": 8}, "date": "2021-06-03"}
+{"id": 12, "supplier": 1234, "products": {"flauta": 5, "corno": 15, "saxofon": 20}, "date": "2021-06-04"}
