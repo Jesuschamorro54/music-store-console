@@ -31,7 +31,7 @@ while True:
     
     Option: """
     )
-
+#jijijja
     pyautogui.click(x=-926, y=525)
     pyautogui.hotkey('Ctrl', 'l')
 
