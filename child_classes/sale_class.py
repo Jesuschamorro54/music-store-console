@@ -1,6 +1,8 @@
 from parent_classes.facture_class import Facture
 from child_classes.functions.validations import *
 
+# clases que dan el funcionamiento de alguanas extructuras
+
 
 class Sale(Facture):
     def __init__(self):
