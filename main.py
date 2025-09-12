@@ -12,7 +12,7 @@ stock_ins = Stock()
 buy_ins = Buy()
 sale_ins = Sale()
 
-# Init the app
+# Init the appplication
 while True:
     pyautogui.click(x=-926, y=525)
     pyautogui.hotkey('Ctrl', 'l')
@@ -31,7 +31,7 @@ while True:
     
     Option: """
     )
-
+#jijijja
     pyautogui.click(x=-926, y=525)
     pyautogui.hotkey('Ctrl', 'l')
 
