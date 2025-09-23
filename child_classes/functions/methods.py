@@ -55,7 +55,7 @@ def add_entity_func(lock):
 
 # add inventory
 def add_stock_func():
-    ide = define_id("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+    ide = define_id("/Users/NEIDER/tienda m/music-store-console/files/stocktaking.txt")
     lot = None
     capsule = []
 
@@ -79,8 +79,8 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt") if entity == "client" else define_id(
-        "/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt")
+    ide = define_id("/Users/NEIDER/tienda m/music-store-console/files/sale.txt") if entity == "client" else define_id(
+        "/Users/NEIDER/tienda m/music-store-console/files/buys.txt")
     product = {}
     capsule = []
 
@@ -91,7 +91,7 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt", name_entity)
+            valid = validate_exist("/Users/NEIDER/tienda m/music-store-console/files/client.txt", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -99,7 +99,7 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/supplier.txt", name_entity)
+            valid = validate_exist("/Users/NEIDER/tienda m/music-store-console/files/supplier.txt", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -112,7 +112,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", name)
+            valid = validate_exist("/Users/NEIDER/tienda m/music-store-console/files/stocktaking.txt", name)
             if valid[0]:
                 val = False
             else:
@@ -127,10 +127,11 @@ def make_sale_buy(entity):
                     val2 = False, print("No hay suficientes productos")
             else:
                 val2 = False
-
+# agregue la opcion para dejar agregar mas productos
         product[name] = lot
-        op = int(input("¿Agregar más?: "))
+        op = int(input("¿Agregar más?: si(1)/no(0): "))
         if op == 0: state_product = False
+        if op == 1: state_product = True
 
     while state_date:
         date = input("|Fecha aaaa-mm-dd  |: ")
