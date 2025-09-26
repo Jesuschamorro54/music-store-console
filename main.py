@@ -14,7 +14,7 @@ sale_ins = Sale()
 
 # Init the appplication
 while True:
-
+    
     op = input(
         """\033[32m
              -- COMPRA Y VENTA DE INSTRUMENTOS MUSICALES --
@@ -30,8 +30,6 @@ while True:
     
     Option: """
     )
-#jijijja
-  
 
     #  REGISTRAR CLIENTE
     if op == "1":
@@ -90,6 +88,8 @@ while True:
 
     #  CONSULTAR INVENTARIO
     elif op == "9":
+        print (stocktaking.txt)
+        
         id_inventory = int(input("Ingrese ID: "))
         stock_ins.show_stock(id_inventory)
         input()

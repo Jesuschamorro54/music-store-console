@@ -6,4 +6,8 @@
 {"id": 1415, "name": "Fernando", "last_name": "Cantillo", "email": "jesus@gmail.com", "cellphone": 3002156598}
 {"id": 1516, "name": "Alfredo", "last_name": "Gonzales", "email": "goznales@hotmail.com", "cellphone": 3221455778}
 {"id": 1819, "name": "Carlos", "last_name": "Marquez", "email": "marquez@gmail.com", "cellphone": 322456823}
+<<<<<<< HEAD
 {"id": 2727, "name": "Javier", "last_name": "Vasquez", "email": "javier31@gmail.com", "cellphone": 3218538026}
+=======
+{"id": 2727, "name": "Javier", "last_name": "Vasquez", "email": "jdfj@gmail.com", "cellphone": 3218538026}
+>>>>>>> 0fff0c814ce1fbbb9ded5a97878a74acf7af4ba9
