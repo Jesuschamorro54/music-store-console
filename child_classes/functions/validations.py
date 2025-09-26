@@ -45,7 +45,7 @@ def validate_exist(path, name):
 
 
 def valid_lot(product, lot):
-    container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+    container = return_exist("/poo/music-store-console/files/stocktaking.txt")
 
     for i in range(len(container)):
         if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:
@@ -72,7 +72,7 @@ def valid_date(date):
     elif not (1 <= month <= 12):
         print("Invalid month")
         return False
-    elif year > 2025:
+    elif year < 2025:
         print("Invalid year")
         return False
     return True
