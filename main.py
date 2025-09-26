@@ -4,7 +4,7 @@ from child_classes.sale_class import *
 from child_classes.stocks import *
 from child_classes.buys_class import *
 from child_classes.supplier_class import *
-import pyautogui
+# import pyautogui
 
 client_ins = Client()
 supplier_ins = Supplier()
@@ -14,8 +14,8 @@ sale_ins = Sale()
 
 # Init the appplication
 while True:
-    pyautogui.click(x=-926, y=525)
-    pyautogui.hotkey('Ctrl', 'l')
+   # pyautogui.click(x=-926, y=525)
+   # pyautogui.hotkey('Ctrl', 'l')
     op = input(
         """\033[32m
              -- COMPRA Y VENTA DE INSTRUMENTOS MUSICALES --
@@ -31,9 +31,10 @@ while True:
     
     Option: """
     )
+    
 #jijijja
-    pyautogui.click(x=-926, y=525)
-    pyautogui.hotkey('Ctrl', 'l')
+  #  pyautogui.click(x=-926, y=525)
+  #  pyautogui.hotkey('Ctrl', 'l')
 
     #  REGISTRAR CLIENTE
     if op == "1":
