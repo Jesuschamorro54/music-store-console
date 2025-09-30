@@ -6,3 +6,5 @@
 {"id": 1415, "name": "Fernando", "last_name": "Cantillo", "email": "jesus@gmail.com", "cellphone": 3002156598}
 {"id": 1516, "name": "Alfredo", "last_name": "Gonzales", "email": "goznales@hotmail.com", "cellphone": 3221455778}
 {"id": 1819, "name": "Carlos", "last_name": "Marquez", "email": "marquez@gmail.com", "cellphone": 322456823}
+{"id": 1918, "name": "carlos", "last_name": "gonzalez", "email": "cg@jagdh23", "cellphone": 321468493}
+{"id": 1504, "name": "carlos", "last_name": "gonzalez", "email": "cg@hamdd", "cellphone": 32133456}

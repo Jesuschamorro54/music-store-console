@@ -27,13 +27,13 @@ class Sale(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt", self._sale_info)
+        self.write_into("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.txt", self._sale_info)
 
     def show_range_date(self, date_init, date_final):
         if not valid_date(date_init) and not valid_date(date_final):
             return print("El rango de fecha es invalido")
 
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt")
+        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.txt")
 
         for i in range(len(self.container)):
             if date_init <= self.container[i]["date"] <= date_final or date_init >= self.container[i]["date"] >= date_final:
@@ -46,7 +46,7 @@ class Sale(Facture):
                 print(f"|Date      | -> |{self.container[i]['date']}|")
 
     def show_by_id(self, ide):
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt")
+        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.txt")
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
                 print(f"\033[36m\n-- Detalle de la compra --\033[39m")

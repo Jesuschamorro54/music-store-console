@@ -47,35 +47,35 @@ while True:
     if op == "1":
         data = add_entity_func("cli")
         client_ins.client = data
-        print("\033[32mRegistro exitoso\033[39m")
+        print("\033[Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  REGISTRAR PROVEEDOR
     elif op == "2":
         data = add_entity_func("supp")
         supplier_ins.supplier = data
-        print("\033[32mRegistro exitoso\033[39m")
+        print("\033[Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  REGISTRAR VENTA
     elif op == "3":
         data = make_sale_buy("client")
         sale_ins.sale = data
-        print("\033[32mRegistro exitoso\033[39m")
+        print("\033[Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  REGISTRAR COMPRAS
     elif op == "4":
         data = make_sale_buy("supplier")
         buy_ins.buy = data
-        print("\033[32mRegistro exitoso\033[39m")
+        print("\033[Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  REGISTRAR INVENTARIO
     elif op == "5":
         data = add_stock_func()
         stock_ins.stock = data
-        print("\033[32mRegistro exitoso\033[39m")
+        print("\033[Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  CONSULTAR VENTA POR FECHA
@@ -109,7 +109,7 @@ while True:
         break
 
     else:
-        print("\033[31mOpción inválida. Intente nuevamente.\033[39m")
+        print("\033[Opción inválida. Intente nuevamente.\033[39m")
         input("Presione ENTER para continuar...")
 
     clear_screen()  
