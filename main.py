@@ -105,11 +105,11 @@ while True:
         input("Presione ENTER para continuar...")
 
     elif op == "0":
-        print("Saliendo del sistema... 👋")
+        print("Saliendo del sistema...")
         break
 
     else:
         print("\033[31mOpción inválida. Intente nuevamente.\033[39m")
         input("Presione ENTER para continuar...")
 
-    clear_screen()  # limpia pantalla antes de volver al menú
+    clear_screen()  
