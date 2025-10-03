@@ -27,7 +27,8 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 0. SALIR                        |
+    |  5. REGISTRAR INVENTARIO\t\t 10. REPORTE DE VENTAS           |
+    | 0. SALIR                        |
     
     Option: """
     )

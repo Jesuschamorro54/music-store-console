@@ -1,7 +1,7 @@
 from child_classes.functions.methods import *
-from enviroment import BASE_DATOS
 import json
 
+BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
 
 class Stock:
     def __init__(self):

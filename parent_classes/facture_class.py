@@ -1,5 +1,5 @@
 import json
-from enviroment import BASE_DATOS
+BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
 
 
 class Facture:

@@ -1,5 +1,5 @@
 from parent_classes.entity_class import Entity
-from enviroment import BASE_DATOS
+BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
 
 class Supplier(Entity):
     def __init__(self):

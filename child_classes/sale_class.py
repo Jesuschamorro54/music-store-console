@@ -1,6 +1,6 @@
 from parent_classes.facture_class import Facture
 from child_classes.functions.validations import *
-from enviroment import BASE_DATOS
+BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
 # clases que dan el funcionamiento de alguanas extructuras
 
 

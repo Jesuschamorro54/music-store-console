@@ -1,5 +1,6 @@
 from parent_classes.facture_class import Facture
-from enviroment import BASE_DATOS
+
+BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
 
 class Buy(Facture):
     def __init__(self):
