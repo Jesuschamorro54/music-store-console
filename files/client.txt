@@ -6,4 +6,26 @@
 {"id": 1415, "name": "Fernando", "last_name": "Cantillo", "email": "jesus@gmail.com", "cellphone": 3002156598}
 {"id": 1516, "name": "Alfredo", "last_name": "Gonzales", "email": "goznales@hotmail.com", "cellphone": 3221455778}
 {"id": 1819, "name": "Carlos", "last_name": "Marquez", "email": "marquez@gmail.com", "cellphone": 322456823}
+<<<<<<< HEAD
 {"id": 3939393933, "name": "yimmy", "last_name": "jabba", "email": "yimmy@gmail.com", "cellphone": 2929292992}
+=======
+{"id": 2021, "name": "María", "last_name": "Rodríguez", "email": "maria.rodriguez@gmail.com", "cellphone": 3001234567}
+{"id": 2022, "name": "Pedro", "last_name": "López", "email": "pedro.lopez@hotmail.com", "cellphone": 3012345678}
+{"id": 2023, "name": "Ana", "last_name": "García", "email": "ana.garcia@outlook.com", "cellphone": 3023456789}
+{"id": 2024, "name": "Luis", "last_name": "Martín", "email": "luis.martin@gmail.com", "cellphone": 3034567890}
+{"id": 2025, "name": "Carmen", "last_name": "Sánchez", "email": "carmen.sanchez@yahoo.com", "cellphone": 3045678901}
+{"id": 2026, "name": "Roberto", "last_name": "Jiménez", "email": "roberto.jimenez@gmail.com", "cellphone": 3056789012}
+{"id": 2027, "name": "Laura", "last_name": "Hernández", "email": "laura.hernandez@hotmail.com", "cellphone": 3067890123}
+{"id": 2028, "name": "Miguel", "last_name": "Ruiz", "email": "miguel.ruiz@gmail.com", "cellphone": 3078901234}
+{"id": 2029, "name": "Isabel", "last_name": "Díaz", "email": "isabel.diaz@outlook.com", "cellphone": 3089012345}
+{"id": 2030, "name": "Antonio", "last_name": "Moreno", "email": "antonio.moreno@gmail.com", "cellphone": 3090123456}
+{"id": 2031, "name": "Elena", "last_name": "Álvarez", "email": "elena.alvarez@yahoo.com", "cellphone": 3101234567}
+{"id": 2032, "name": "Francisco", "last_name": "Romero", "email": "francisco.romero@gmail.com", "cellphone": 3112345678}
+{"id": 2033, "name": "Sofía", "last_name": "Torres", "email": "sofia.torres@hotmail.com", "cellphone": 3123456789}
+{"id": 2034, "name": "Diego", "last_name": "Flores", "email": "diego.flores@gmail.com", "cellphone": 3134567890}
+{"id": 2035, "name": "Valentina", "last_name": "Ramos", "email": "valentina.ramos@outlook.com", "cellphone": 3145678901}
+{"id": 2036, "name": "Andrés", "last_name": "Vargas", "email": "andres.vargas@gmail.com", "cellphone": 3156789012}
+{"id": 2037, "name": "Camila", "last_name": "Castro", "email": "camila.castro@yahoo.com", "cellphone": 3167890123}
+{"id": 2038, "name": "Sebastián", "last_name": "Ortega", "email": "sebastian.ortega@hotmail.com", "cellphone": 3178901234}
+{"id": 2039, "name": "Natalia", "last_name": "Guerrero", "email": "natalia.guerrero@gmail.com", "cellphone": 3189012345}
+>>>>>>> master
