@@ -1,6 +1,7 @@
 import os
 from parent_classes.entity_class import Entity
 from child_classes.functions.methods import *
+from enviroment import BASE_DATOS
 
 
 class Client(Entity):
@@ -30,10 +31,10 @@ class Client(Entity):
         # file_path = os.path.join(base_dir, "files", "client.txt")
 
         # self.write_into(file_path, self._client_info)
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt", self._client_info)
+        self.write_into(f"{BASE_DATOS}/client.txt", self._client_info)
 
     def show_client(self, ide, name):
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt")
+        self.container = return_exist(F"{BASE_DATOS}/client.txt")
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]

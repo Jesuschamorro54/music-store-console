@@ -1,4 +1,5 @@
 import json
+from enviroment import BASE_DATOS
 
 
 class Facture:
@@ -29,7 +30,7 @@ class Facture:
         return dictionary
 
     def update_stock(self, products, doc):
-        self.file = open(f"/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+        self.file = open(f"{BASE_DATOS}/stocktaking.txt")
         data = self.file.read()
         data = data.split("\n")
 
@@ -51,8 +52,8 @@ class Facture:
                     if dictionary[i]["name"].lower() in key.lower():
                         dictionary[i]["lot"] += products[key]
         self.file.close()
-        self.file = open(f"/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", "w")
-        self.file = open(f"/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", "a+")
+        self.file = open(f"{BASE_DATOS}/stocktaking.txt", "w")
+        self.file = open(f"{BASE_DATOS}/stocktaking.txt", "a+")
         for i in range(len(dictionary)):
             text = json.dumps(dictionary[i])
             self.file.write(f"{text}\n")

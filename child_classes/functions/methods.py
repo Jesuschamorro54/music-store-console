@@ -1,4 +1,5 @@
 from child_classes.functions.validations import *
+from enviroment import BASE_DATOS
 
 
 # add client or supplier
@@ -55,7 +56,7 @@ def add_entity_func(lock):
 
 # add inventory
 def add_stock_func():
-    ide = define_id("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+    ide = define_id(f"{BASE_DATOS}/stocktaking.txt")
     lot = None
     capsule = []
 
@@ -79,8 +80,8 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt") if entity == "client" else define_id(
-        "/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt")
+    ide = define_id(f"{BASE_DATOS}/sale.txt") if entity == "client" else define_id(
+        f"{BASE_DATOS}/buys.txt")
     product = {}
     capsule = []
 
@@ -91,7 +92,7 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt", name_entity)
+            valid = validate_exist(f"{BASE_DATOS}/client.txt", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -99,7 +100,7 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/supplier.txt", name_entity)
+            valid = validate_exist(f"{BASE_DATOS}/supplier.txt", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -112,7 +113,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", name)
+            valid = validate_exist(f"{BASE_DATOS}/stocktaking.txt", name)
             if valid[0]:
                 val = False
             else:

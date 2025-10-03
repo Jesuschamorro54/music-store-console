@@ -1,5 +1,5 @@
 from parent_classes.facture_class import Facture
-
+from enviroment import BASE_DATOS
 
 class Buy(Facture):
     def __init__(self):
@@ -24,4 +24,4 @@ class Buy(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt", self._sale_info)
+        self.write_into(F"{BASE_DATOS}/buys.txt", self._sale_info)
