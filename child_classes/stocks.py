@@ -1,5 +1,6 @@
-from child_classes.functions.methods import *
+import os
 import json
+from child_classes.functions.validations import return_exist
 
 
 class Stock:
@@ -18,22 +19,23 @@ class Stock:
 
     @stock.setter
     def stock(self, info):
-        i = 0
-        for key in self._stock_info:
+        for i, key in enumerate(self._stock_info):
             self._stock_info[key] = info[i]
-            i += 1
-        self.file = open(f"/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", "a+")
-        text = json.dumps(self._stock_info)
-        self.file.write(f"{text}\n")
-        self.file.close()
+
+        file_path = os.path.join("child_classes", "files", "stocktaking.txt")
+        with open(file_path, "a+", encoding="utf-8") as f:
+            text = json.dumps(self._stock_info, ensure_ascii=False)
+            f.write(f"{text}\n")
 
     def show_stock(self, ide):
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+        file_path = os.path.join("child_classes", "files", "stocktaking.txt")
+        self.container = return_exist(file_path)
 
-        for i in range(len(self.container)):
-            if self.container[i]["id"] == ide:
-                print(f"|ID   |: {self.container[i]['id']}")
-                print(f"|Name |: {self.container[i]['name']}")
-                print(f"|Lot  |: {self.container[i]['lot']}")
-                return 0
+        for item in self.container:
+            if item["id"] == ide:
+                print(f"|ID   |: {item['id']}")
+                print(f"|Name |: {item['name']}")
+                print(f"|Lot  |: {item['lot']}")
+                return
         print("No se encuentra el inventario")
+

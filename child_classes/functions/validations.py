@@ -1,81 +1,75 @@
 import json
+import os
 
 
 def define_id(path):
-    file = open(f"{path}", "r")
-    data = file.read()
-    data = data.split("\n")
+    """Devuelve el siguiente ID disponible en el archivo JSONL."""
+    if not os.path.exists(path) or os.stat(path).st_size == 0:
+        return 1
+
+    with open(path, "r") as file:
+        data = file.read().strip().split("\n")
+
+    dictionary = [json.loads(line) for line in data if line.strip()]
+    ids = [item["id"] for item in dictionary]
+
     ide = 1
-    dictionary = []
-    for key in range(len(data) - 1):
-        dictionary.append(json.loads(data[key]))
-
-    ids = []
-    for i in range(len(dictionary)):
-        ids.append(dictionary[i]["id"])
-
-    if ids is not None or ids != "null" or ids == []:
-        while True:
-            if ide in ids: ide += 1
-            else: break
-    else: ide = 1
+    while ide in ids:
+        ide += 1
     return ide
 
 
 def return_exist(path):
-    file = open(f"{path}", "r")
-    data = file.read()
-    data = data.split("\n")
-    dictionary = []
-    for i in range(len(data) - 1):
-        dictionary.append(json.loads(data[i]))
-    return dictionary
+    """Devuelve todos los registros de un archivo JSONL como lista de dicts."""
+    if not os.path.exists(path) or os.stat(path).st_size == 0:
+        return []
+
+    with open(path, "r") as file:
+        data = file.read().strip().split("\n")
+
+    return [json.loads(line) for line in data if line.strip()]
 
 
 def validate_exist(path, name):
+    """Verifica si existe una entidad por nombre (case-insensitive)."""
     container = return_exist(path)
-    x = [False, None]
-
-    for i in range(len(container)):
-        if name in container[i]["name"] or name.lower() == container[i]["name"].lower():
-            x[0] = True
-            x[1] = container[i]["id"]
-            return x
-    return x
+    for item in container:
+        if name.lower() == item["name"].lower():
+            return [True, item["id"]]
+    return [False, None]
 
 
 def valid_lot(product, lot):
-    container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
-
-    for i in range(len(container)):
-        if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:
-            return False
-    return True
+    """Verifica que haya suficiente stock del producto solicitado."""
+    container = return_exist(
+        "child_classes/files/stocktaking.txt"
+    )
+    for item in container:
+        if item["name"].lower() == product.lower():
+            return item["lot"] >= lot
+    return False
 
 
 def valid_date(date):
-    if date == '' or len(date) != 10:
+    """Valida que la fecha esté en formato YYYY-MM-DD y dentro de rango aceptable."""
+    if not date or len(date) != 10:
         print("Invalid date")
         return False
 
-    list_date = date.split(sep='-')
     try:
-        day = int(list_date[2])
-        year = int(list_date[0])
-        month = int(list_date[1])
-    except:
+        year, month, day = map(int, date.split("-"))
+    except ValueError:
+        print("Invalid format")
         return False
 
     if not (1 <= day <= 31):
         print("Invalid day")
         return False
-    elif not (1 <= month <= 12):
+    if not (1 <= month <= 12):
         print("Invalid month")
         return False
-    elif year > 2025:
+    if not (2000 <= year <= 2025):
         print("Invalid year")
         return False
-    return True
 
-#primer cambio
-#segundo cambio
+    return True

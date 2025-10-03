@@ -30,10 +30,10 @@ class Client(Entity):
         # file_path = os.path.join(base_dir, "files", "client.txt")
 
         # self.write_into(file_path, self._client_info)
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt", self._client_info)
+        self.write_into("C:/Users/ESTUDIANTES/Desktop/Programación Orientada a Objetos/Sexta Clase/music-store-console/files/client.txt", self._client_info)
 
     def show_client(self, ide, name):
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt")
+        self.container = return_exist("C:/Users/ESTUDIANTES/Desktop/Programación Orientada a Objetos/Sexta Clase/music-store-console/files/client.txt")
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]

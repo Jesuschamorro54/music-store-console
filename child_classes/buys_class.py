@@ -1,3 +1,4 @@
+import os
 from parent_classes.facture_class import Facture
 
 
@@ -9,7 +10,7 @@ class Buy(Facture):
             "supplier": None,
             "products": {},
             "date": None,
-            }
+        }
 
     @property
     def buy(self):
@@ -17,11 +18,11 @@ class Buy(Facture):
 
     @buy.setter
     def buy(self, info):
-        # send products for update
+        # actualizar inventario
         self.update_stock(info[2], "buy")
 
-        i = 0
-        for key in self._sale_info:
+        for i, key in enumerate(self._sale_info):
             self._sale_info[key] = info[i]
-            i += 1
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt", self._sale_info)
+
+        file_path = os.path.join("child_classes", "files", "buys.txt")
+        self.write_into(file_path, self._sale_info)

@@ -1,7 +1,6 @@
+import os
 from parent_classes.facture_class import Facture
-from child_classes.functions.validations import *
-
-# clases que dan el funcionamiento de alguanas extructuras
+from child_classes.functions.validations import valid_date, return_exist
 
 
 class Sale(Facture):
@@ -13,7 +12,7 @@ class Sale(Facture):
             "client": None,
             "products": {},
             "date": None,
-            }
+        }
 
     @property
     def sale(self):
@@ -21,40 +20,44 @@ class Sale(Facture):
 
     @sale.setter
     def sale(self, info):
-        # send products
+        # actualizar stock
         self.update_stock(info[2], "sale")
-        i = 0
-        for key in self._sale_info:
+
+        for i, key in enumerate(self._sale_info):
             self._sale_info[key] = info[i]
-            i += 1
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt", self._sale_info)
+
+        file_path = os.path.join("child_classes", "files", "sale.txt")
+        self.write_into(file_path, self._sale_info)
 
     def show_range_date(self, date_init, date_final):
-        if not valid_date(date_init) and not valid_date(date_final):
+        if not (valid_date(date_init) and valid_date(date_final)):
             return print("El rango de fecha es invalido")
 
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt")
+        file_path = os.path.join("child_classes", "files", "sale.txt")
+        self.container = return_exist(file_path)
 
-        for i in range(len(self.container)):
-            if date_init <= self.container[i]["date"] <= date_final or date_init >= self.container[i]["date"] >= date_final:
-                print(f"\033[36m\n-- Detalle de la compra --\033[39m")
-                print(f"|ID buy    | -> |{self.container[i]['id']}|")
-                print(f"|ID Client | -> |{self.container[i]['client']}|")
+        for item in self.container:
+            if date_init <= item["date"] <= date_final:
+                print(f"\033[36m\n-- Detalle de la venta --\033[39m")
+                print(f"|ID Sale   | -> |{item['id']}|")
+                print(f"|ID Client | -> |{item['client']}|")
                 print(f"|Products  |")
-                product_list = self.container[i]["products"]
-                for key in product_list: print(f"\t\033[31m{key}: {product_list[key]}\033[39m")
-                print(f"|Date      | -> |{self.container[i]['date']}|")
+                for key, val in item["products"].items():
+                    print(f"\t\033[31m{key}: {val}\033[39m")
+                print(f"|Date      | -> |{item['date']}|")
 
     def show_by_id(self, ide):
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt")
-        for i in range(len(self.container)):
-            if self.container[i]["id"] == ide:
-                print(f"\033[36m\n-- Detalle de la compra --\033[39m")
-                print(f"|ID buy    | -> {self.container[i]['id']}")
-                print(f"|ID Client | -> {self.container[i]['client']}")
+        file_path = os.path.join("child_classes", "files", "sale.txt")
+        self.container = return_exist(file_path)
+
+        for item in self.container:
+            if item["id"] == ide:
+                print(f"\033[36m\n-- Detalle de la venta --\033[39m")
+                print(f"|ID Sale   | -> {item['id']}")
+                print(f"|ID Client | -> {item['client']}")
                 print(f"|Products  |")
-                product_list = self.container[i]["products"]
-                for key in product_list: print(f"\t\033[31m{key}: {product_list[key]}\033[39m")
-                print(f"|Date      | -> {self.container[i]['date']}")
-                return 0
-        print("No se encuentra la compra")
+                for key, val in item["products"].items():
+                    print(f"\t\033[31m{key}: {val}\033[39m")
+                print(f"|Date      | -> {item['date']}")
+                return
+        print("No se encuentra la venta")
