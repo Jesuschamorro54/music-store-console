@@ -6,7 +6,7 @@
 {"id": 6, "client": 123, "products": {"trombon": 2, "trompeta": 5}, "date": "2021-04-20"}
 {"id": 7, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-06-18"}
 {"id": 8, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-06-19"}
-{"id": 9, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-06-20"}
+{"id": 9, "client": 123, "products": {"trombon": 5, "trompeta": 5}, "date": "2021-04-20"}
 {"id": 10, "client": 123, "products": {"clarinete": 2, "trompeta": 5}, "date": "2021-06-21"}
 {"id": 11, "client": 654, "products": {"trompeta": 1}, "date": "2021-05-22"}
 {"id": 12, "client": 987, "products": {"saxofon": 3}, "date": "2021-05-22"}
