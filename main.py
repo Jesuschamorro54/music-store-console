@@ -27,7 +27,8 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 0. SALIR                        |
+    |  5. REGISTRAR INVENTARIO\t\t 10. CONSULTAR DE VENTAS         |
+    |  0. SALIR
     
     Option: """
     )
@@ -96,6 +97,14 @@ while True:
         id_inventory = int(input("Ingrese ID: "))
         stock_ins.show_stock(id_inventory)
         input()
+
+    #  CONSULTA LAS VENTAS DEL CLIENTE EN UN PERIODO DE TIEMPO ESPECIFICO
+    elif op == "10":
+      #  id_client = int(input("Ingrese ID: "))
+     #   name_client = input("Ingrese nombre: ")
+      #  client_ins.show_client(id_client, name_client)
+        input()
+
     elif op == "0":
         exit()
     else:
