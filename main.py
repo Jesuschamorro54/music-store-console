@@ -6,6 +6,7 @@ from child_classes.buys_class import *
 from child_classes.supplier_class import *
 
 
+
 client_ins = Client()
 supplier_ins = Supplier()
 stock_ins = Stock()
@@ -26,10 +27,12 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 0. SALIR                        |
+    |  5. REGISTRAR INVENTARIO\t\t 10. REPORTE DE VENTAS DE FECHA1 A FECHA2                      |
     
     Option: """
     )
+
+
 
     #  REGISTRAR CLIENTE
     if op == "1":
@@ -99,7 +102,22 @@ while True:
         input()
     elif op == "0":
         exit()
-    else:
-        pass
-    # fin del codigo
+   
+    elif op == "10":
+        fecha_inicio = input("Desde: ")
+        fecha_fin = input("Hasta: ")
+        sale_ins.show_range(fecha_inicio, fecha_fin)
+        input()
 
+        venta_id = int(input("Ingresa ID de venta: "))
+        sale_ins.show_by_id(venta_id)
+        input()
+
+        cliente_id = int(input("Ingresa ID de cliente: "))
+        nombre_cliente = input("Ingresa nombre de cliente: ")
+        client_ins.show_client(cliente_id, nombre_cliente)
+        input()
+
+        producto_id = int(input("Ingresa ID de producto: "))
+        stock_ins.show_stock(producto_id)
+        input()
