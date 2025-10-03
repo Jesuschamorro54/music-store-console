@@ -1,7 +1,6 @@
 from child_classes.functions.methods import *
 import json
 
-BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
 
 class Stock:
     def __init__(self):
@@ -23,13 +22,13 @@ class Stock:
         for key in self._stock_info:
             self._stock_info[key] = info[i]
             i += 1
-        self.file = open(f"{BASE_DATOS}/stocktaking.txt", "a+")
+        self.file = open(f"/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", "a+")
         text = json.dumps(self._stock_info)
         self.file.write(f"{text}\n")
         self.file.close()
 
     def show_stock(self, ide):
-        self.container = return_exist(F"{BASE_DATOS}/stocktaking.txt")
+        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:

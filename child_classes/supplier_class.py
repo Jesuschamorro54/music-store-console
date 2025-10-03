@@ -1,5 +1,5 @@
 from parent_classes.entity_class import Entity
-BASE_DATOS = "/Users/ESTUDIANTES/Documents/Proyecto/music-store-console/files"
+
 
 class Supplier(Entity):
     def __init__(self):
@@ -20,4 +20,4 @@ class Supplier(Entity):
         for key in self._supplier_info:
             self._supplier_info[key] = info[i]
             i += 1
-        self.write_into(F"{BASE_DATOS}/supplier.txt", self._supplier_info)
+        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/supplier.txt", self._supplier_info)
