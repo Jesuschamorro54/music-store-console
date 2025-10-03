@@ -24,4 +24,4 @@ class Buy(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt", self._sale_info)
+        self.write_into("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/buys.txt", self._sale_info)
