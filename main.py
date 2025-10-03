@@ -89,7 +89,6 @@ while True:
 
     #  CONSULTAR INVENTARIO
     elif op == "9":
-        print (stocktaking.txt)
         
         id_inventory = int(input("Ingrese ID: "))
         stock_ins.show_stock(id_inventory)
