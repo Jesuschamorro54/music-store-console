@@ -1,6 +1,7 @@
 import json
 
 
+
 def define_id(path):
     file = open(f"{path}", "r")
     data = file.read()
@@ -66,16 +67,16 @@ def valid_date(date):
     except:
         return False
 
-    if not (1 <= day <= 31):
-        print("Invalid day")
-        return False
-    elif not (1 <= month <= 12):
-        print("Invalid month")
-        return False
-    elif year > 2025:
-        print("Invalid year")
-        return False
+def validate_date(day, month, year):
+    validations = [
+        (1 <= day <= 31, "Invalid day"),
+        (1 <= month <= 12, "Invalid month"),
+        (year <= 2025, "Invalid year")
+    ]
+
+    for condition, message in validations:
+        if not condition:
+            print(message)
+            return False
     return True
 
-#primer cambio
-#segundo cambio
