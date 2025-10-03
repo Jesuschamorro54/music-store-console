@@ -58,7 +58,7 @@ def valid_date(date):
         print("Invalid date")
         return False
 
-    list_date = date.split(sep='-')
+    list_date = date.split('-')
     try:
         day = int(list_date[2])
         year = int(list_date[0])

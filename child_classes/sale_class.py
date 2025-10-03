@@ -30,7 +30,7 @@ class Sale(Facture):
         self.write_into("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.txt", self._sale_info)
 
     def show_range_date(self, date_init, date_final):
-        if not valid_date(date_init) and not valid_date(date_final):
+        if not valid_date(date_init) or not valid_date(date_final):
             return print("El rango de fecha es invalido")
 
         self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.txt")
