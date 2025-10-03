@@ -31,6 +31,7 @@ while True:
     |  0. SALIR
     
     Option: """
+
     )
     
 #jijijja
@@ -99,11 +100,24 @@ while True:
         input()
 
     #  CONSULTA LAS VENTAS DEL CLIENTE EN UN PERIODO DE TIEMPO ESPECIFICO
+
+    
     elif op == "10":
-      #  id_client = int(input("Ingrese ID: "))
-     #   name_client = input("Ingrese nombre: ")
-      #  client_ins.show_client(id_client, name_client)
+        
+        date1 = input("Desde (YYYY-MM-DD): ")
+        date2 = input("Hasta (YYYY-MM-DD): ")
+
+        with open("files/sale.txt", "r") as f:
+            ventas = f.readlines()
+
+        print("\n--- VENTAS EN EL RANGO ---\n")
+        for venta in ventas:
+
+            if date1 <= venta and venta <= date2:
+                print(venta.strip())
+
         input()
+
 
     elif op == "0":
         exit()
