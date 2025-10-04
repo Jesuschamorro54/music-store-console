@@ -1,10 +1,11 @@
 #  from Parcial_III.child_classes.functions.methods import *
 from child_classes.client_class import *
 from child_classes.sale_class import *
+import json
+from datetime import datetime
 from child_classes.stocks import *
 from child_classes.buys_class import *
 from child_classes.supplier_class import *
-
 
 
 client_ins = Client()
@@ -100,24 +101,92 @@ while True:
         id_inventory = int(input("Ingrese ID: "))
         stock_ins.show_stock(id_inventory)
         input()
+
+    elif op == "10":
+        # Pedimos rango
+        fecha_inicio = input("Desde (YYYY-MM-DD): ").strip()
+        fecha_fin = input("Hasta (YYYY-MM-DD): ").strip()
+
+        # Validamos formato de fechas
+        try:
+            d1 = datetime.strptime(fecha_inicio, "%Y-%m-%d")
+            d2 = datetime.strptime(fecha_fin, "%Y-%m-%d")
+        except Exception:
+            print("Formato de fecha inválido. Usa YYYY-MM-DD.")
+            input()
+            continue
+
+        # Leemos archivo de ventas
+        try:
+            f = open("files/sale.txt", "r")
+            ventas = f.readlines()
+            f.close()
+        except FileNotFoundError:
+            print("No se encontró el archivo files/sale.txt")
+            input()
+            continue
+
+        print("\n--- VENTAS EN EL RANGO ---\n")
+        encontrado = False
+
+        for linea in ventas:
+            linea = linea.strip()
+            if not linea:
+                continue
+            try:
+                venta = json.loads(linea)
+            except Exception:
+                # si la línea está mal formada la saltamos
+                continue
+
+            fecha_text = venta.get("date", "")
+            try:
+                fecha_venta = datetime.strptime(fecha_text, "%Y-%m-%d")
+            except Exception:
+                continue
+
+            # Inclusivo: incluye fecha_inicio y fecha_fin
+            if d1 <= fecha_venta <= d2:
+                print("ID:", venta.get("id"),
+                      "Cliente:", venta.get("client"),
+                      "Productos:", venta.get("products"),
+                      "Fecha:", fecha_text)
+                encontrado = True
+
+        if not encontrado:
+            print("No se encontraron ventas en ese rango.")
+
+        input()  # pausa antes de las consultas siguientes
+
+        # --- Consultas opcionales (puedes dejar vacío para omitir) ---
+        venta_id_str = input("Ingresa ID de venta (enter para omitir): ").strip()
+        if venta_id_str:
+            try:
+                venta_id = int(venta_id_str)
+                sale_ins.show_by_id(venta_id)
+            except Exception:
+                print("ID de venta inválido.")
+            input()
+
+        cliente_id_str = input("Ingresa ID de cliente (enter para omitir): ").strip()
+        if cliente_id_str:
+            try:
+                cliente_id = int(cliente_id_str)
+                nombre_cliente = input("Ingresa nombre de cliente: ")
+                client_ins.show_client(cliente_id, nombre_cliente)
+            except Exception:
+                print("ID de cliente inválido.")
+            input()
+
+        producto_id_str = input("Ingresa ID de producto (enter para omitir): ").strip()
+        if producto_id_str:
+            try:
+                producto_id = int(producto_id_str)
+                stock_ins.show_stock(producto_id)
+            except Exception:
+                print("ID de producto inválido.")
+            input()
+
+
     elif op == "0":
         exit()
-   
-    elif op == "10":
-        fecha_inicio = input("Desde: ")
-        fecha_fin = input("Hasta: ")
-        sale_ins.show_range(fecha_inicio, fecha_fin)
-        input()
-
-        venta_id = int(input("Ingresa ID de venta: "))
-        sale_ins.show_by_id(venta_id)
-        input()
-
-        cliente_id = int(input("Ingresa ID de cliente: "))
-        nombre_cliente = input("Ingresa nombre de cliente: ")
-        client_ins.show_client(cliente_id, nombre_cliente)
-        input()
-
-        producto_id = int(input("Ingresa ID de producto: "))
-        stock_ins.show_stock(producto_id)
-        input()
