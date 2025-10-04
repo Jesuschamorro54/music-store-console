@@ -4,6 +4,8 @@ from child_classes.sale_class import *
 from child_classes.stocks import *
 from child_classes.buys_class import *
 from child_classes.supplier_class import *
+import json
+from datetime import datetime
 # import pyautogui
 
 client_ins = Client()
@@ -99,22 +101,32 @@ while True:
         stock_ins.show_stock(id_inventory)
         input()
 
-    #  CONSULTA LAS VENTAS DEL CLIENTE EN UN PERIODO DE TIEMPO ESPECIFICO
-
-    
+#  CONSULTA LAS VENTAS EN UN PERIODO DE TIEMPO ESPECIFICO
     elif op == "10":
-        
-        date1 = input("Desde (YYYY-MM-DD): ")
-        date2 = input("Hasta (YYYY-MM-DD): ")
+        # en esta parte seda el parametro inicial para buscar el extremo de las fechas
+        primer_parametro = input("Desde (YYYY-MM-DD): ")
+        segundo_parametro = input("Hasta (YYYY-MM-DD): ")
+        # comienza a checar o abrir el archivo para poder registrarlo
+        f = open("files/sale.txt", "r")
+        ventas = f.readlines()
+        f.close()
+        # Imprime el Mensaje que saldra al mostrar los resultados de las ventas. (se puede modificar)
+        print("\n--- VENTAS EN EL RANGO ESTIPULADO POR EL CLIENTE/ADMINISTRADOR---\n")
+        encontrado = False
+        # da un rango para comenzar la revision de los parametros anteriores respectivo a las variables de los extremos
+        for linea in ventas:
+            venta = json.loads(linea)
+            fecha = venta["date"]
+            # Escribe , o se escribe los regristros de acuerdo a los valores del Archivo Json (pienso mejorarlo en el futuro para dar textos literales)
+            if fecha >= primer_parametro and fecha <= segundo_parametro:
+                print("ID:", venta["id"], 
+                    "Cliente:", venta["client"], 
+                    "Productos:", venta["products"], 
+                    "Fecha:", venta["date"])
+                encontrado = True
 
-        with open("files/sale.txt", "r") as f:
-            ventas = f.readlines()
-
-        print("\n--- VENTAS EN EL RANGO ---\n")
-        for venta in ventas:
-
-            if date1 <= venta and venta <= date2:
-                print(venta.strip())
+        if not encontrado:
+            print("No se encontraron ventas en ese rango.") # por si el cliente se equivoca en una fecha o simplemente no hay ventas en elrango
 
         input()
 
