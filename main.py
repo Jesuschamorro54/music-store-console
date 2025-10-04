@@ -175,7 +175,7 @@ if __name__ == '__main__':
                 \033[39m
         __________________________________________________________________
         -----------------------------| MENU |-----------------------------
-                     |  1. REGISTRAR CLIENTE   \t\t 6. CONSULTAR VENTAS POR FECHAS  |
+        |  1. REGISTRAR CLIENTE   \t\t 6. CONSULTAR VENTAS POR FECHAS  |
         |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
         |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
         |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
@@ -258,7 +258,7 @@ if __name__ == '__main__':
             break
 
         else:
-            print("\033[31mOpción inválida. Intente nuevamente.\033[39m")
+            print("\033[opción inválida. Intente nuevamente.\033[39m")
             input("Presione ENTER para continuar...")
 
         clear_screen()
