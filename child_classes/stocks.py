@@ -22,13 +22,13 @@ class Stock:
         for key in self._stock_info:
             self._stock_info[key] = info[i]
             i += 1
-        self.file = open(f"/Users/NEIDER/tienda m/music-store-console/files/stocktaking.txt", "a+")
+        self.file = open(f"/poo/music-store-console/files/stocktaking.txt", "a+")
         text = json.dumps(self._stock_info)
         self.file.write(f"{text}\n")
         self.file.close()
 
     def show_stock(self, ide):
-        self.container = return_exist("/Users/NEIDER/tienda m/music-store-console/files/stocktaking.txt")
+        self.container = return_exist("/poo/music-store-console/files/stocktaking.txt")
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:

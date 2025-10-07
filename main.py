@@ -31,7 +31,6 @@ while True:
     Option: """
     )
 
-
     #  REGISTRAR CLIENTE
     if op == "1":
         data = add_entity_func("cli")
@@ -89,7 +88,12 @@ while True:
 
     #  CONSULTAR INVENTARIO
     elif op == "9":
-        
+
+        inventory = ["Saxofon: ID 1", "Corno: ID 2", "Flauta: ID 3", "Clarinete: ID 10", "Trombon: ID 11", "Trompeta: ID 12"]
+        print ("Consultar por ID")
+        print (inventory)
+     
+
         id_inventory = int(input("Ingrese ID: "))
         stock_ins.show_stock(id_inventory)
         input()
