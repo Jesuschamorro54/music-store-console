@@ -14,6 +14,7 @@ class Sale(Facture):
             "client": None,
             "products": {},
             "date": None,
+            "total": None,
             }
 
     @property

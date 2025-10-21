@@ -17,7 +17,7 @@ def get_project_root():
 
 def get_file_path(filename):
     """
-    Construye la ruta completa a un archivo en la carpeta files/
+    Construye la ruta completa a un archivo en la carpeta database/
     
     Args:
         filename: nombre del archivo (ej: 'client.json')
@@ -26,6 +26,6 @@ def get_file_path(filename):
         Ruta absoluta al archivo
     """
     project_root = get_project_root()
-    file_path = os.path.join(project_root, "files", filename)
+    file_path = os.path.join(project_root, "database", filename)
     return file_path
 

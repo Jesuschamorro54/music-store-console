@@ -1,0 +1,233 @@
+[
+  {
+    "id": 10,
+    "name": "clarinete",
+    "lot": 77,
+    "precio_compra": 769000,
+    "precio_venta": 1121000
+  },
+  {
+    "id": 11,
+    "name": "trombon",
+    "lot": 50,
+    "precio_compra": 1195000,
+    "precio_venta": 1700000
+  },
+  {
+    "id": 12,
+    "name": "trompeta",
+    "lot": 162,
+    "precio_compra": 422000,
+    "precio_venta": 583000
+  },
+  {
+    "id": 1,
+    "name": "Saxofon",
+    "lot": 95,
+    "precio_compra": 903000,
+    "precio_venta": 1203000
+  },
+  {
+    "id": 2,
+    "name": "Corno",
+    "lot": 13,
+    "precio_compra": 784000,
+    "precio_venta": 1031000
+  },
+  {
+    "id": 3,
+    "name": "Flauta",
+    "lot": 0,
+    "precio_compra": 584000,
+    "precio_venta": 826000
+  },
+  {
+    "id": 4,
+    "name": "guitarra",
+    "lot": 45,
+    "precio_compra": 1347000,
+    "precio_venta": 1802000
+  },
+  {
+    "id": 5,
+    "name": "piano",
+    "lot": 12,
+    "precio_compra": 5503000,
+    "precio_venta": 7332000
+  },
+  {
+    "id": 6,
+    "name": "violin",
+    "lot": 28,
+    "precio_compra": 1626000,
+    "precio_venta": 2200000
+  },
+  {
+    "id": 7,
+    "name": "bateria",
+    "lot": 8,
+    "precio_compra": 2126000,
+    "precio_venta": 3114000
+  },
+  {
+    "id": 8,
+    "name": "bajo",
+    "lot": 22,
+    "precio_compra": 1046000,
+    "precio_venta": 1554000
+  },
+  {
+    "id": 9,
+    "name": "arco",
+    "lot": 35,
+    "precio_compra": 145000,
+    "precio_venta": 204000
+  },
+  {
+    "id": 10,
+    "name": "platillos",
+    "lot": 15,
+    "precio_compra": 438000,
+    "precio_venta": 613000
+  },
+  {
+    "id": 11,
+    "name": "boquilla",
+    "lot": 85,
+    "precio_compra": 52000,
+    "precio_venta": 69000
+  },
+  {
+    "id": 12,
+    "name": "válvulas",
+    "lot": 42,
+    "precio_compra": 77000,
+    "precio_venta": 102000
+  },
+  {
+    "id": 13,
+    "name": "cañas",
+    "lot": 120,
+    "precio_compra": 29000,
+    "precio_venta": 42000
+  },
+  {
+    "id": 14,
+    "name": "limpieza",
+    "lot": 68,
+    "precio_compra": 16000,
+    "precio_venta": 21000
+  },
+  {
+    "id": 15,
+    "name": "slide_oil",
+    "lot": 25,
+    "precio_compra": 19000,
+    "precio_venta": 28000
+  },
+  {
+    "id": 16,
+    "name": "banqueta",
+    "lot": 18,
+    "precio_compra": 158000,
+    "precio_venta": 221000
+  },
+  {
+    "id": 17,
+    "name": "cuerdas",
+    "lot": 95,
+    "precio_compra": 44000,
+    "precio_venta": 59000
+  },
+  {
+    "id": 18,
+    "name": "púas",
+    "lot": 200,
+    "precio_compra": 5000,
+    "precio_venta": 7000
+  },
+  {
+    "id": 19,
+    "name": "amplificador",
+    "lot": 14,
+    "precio_compra": 553000,
+    "precio_venta": 814000
+  },
+  {
+    "id": 20,
+    "name": "estuche",
+    "lot": 32,
+    "precio_compra": 79000,
+    "precio_venta": 104000
+  },
+  {
+    "id": 21,
+    "name": "baquetas",
+    "lot": 52,
+    "precio_compra": 48000,
+    "precio_venta": 63000
+  },
+  {
+    "id": 22,
+    "name": "partitura",
+    "lot": 180,
+    "precio_compra": 29000,
+    "precio_venta": 41000
+  },
+  {
+    "id": 23,
+    "name": "cables",
+    "lot": 75,
+    "precio_compra": 13000,
+    "precio_venta": 17000
+  },
+  {
+    "id": 24,
+    "name": "microfono",
+    "lot": 16,
+    "precio_compra": 396000,
+    "precio_venta": 556000
+  },
+  {
+    "id": 25,
+    "name": "auriculares",
+    "lot": 28,
+    "precio_compra": 97000,
+    "precio_venta": 135000
+  },
+  {
+    "id": 26,
+    "name": "metrónomo",
+    "lot": 12,
+    "precio_compra": 62000,
+    "precio_venta": 81000
+  },
+  {
+    "id": 27,
+    "name": "afinador",
+    "lot": 33,
+    "precio_compra": 120000,
+    "precio_venta": 174000
+  },
+  {
+    "id": 28,
+    "name": "soporte_partitura",
+    "lot": 22,
+    "precio_compra": 26000,
+    "precio_venta": 34000
+  },
+  {
+    "id": 29,
+    "name": "atril",
+    "lot": 18,
+    "precio_compra": 88000,
+    "precio_venta": 118000
+  },
+  {
+    "id": 30,
+    "name": "fundas",
+    "lot": 45,
+    "precio_compra": 45000,
+    "precio_venta": 60000
+  }
+]

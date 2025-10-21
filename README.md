@@ -18,8 +18,22 @@ Un sistema de gestión de tienda de instrumentos musicales desarrollado en Pytho
 
 - **Gestión de Clientes**: Registro y consulta de información de clientes
 - **Gestión de Proveedores**: Administración de proveedores de instrumentos
-- **Control de Inventario**: Consulta de stock de productos
-- **Sistema de Ventas**: Registro de ventas con validación de stock
+- **Control de Inventario**: Consulta de stock de productos con precios y ganancias
+- **Sistema de Ventas Mejorado**:
+  - 🔍 Búsqueda de clientes por ID
+  - 📋 Catálogo interactivo de productos con precios
+  - 🛒 Carrito de compras interactivo con selección por ID
+  - 👁️ Opción "Ver carrito" en cualquier momento
+  - 💳 Opción "Ir a pagar" para finalizar compra
+  - 💰 Cálculo automático de totales y subtotales
+  - 📅 Fecha y hora automática (sin entrada manual)
+  - 📊 Resumen detallado con confirmación de pago
+  - ✅ Validación de stock en tiempo real
+  - ❌ Opción de cancelar venta antes de confirmar
+- **Gestión de Precios**:
+  - Precio de compra y venta por producto
+  - Cálculo automático de ganancias y porcentajes
+  - Control de márgenes de ganancia
 - **Sistema de Compras**: Gestión de compras a proveedores (actualiza automáticamente el inventario)
 - **Consultas Avanzadas**: Búsqueda por fechas, facturas e IDs
 - **Interfaz de Consola**: Menú intuitivo con colores y navegación fácil
@@ -45,12 +59,12 @@ music-store-console/
 │       ├── validations.py     # Validaciones de datos
 │       ├── path_utils.py      # Utilidades para rutas dinámicas
 │       └── json_utils.py      # Utilidades para manejo de archivos JSON
-└── files/                     # Archivos de persistencia (JSON)
+└── database/                  # Archivos de persistencia (JSON)
     ├── client.json            # Datos de clientes
     ├── supplier.json          # Datos de proveedores
-    ├── sale.json              # Registro de ventas
+    ├── sale.json              # Registro de ventas (con totales)
     ├── buys.json              # Registro de compras
-    └── stocktaking.json       # Inventario de productos
+    └── stocktaking.json       # Inventario con precios y stock
 ```
 
 ## 🚀 Instalación
@@ -91,12 +105,39 @@ __________________________________________________________________
 ### 📝 Registro de Entidades
 - **Clientes**: ID, nombre, apellido, email, teléfono
 - **Proveedores**: ID, nombre, email, teléfono
-- **Productos**: Gestión de inventario a través de compras y ventas
+- **Productos**: ID, nombre, stock, precio de compra, precio de venta
+  - Cálculo automático de ganancias por producto
+  - Control de inventario en tiempo real
 
 ### 💰 Sistema de Transacciones
-- **Ventas**: Registro de ventas con validación de stock disponible
-- **Compras**: Gestión de compras a proveedores
-- **Actualización automática**: El stock se actualiza automáticamente con cada transacción
+
+**Ventas Mejoradas:**
+- Búsqueda de clientes por ID (más rápido y preciso)
+- Visualización de catálogo completo con precios
+- Selección de productos por ID
+- **Menú interactivo después de cada producto:**
+  - [1] Agregar más productos
+  - [2] Ver carrito actual
+  - [3] Ir a pagar
+- Carrito de compras visible en cualquier momento
+- Validación de stock en tiempo real
+- Cálculo automático de subtotales y total
+- **Fecha y hora automática del sistema**
+- Resumen final detallado con información del cliente
+- Confirmación de pago antes de procesar
+- Opción de cancelar la venta
+- Registro de venta con total incluido
+
+**Compras:**
+- Búsqueda de proveedores por nombre
+- Gestión de compras a proveedores
+- Actualización automática de inventario
+- Control de precios de compra
+
+**Automatización:**
+- El stock se actualiza automáticamente con cada transacción
+- Cálculo de ganancias por venta
+- Control de márgenes de ganancia
 
 ### 🔍 Consultas y Reportes
 - **Ventas por rango de fechas**: Consulta de ventas entre dos fechas específicas
@@ -223,6 +264,95 @@ supplier_ins.supplier = data
 3. **Gestión de inventario**: Se debe registrar el stock inicial mediante compras a proveedores
 4. **Operaciones comerciales**: Realización de ventas y compras
 5. **Consultas**: Verificación de datos y reportes
+
+## 🛍️ Ejemplo de Proceso de Venta Mejorado
+
+```
+=== BUSCAR CLIENTE ===
+|ID Cliente        |: 123
+✓ Cliente encontrado: jesus chamorro
+
+================================================================================
+                              CATÁLOGO DE PRODUCTOS
+================================================================================
+ID    PRODUCTO                  STOCK      P.VENTA         DISPONIBLE
+--------------------------------------------------------------------------------
+10    clarinete                 77         $  1,121,000    ✓ Disponible
+11    trombon                   50         $  1,700,000    ✓ Disponible
+12    trompeta                  162        $    583,000    ✓ Disponible
+...
+================================================================================
+
+=== AGREGAR PRODUCTOS ===
+|ID Producto       |: 10
+✓ Producto: clarinete
+  Precio: $1,121,000
+  Stock disponible: 77 unidades
+|Cantidad          |: 2
+
+✓ Agregado: 2x clarinete = $2,242,000
+
+──────────────────────────────────────────────────
+  [1] Agregar más productos
+  [2] Ver carrito
+  [3] Ir a pagar
+──────────────────────────────────────────────────
+Seleccione una opción: 2
+
+======================================================================
+                         🛒 CARRITO DE COMPRAS                       
+======================================================================
+  CANT  PRODUCTO                             P.UNIT       SUBTOTAL
+----------------------------------------------------------------------
+     2x  clarinete                      $ 1,121,000 $   2,242,000
+======================================================================
+                                       TOTAL A PAGAR $   2,242,000
+======================================================================
+
+──────────────────────────────────────────────────
+  [1] Agregar más productos
+  [2] Ver carrito
+  [3] Ir a pagar
+──────────────────────────────────────────────────
+Seleccione una opción: 1
+
+|ID Producto       |: 12
+✓ Producto: trompeta
+  Precio: $583,000
+  Stock disponible: 162 unidades
+|Cantidad          |: 1
+
+✓ Agregado: 1x trompeta = $583,000
+
+──────────────────────────────────────────────────
+  [1] Agregar más productos
+  [2] Ver carrito
+  [3] Ir a pagar
+──────────────────────────────────────────────────
+Seleccione una opción: 3
+
+======================================================================
+                      💳 RESUMEN FINAL DE LA VENTA                   
+======================================================================
+  Cliente: jesus chamorro (ID: 123)
+  Fecha: 2025-10-20
+  Hora: 23:10:24
+──────────────────────────────────────────────────────────────────────
+  CANT  PRODUCTO                             P.UNIT       SUBTOTAL
+----------------------------------------------------------------------
+     2x  clarinete                      $ 1,121,000 $   2,242,000
+     1x  trompeta                       $   583,000 $     583,000
+======================================================================
+                                       TOTAL A PAGAR $   2,825,000
+======================================================================
+
+¿Confirmar la venta?
+[S] Sí - Procesar pago  [N] No - Cancelar: s
+
+✅ Venta procesada exitosamente!
+📄 Factura #: 202
+💰 Total: $2,825,000
+```
 
 ## 🔄 Actualizaciones del Sistema
 

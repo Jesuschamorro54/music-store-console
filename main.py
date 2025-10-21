@@ -58,16 +58,17 @@ while True:
     #  REGISTRAR VENTA
     elif op == "3":
         data = make_sale_buy("client")
-        sale_ins.sale = data
-        print("\033[Registro exitoso\033[39m")
-        input("Presione ENTER para continuar...")
+        if data:  # Si la venta no fue cancelada
+            sale_ins.sale = data
+        input("\nPresione ENTER para continuar...")
 
     #  REGISTRAR COMPRAS
     elif op == "4":
         data = make_sale_buy("supplier")
-        buy_ins.buy = data
-        print("\033[Registro exitoso\033[39m")
-        input("Presione ENTER para continuar...")
+        if data:  # Si la compra no fue cancelada
+            buy_ins.buy = data
+            print("\n\033[32m✓ Compra registrada exitosamente\033[39m")
+        input("\nPresione ENTER para continuar...")
 
     #  CONSULTAR VENTA POR FECHA
     elif op == "6":

@@ -11,6 +11,8 @@ class Stock:
             "id": None,
             "name": None,
             "lot": None,
+            "precio_compra": None,
+            "precio_venta": None,
         }
 
     @property
@@ -31,8 +33,44 @@ class Stock:
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
-                print(f"|ID   |: {self.container[i]['id']}")
-                print(f"|Name |: {self.container[i]['name']}")
-                print(f"|Lot  |: {self.container[i]['lot']}")
+                print(f"\n{'='*50}")
+                print(f"  {'INFORMACIÓN DEL PRODUCTO':^46}")
+                print(f"{'='*50}")
+                print(f"|ID             |: {self.container[i]['id']}")
+                print(f"|Nombre         |: {self.container[i]['name']}")
+                print(f"|Stock          |: {self.container[i]['lot']} unidades")
+                print(f"|Precio Compra  |: ${self.container[i].get('precio_compra', 0):,.2f}")
+                print(f"|Precio Venta   |: ${self.container[i].get('precio_venta', 0):,.2f}")
+                
+                # Calcular ganancia si existen los precios
+                if self.container[i].get('precio_compra') and self.container[i].get('precio_venta'):
+                    ganancia = self.container[i]['precio_venta'] - self.container[i]['precio_compra']
+                    porcentaje = (ganancia / self.container[i]['precio_compra']) * 100
+                    print(f"|Ganancia/Und   |: ${ganancia:,.2f} ({porcentaje:.1f}%)")
+                print(f"{'='*50}\n")
                 return 0
-        print("No se encuentra el inventario")
+        print("❌ No se encuentra el inventario")
+    
+    def show_catalog(self):
+        """Muestra el catálogo completo de productos disponibles"""
+        file_path = get_file_path("stocktaking.json")
+        self.container = return_exist(file_path)
+        
+        if not self.container:
+            print("❌ No hay productos en el inventario")
+            return
+        
+        print(f"\n{'='*80}")
+        print(f"  {'CATÁLOGO DE PRODUCTOS':^76}")
+        print(f"{'='*80}")
+        print(f"{'ID':<5} {'PRODUCTO':<25} {'STOCK':<10} {'P.VENTA':<15} {'DISPONIBLE':<15}")
+        print(f"{'-'*80}")
+        
+        for producto in self.container:
+            stock_status = "✓ Disponible" if producto['lot'] > 0 else "✗ Agotado"
+            precio_venta = producto.get('precio_venta', 0)
+            
+            print(f"{producto['id']:<5} {producto['name']:<25} {producto['lot']:<10} "
+                  f"${precio_venta:>12,.2f} {stock_status:<15}")
+        
+        print(f"{'='*80}\n")
