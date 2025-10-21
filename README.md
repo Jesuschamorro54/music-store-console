@@ -61,10 +61,10 @@ music-store-console/
 │       └── json_utils.py      # Utilidades para manejo de archivos JSON
 └── database/                  # Archivos de persistencia (JSON)
     ├── client.json            # Datos de clientes
-    ├── supplier.json          # Datos de proveedores
+    ├── supplier.json          # Datos de proveedores (24 proveedores)
     ├── sale.json              # Registro de ventas (con totales)
-    ├── buys.json              # Registro de compras
-    └── stocktaking.json       # Inventario con precios y stock
+    ├── buys.json              # Registro de compras (con totales)
+    └── stocktaking.json       # Inventario (33 productos con proveedor asociado)
 ```
 
 ## 🚀 Instalación
@@ -105,9 +105,13 @@ __________________________________________________________________
 ### 📝 Registro de Entidades
 - **Clientes**: ID, nombre, apellido, email, teléfono
 - **Proveedores**: ID, nombre, email, teléfono
-- **Productos**: ID, nombre, stock, precio de compra, precio de venta
+- **Productos**: ID, nombre, stock, precio de compra, precio de venta, proveedor
   - Cálculo automático de ganancias por producto
   - Control de inventario en tiempo real
+  - Asociación con proveedores
+- **Proveedores**: ID, nombre, email, teléfono
+  - Catálogo de productos por proveedor
+  - Sistema de compras por proveedor
 
 ### 💰 Sistema de Transacciones
 
@@ -128,9 +132,23 @@ __________________________________________________________________
 - Opción de cancelar la venta
 - Registro de venta con total incluido
 
-**Compras:**
-- Búsqueda de proveedores por nombre
-- Gestión de compras a proveedores
+**Compras Mejoradas:**
+- Búsqueda de proveedores por ID (más rápido y preciso)
+- Visualización de catálogo específico del proveedor
+- Solo se muestran productos que ese proveedor vende
+- Validación automática de productos por proveedor
+- **Menú interactivo similar a ventas:**
+  - [1] Agregar más productos
+  - [2] Ver pedido actual
+  - [3] Finalizar compra
+- **Fecha y hora automática del sistema**
+- Factura detallada de compra con:
+  - Información del proveedor
+  - Fecha y hora del pedido
+  - Detalle completo de productos
+  - Total de la compra
+- Confirmación antes de registrar
+- Opción de cancelar la compra
 - Actualización automática de inventario
 - Control de precios de compra
 
@@ -352,6 +370,77 @@ Seleccione una opción: 3
 ✅ Venta procesada exitosamente!
 📄 Factura #: 202
 💰 Total: $2,825,000
+```
+
+## 📦 Ejemplo de Proceso de Compra Mejorado
+
+```
+=== BUSCAR PROVEEDOR ===
+|ID Proveedor      |: 1245
+✓ Proveedor encontrado: comodity
+
+================================================================================
+                    CATÁLOGO DE PRODUCTOS - COMODITY                    
+================================================================================
+ID    PRODUCTO                       STOCK      P.COMPRA       
+--------------------------------------------------------------------------------
+10    clarinete                      77         $    769,000
+25    partitura                      180        $     29,000
+================================================================================
+
+=== AGREGAR PRODUCTOS ===
+|ID Producto       |: 10
+✓ Producto: clarinete
+  Precio de compra: $769,000
+  Stock actual: 77 unidades
+|Cantidad          |: 50
+
+✓ Agregado: 50x clarinete = $38,450,000
+
+──────────────────────────────────────────────────
+  [1] Agregar más productos
+  [2] Ver pedido
+  [3] Finalizar compra
+──────────────────────────────────────────────────
+Seleccione una opción: 1
+
+|ID Producto       |: 25
+✓ Producto: partitura
+  Precio de compra: $29,000
+  Stock actual: 180 unidades
+|Cantidad          |: 100
+
+✓ Agregado: 100x partitura = $2,900,000
+
+──────────────────────────────────────────────────
+  [1] Agregar más productos
+  [2] Ver pedido
+  [3] Finalizar compra
+──────────────────────────────────────────────────
+Seleccione una opción: 3
+
+======================================================================
+                         📦 FACTURA DE COMPRA                        
+======================================================================
+  Proveedor: comodity (ID: 1245)
+  Fecha: 2025-10-20
+  Hora: 23:15:30
+──────────────────────────────────────────────────────────────────────
+  CANT  PRODUCTO                             P.UNIT       SUBTOTAL
+----------------------------------------------------------------------
+    50x  clarinete                      $   769,000 $  38,450,000
+   100x  partitura                      $    29,000 $   2,900,000
+======================================================================
+                                TOTAL DE LA COMPRA $  41,350,000
+======================================================================
+
+¿Confirmar la compra?
+[S] Sí - Registrar compra  [N] No - Cancelar: s
+
+✅ Compra registrada exitosamente!
+📄 Orden de Compra #: 93
+💰 Total: $41,350,000
+📦 Inventario actualizado
 ```
 
 ## 🔄 Actualizaciones del Sistema

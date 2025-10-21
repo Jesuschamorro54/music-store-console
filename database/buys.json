@@ -909,5 +909,13 @@
       "estuche": 30
     },
     "date": "2025-02-05"
+  },
+  {
+    "id": 93,
+    "supplier": 1245,
+    "products": {
+      "partitura": 25
+    },
+    "date": "2025-10-20"
   }
 ]
