@@ -1,35 +1,34 @@
 import json
+import os
+from child_classes.functions.path_utils import get_file_path
+from child_classes.functions.json_utils import read_json_file
 
 
 def define_id(path):
-    file = open(f"{path}", "r")
-    data = file.read()
-    data = data.split("\n")
+    # Extraer nombre del archivo
+    filename = os.path.basename(path)
+    dictionary = read_json_file(filename)
+    
     ide = 1
-    dictionary = []
-    for key in range(len(data) - 1):
-        dictionary.append(json.loads(data[key]))
-
     ids = []
+    
     for i in range(len(dictionary)):
         ids.append(dictionary[i]["id"])
 
-    if ids is not None or ids != "null" or ids == []:
+    if ids:
         while True:
-            if ide in ids: ide += 1
-            else: break
-    else: ide = 1
+            if ide in ids: 
+                ide += 1
+            else: 
+                break
+    
     return ide
 
 
 def return_exist(path):
-    file = open(f"{path}", "r")
-    data = file.read()
-    data = data.split("\n")
-    dictionary = []
-    for i in range(len(data) - 1):
-        dictionary.append(json.loads(data[i]))
-    return dictionary
+    # Extraer nombre del archivo
+    filename = os.path.basename(path)
+    return read_json_file(filename)
 
 
 def validate_exist(path, name):
@@ -45,7 +44,8 @@ def validate_exist(path, name):
 
 
 def valid_lot(product, lot):
-    container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.txt")
+    file_path = get_file_path("stocktaking.json")
+    container = return_exist(file_path)
 
     for i in range(len(container)):
         if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:

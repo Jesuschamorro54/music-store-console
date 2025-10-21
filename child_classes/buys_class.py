@@ -1,4 +1,5 @@
 from parent_classes.facture_class import Facture
+from child_classes.functions.path_utils import get_file_path
 
 
 class Buy(Facture):
@@ -24,4 +25,5 @@ class Buy(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/buys.txt", self._sale_info)
+        file_path = get_file_path("buys.json")
+        self.write_into(file_path, self._sale_info)

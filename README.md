@@ -18,12 +18,13 @@ Un sistema de gestión de tienda de instrumentos musicales desarrollado en Pytho
 
 - **Gestión de Clientes**: Registro y consulta de información de clientes
 - **Gestión de Proveedores**: Administración de proveedores de instrumentos
-- **Control de Inventario**: Registro y consulta de stock de productos
+- **Control de Inventario**: Consulta de stock de productos
 - **Sistema de Ventas**: Registro de ventas con validación de stock
-- **Sistema de Compras**: Gestión de compras a proveedores
+- **Sistema de Compras**: Gestión de compras a proveedores (actualiza automáticamente el inventario)
 - **Consultas Avanzadas**: Búsqueda por fechas, facturas e IDs
 - **Interfaz de Consola**: Menú intuitivo con colores y navegación fácil
 - **Persistencia de Datos**: Almacenamiento en archivos JSON
+- **Rutas Dinámicas**: Sistema compatible con cualquier dispositivo sin necesidad de cambiar rutas
 
 ## 📁 Estructura del Proyecto
 
@@ -41,13 +42,15 @@ music-store-console/
 │   ├── stocks.py              # Gestión de inventario
 │   └── functions/             # Funciones auxiliares
 │       ├── methods.py         # Métodos de entrada de datos
-│       └── validations.py     # Validaciones de datos
-└── files/                     # Archivos de persistencia
-    ├── client.txt             # Datos de clientes
-    ├── supplier.txt           # Datos de proveedores
-    ├── sale.txt               # Registro de ventas
-    ├── buys.txt               # Registro de compras
-    └── stocktaking.txt        # Inventario de productos
+│       ├── validations.py     # Validaciones de datos
+│       ├── path_utils.py      # Utilidades para rutas dinámicas
+│       └── json_utils.py      # Utilidades para manejo de archivos JSON
+└── files/                     # Archivos de persistencia (JSON)
+    ├── client.json            # Datos de clientes
+    ├── supplier.json          # Datos de proveedores
+    ├── sale.json              # Registro de ventas
+    ├── buys.json              # Registro de compras
+    └── stocktaking.json       # Inventario de productos
 ```
 
 ## 🚀 Instalación
@@ -58,14 +61,12 @@ music-store-console/
    cd music-store-console
    ```
 
-2. **Instala las dependencias:**
-   ```bash
-   pip install pyautogui
-   ```
+2. **Requisitos:**
+   - Python 3.x (no requiere dependencias externas, solo módulos nativos)
 
 3. **Ejecuta la aplicación:**
    ```bash
-   python main.py
+   python3 main.py
    ```
 
 ## 🎮 Uso
@@ -82,7 +83,7 @@ __________________________________________________________________
 |  2. REGISTRAR PROVEEDOR    7. CONSULTAR VENTA POR FACTURA  |
 |  3. REGISTRAR VENTA        8. CONSULTAR CLIENTE            |
 |  4. REGISTRAR COMPRAS      9. CONSULTAR INVENTARIO         |
-|  5. REGISTRAR INVENTARIO   0. SALIR                        |
+|                            0. SALIR                        |
 ```
 
 ## 🔧 Funcionalidades
@@ -90,7 +91,7 @@ __________________________________________________________________
 ### 📝 Registro de Entidades
 - **Clientes**: ID, nombre, apellido, email, teléfono
 - **Proveedores**: ID, nombre, email, teléfono
-- **Productos**: ID, nombre, cantidad en stock
+- **Productos**: Gestión de inventario a través de compras y ventas
 
 ### 💰 Sistema de Transacciones
 - **Ventas**: Registro de ventas con validación de stock disponible
@@ -104,7 +105,10 @@ __________________________________________________________________
 - **Consulta de inventario**: Verificación de stock por ID de producto
 
 ### ✅ Validaciones
-- **Validación de email**: Verificación de formato de correo electrónico
+- **Validación de ID**: Verificación de entrada numérica válida (método heredado)
+- **Validación de email**: Verificación de formato correo electrónico con @ y dominio (método heredado)
+- **Validación de teléfono**: Verificación de número con mínimo 7 dígitos (método heredado)
+- **Validación de campos**: Prevención de campos vacíos en nombres
 - **Validación de fechas**: Formato de fecha correcto (YYYY-MM-DD)
 - **Validación de stock**: Verificación de disponibilidad antes de ventas
 - **Validación de entidades**: Verificación de existencia de clientes y proveedores
@@ -112,35 +116,113 @@ __________________________________________________________________
 ## 🛠️ Tecnologías
 
 - **Python 3.x**: Lenguaje de programación principal
-- **JSON**: Formato de almacenamiento de datos
-- **PyAutoGUI**: Automatización de interfaz (opcional)
-- **Programación Orientada a Objetos**: Arquitectura basada en clases
+- **JSON**: Formato estándar de almacenamiento de datos (RFC 8259)
+- **Programación Orientada a Objetos**: 
+  - Herencia de clases
+  - Polimorfismo (métodos sobrescritos)
+  - Encapsulación (propiedades y métodos privados)
+  - Abstracción (métodos base en clases padre)
+- **Módulos nativos**: `json`, `os`, `sys` para funcionalidad del sistema
 
 ## 🏗️ Arquitectura
 
 ### Patrón de Diseño
-El proyecto utiliza el patrón de **Herencia** con las siguientes clases:
+El proyecto utiliza el patrón de **Herencia y Polimorfismo** con las siguientes clases:
 
-- **`Entity`**: Clase padre para operaciones básicas de archivos
+```
+┌─────────────────────────────────────┐
+│          Entity (Padre)             │
+├─────────────────────────────────────┤
+│ + write_into()                      │
+│ + read_file()                       │
+│ + _validate_id()                    │
+│ + _validate_email()                 │
+│ + _validate_phone()                 │
+│ + capture_data() [abstracto]        │
+└─────────────────────────────────────┘
+            ▲           ▲
+            │           │
+     ┌──────┴───┐   ┌───┴──────┐
+     │          │   │          │
+┌────┴────┐ ┌───┴───┴─┐  ┌────┴────┐
+│ Client  │ │Supplier │  │  Stock  │
+├─────────┤ ├─────────┤  └─────────┘
+│capture_ │ │capture_ │
+│data()   │ │data()   │
+│(5 datos)│ │(4 datos)│
+└─────────┘ └─────────┘
+
+┌─────────────────────────────────────┐
+│         Facture (Padre)             │
+├─────────────────────────────────────┤
+│ + write_into()                      │
+│ + read_file()                       │
+│ + update_stock()                    │
+└─────────────────────────────────────┘
+            ▲           ▲
+            │           │
+     ┌──────┴───┐   ┌───┴──────┐
+     │          │   │          │
+  ┌──┴──┐    ┌──┴──┐
+  │Sale │    │ Buy │
+  └─────┘    └─────┘
+```
+
+- **`Entity`**: Clase padre para operaciones básicas de archivos y validaciones
+  - Métodos de validación: `_validate_id()`, `_validate_email()`, `_validate_phone()`
+  - Método abstracto: `capture_data()` (debe ser implementado por clases hijas)
 - **`Facture`**: Clase padre para transacciones comerciales
 - **Clases hijas**: `Client`, `Supplier`, `Sale`, `Buy`, `Stock`
 
-### Principios SOLID
+### Principios SOLID y POO
 - **Responsabilidad única**: Cada clase tiene una responsabilidad específica
-- **Herencia**: Reutilización de código mediante herencia
-- **Encapsulación**: Uso de propiedades y métodos privados
+- **Herencia**: Reutilización de código mediante herencia de clases padre
+- **Polimorfismo**: Las clases `Client` y `Supplier` implementan su propia versión de `capture_data()`
+  - `Client.capture_data()`: Captura ID, nombre, apellido, email y teléfono
+  - `Supplier.capture_data()`: Captura ID, nombre, email y teléfono (sin apellido)
+- **Encapsulación**: Uso de propiedades, métodos privados y getters/setters
+- **Abstracción**: Métodos base en la clase padre que las clases hijas deben implementar
+
+### Ejemplo de Polimorfismo en Acción
+
+```python
+# En main.py - Mismo código, diferente comportamiento
+
+# Registrar Cliente (polimorfismo)
+client_ins = Client()
+data = client_ins.capture_data()  # Captura 5 datos
+client_ins.client = data
+
+# Registrar Proveedor (polimorfismo)
+supplier_ins = Supplier()
+data = supplier_ins.capture_data()  # Captura 4 datos
+supplier_ins.supplier = data
+
+# Ambos usan el mismo método capture_data(), 
+# pero cada clase lo implementa de forma diferente
+```
+
+**Ventajas del enfoque POO implementado:**
+- ✅ Elimina código procedural y funciones independientes
+- ✅ Cada entidad es responsable de capturar sus propios datos
+- ✅ Las validaciones se reutilizan mediante herencia
+- ✅ Fácil extensión para nuevas entidades
+- ✅ Código más mantenible y legible
 
 ### Persistencia de Datos
-- **Formato JSON**: Almacenamiento estructurado en archivos de texto
+- **Formato JSON estándar**: Almacenamiento en arrays JSON válidos (RFC 8259)
 - **Separación por entidad**: Un archivo por cada tipo de dato
-- **Operaciones CRUD**: Create, Read, Update implícitas
+- **Rutas dinámicas**: Sistema de rutas relativas que funciona en cualquier dispositivo
+- **Operaciones CRUD**: Create, Read, Update implementadas con funciones especializadas
+- **Lectura/Escritura optimizada**: Funciones centralizadas en `json_utils.py` para manejo consistente de datos
 
 ## 📊 Flujo de Trabajo
 
-1. **Registro inicial**: Se registran proveedores y productos en inventario
+1. **Registro inicial**: Se registran proveedores
 2. **Gestión de clientes**: Registro de clientes para futuras ventas
-3. **Operaciones comerciales**: Realización de ventas y compras
-4. **Consultas**: Verificación de datos y reportes
+3. **Gestión de inventario**: Se debe registrar el stock inicial mediante compras a proveedores
+4. **Operaciones comerciales**: Realización de ventas y compras
+5. **Consultas**: Verificación de datos y reportes
 
 ## 🔄 Actualizaciones del Sistema
 

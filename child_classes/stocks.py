@@ -1,10 +1,11 @@
 from child_classes.functions.methods import *
+from child_classes.functions.path_utils import get_file_path
+from child_classes.functions.json_utils import append_to_json_file
 import json
 
 
 class Stock:
     def __init__(self):
-        self.file = None
         self.container = None
         self._stock_info = {
             "id": None,
@@ -22,13 +23,11 @@ class Stock:
         for key in self._stock_info:
             self._stock_info[key] = info[i]
             i += 1
-        self.file = open(f"C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.txt", "a+")
-        text = json.dumps(self._stock_info)
-        self.file.write(f"{text}\n")
-        self.file.close()
+        append_to_json_file("stocktaking.json", self._stock_info)
 
     def show_stock(self, ide):
-        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.txt")
+        file_path = get_file_path("stocktaking.json")
+        self.container = return_exist(file_path)
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:

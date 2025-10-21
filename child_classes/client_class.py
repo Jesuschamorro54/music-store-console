@@ -1,6 +1,7 @@
 import os
 from parent_classes.entity_class import Entity
 from child_classes.functions.methods import *
+from child_classes.functions.path_utils import get_file_path
 
 
 class Client(Entity):
@@ -25,15 +26,40 @@ class Client(Entity):
             self._client_info[key] = info[i]
             i += 1
 
-        # Construir la ruta relativa al proyecto
-        # base_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está este archivo .py
-        # file_path = os.path.join(base_dir, "files", "client.txt")
+        file_path = get_file_path("client.json")
+        self.write_into(file_path, self._client_info)
 
-        # self.write_into(file_path, self._client_info)
-        self.write_into("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.txt", self._client_info)
+    def capture_data(self):
+        """
+        Implementación polimórfica para capturar datos de un cliente.
+        Sobrescribe el método de la clase padre Entity.
+        """
+        print("\n=== REGISTRO DE CLIENTE ===")
+        
+        # Capturar ID usando validación de la clase padre
+        ide = self._validate_id()
+        
+        # Capturar nombre y apellido (específico de Cliente)
+        name = input("|Nombre        |: ").strip()
+        while not name:
+            print("❌ Error: El nombre no puede estar vacío")
+            name = input("|Nombre        |: ").strip()
+        
+        last_name = input("|Apellido      |: ").strip()
+        while not last_name:
+            print("❌ Error: El apellido no puede estar vacío")
+            last_name = input("|Apellido      |: ").strip()
+        
+        # Capturar email y teléfono usando validación de la clase padre
+        email = self._validate_email()
+        phone = self._validate_phone()
+        
+        # Retornar datos en el orden esperado
+        return [ide, name, last_name, email, phone]
 
     def show_client(self, ide, name):
-        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.txt")
+        file_path = get_file_path("client.json")
+        self.container = return_exist(file_path)
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]

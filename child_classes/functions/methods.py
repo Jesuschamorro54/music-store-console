@@ -1,61 +1,11 @@
 from child_classes.functions.validations import *
-
-
-# add client or supplier
-def add_entity_func(lock):
-    last = None
-    email = None
-    ide = None
-    phone = None
-    capsule = []
-
-    #  Ide
-    i = 1
-    while i != 0:
-        try:
-            ide = int(input("|Identificacion|: "))
-            i = 0
-        except:
-            i = 1
-
-    #  Name and lastname
-    name = input("|Nombre        |: ")
-    if lock == "cli":
-        last = input("|Apellido      |: ")
-    else:
-        pass
-
-    i = 1
-    while i != 0:
-        email = input("|Correo        |: ")
-        for key in range(len(email)):
-            if email[key] == "@":
-                i = 0
-                break
-
-    #  cellphone
-    i = 1
-    while i != 0:
-        try:
-            phone = int(input("|Telefono      |: "))
-            i = 0
-        except:
-            i = 1
-
-    capsule.append(ide)
-    capsule.append(name)
-    if lock == "cli":
-        capsule.append(last)
-    else:
-        pass
-    capsule.append(email)
-    capsule.append(phone)
-    return capsule
+from child_classes.functions.path_utils import get_file_path
 
 
 # add inventory
 def add_stock_func():
-    ide = define_id("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.txt")
+    file_path = get_file_path("stocktaking.json")
+    ide = define_id(file_path)
     lot = None
     capsule = []
 
@@ -79,8 +29,9 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.txt") if entity == "client" else define_id(
-        "C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/buys.txt")
+    sale_file_path = get_file_path("sale.json")
+    buys_file_path = get_file_path("buys.json")
+    ide = define_id(sale_file_path) if entity == "client" else define_id(buys_file_path)
     product = {}
     capsule = []
 
@@ -91,7 +42,8 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.txt", name_entity)
+            client_file_path = get_file_path("client.json")
+            valid = validate_exist(client_file_path, name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -99,7 +51,8 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-            valid = validate_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/supplier.txt", name_entity)
+            supplier_file_path = get_file_path("supplier.json")
+            valid = validate_exist(supplier_file_path, name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -112,7 +65,8 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.txt", name)
+            stock_file_path = get_file_path("stocktaking.json")
+            valid = validate_exist(stock_file_path, name)
             if valid[0]:
                 val = False
             else:

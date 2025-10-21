@@ -4,11 +4,7 @@ from child_classes.sale_class import *
 from child_classes.stocks import *
 from child_classes.buys_class import *
 from child_classes.supplier_class import *
-from child_classes.functions.methods import (
-    add_entity_func,
-    make_sale_buy,
-    add_stock_func,
-)
+from child_classes.functions.methods import make_sale_buy
 
 client_ins = Client()
 supplier_ins = Supplier()
@@ -35,7 +31,7 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 0. SALIR                        |
+    |                         \t\t 0. SALIR                        |
     
     Option: """
     )
@@ -45,16 +41,18 @@ while True:
 
     #  REGISTRAR CLIENTE
     if op == "1":
-        data = add_entity_func("cli")
+        # Usando polimorfismo: el objeto cliente captura sus propios datos
+        data = client_ins.capture_data()
         client_ins.client = data
-        print("\033[Registro exitoso\033[39m")
+        print("\n\033[32m✓ Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  REGISTRAR PROVEEDOR
     elif op == "2":
-        data = add_entity_func("supp")
+        # Usando polimorfismo: el objeto proveedor captura sus propios datos
+        data = supplier_ins.capture_data()
         supplier_ins.supplier = data
-        print("\033[Registro exitoso\033[39m")
+        print("\n\033[32m✓ Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
     #  REGISTRAR VENTA
@@ -68,13 +66,6 @@ while True:
     elif op == "4":
         data = make_sale_buy("supplier")
         buy_ins.buy = data
-        print("\033[Registro exitoso\033[39m")
-        input("Presione ENTER para continuar...")
-
-    #  REGISTRAR INVENTARIO
-    elif op == "5":
-        data = add_stock_func()
-        stock_ins.stock = data
         print("\033[Registro exitoso\033[39m")
         input("Presione ENTER para continuar...")
 
