@@ -9,11 +9,9 @@ class Entity:
     #  Write file
     def write_into(self, path, data):
         print(path)
-        self.file = open(f"{path}", "a+")
-        text = json.dumps(data)
-        self.file.write(f"{text}\n")
-        self.file.close()
-
+        with open(path, "a+", encoding='utf-8') as file:
+            json.dump(data, file)
+            file.write("\n")
     #  Read file
     def read_file(self, path):
         self.file = open(f"{path}", "r")

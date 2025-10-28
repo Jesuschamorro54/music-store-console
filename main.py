@@ -27,7 +27,7 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 10. REPORTE DE VENTAS DE FECHA1 A FECHA2                      |
+    |                         \t\t 10. REPORTE DE VENTAS DE FECHA1 A FECHA2                      |
     
     Option: """
     )
@@ -64,10 +64,7 @@ while True:
 
     #  REGISTRAR INVENTARIO
     elif op == "5":
-        data = add_stock_func()
-        stock_ins.stock = data
-        print("\033[32mRegistro exitoso\033[39m")
-        input()
+        print ("Opcion no disponible")
 
     #  CONSULTAR VENTA POR FECHA
     elif op == "6":

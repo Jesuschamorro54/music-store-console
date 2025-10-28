@@ -1,0 +1,167 @@
+[
+    {
+        "id": 10,
+        "name": "clarinete",
+        "lot": 77
+    },
+    {
+        "id": 11,
+        "name": "trombon",
+        "lot": 50
+    },
+    {
+        "id": 12,
+        "name": "trompeta",
+        "lot": 162
+    },
+    {
+        "id": 1,
+        "name": "Saxofon",
+        "lot": 95
+    },
+    {
+        "id": 2,
+        "name": "Corno",
+        "lot": 13
+    },
+    {
+        "id": 3,
+        "name": "Flauta",
+        "lot": 0
+    },
+    {
+        "id": 4,
+        "name": "guitarra",
+        "lot": 45
+    },
+    {
+        "id": 5,
+        "name": "piano",
+        "lot": 12
+    },
+    {
+        "id": 6,
+        "name": "violin",
+        "lot": 28
+    },
+    {
+        "id": 7,
+        "name": "bateria",
+        "lot": 8
+    },
+    {
+        "id": 8,
+        "name": "bajo",
+        "lot": 22
+    },
+    {
+        "id": 9,
+        "name": "arco",
+        "lot": 35
+    },
+    {
+        "id": 10,
+        "name": "platillos",
+        "lot": 15
+    },
+    {
+        "id": 11,
+        "name": "boquilla",
+        "lot": 85
+    },
+    {
+        "id": 12,
+        "name": "válvulas",
+        "lot": 42
+    },
+    {
+        "id": 13,
+        "name": "cañas",
+        "lot": 120
+    },
+    {
+        "id": 14,
+        "name": "limpieza",
+        "lot": 68
+    },
+    {
+        "id": 15,
+        "name": "slide_oil",
+        "lot": 25
+    },
+    {
+        "id": 16,
+        "name": "banqueta",
+        "lot": 18
+    },
+    {
+        "id": 17,
+        "name": "cuerdas",
+        "lot": 95
+    },
+    {
+        "id": 18,
+        "name": "púas",
+        "lot": 200
+    },
+    {
+        "id": 19,
+        "name": "amplificador",
+        "lot": 14
+    },
+    {
+        "id": 20,
+        "name": "estuche",
+        "lot": 32
+    },
+    {
+        "id": 21,
+        "name": "baquetas",
+        "lot": 55
+    },
+    {
+        "id": 22,
+        "name": "partitura",
+        "lot": 180
+    },
+    {
+        "id": 23,
+        "name": "cables",
+        "lot": 75
+    },
+    {
+        "id": 24,
+        "name": "microfono",
+        "lot": 16
+    },
+    {
+        "id": 25,
+        "name": "auriculares",
+        "lot": 28
+    },
+    {
+        "id": 26,
+        "name": "metrónomo",
+        "lot": 12
+    },
+    {
+        "id": 27,
+        "name": "afinador",
+        "lot": 35
+    },
+    {
+        "id": 28,
+        "name": "soporte_partitura",
+        "lot": 22
+    },
+    {
+        "id": 29,
+        "name": "atril",
+        "lot": 18
+    },
+    {
+        "id": 30,
+        "name": "fundas",
+        "lot": 45
+    }
+]

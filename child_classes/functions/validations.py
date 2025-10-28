@@ -23,13 +23,9 @@ def define_id(path):
 
 
 def return_exist(path):
-    file = open(f"{path}", "r")
-    data = file.read()
-    data = data.split("\n")
-    dictionary = []
-    for i in range(len(data) - 1):
-        dictionary.append(json.loads(data[i]))
-    return dictionary
+    with open(path, encoding='utf-8') as file:
+       datos = json.load(file)
+    return datos
 
 
 def validate_exist(path, name):
