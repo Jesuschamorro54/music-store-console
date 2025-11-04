@@ -1,58 +1,20 @@
 from child_classes.functions.validations import *
 
+class Entity:
+    def add_entity(self):
+        self.id = int(input("|Identificacion|: "))
+        self.name = input("|Nombre        |: ")
+        self.email = input("|Correo        |: ")
+        self.phone = int(input("|Telefono      |: "))
 
-# add client or supplier
-def add_entity_func(lock):
-    last = None
-    email = None
-    ide = None
-    phone = None
-    capsule = []
+class Client(Entity):
+    def add_entity(self):
+        return super().add_entity()
 
-    #  Ide
-    i = 1
-    while i != 0:
-        try:
-            ide = int(input("|Identificacion|: "))
-            i = 0
-        except:
-            i = 1
-
-    #  Name and lastname
-    name = input("|Nombre        |: ")
-    if lock == "cli":
-        last = input("|Apellido      |: ")
-    else:
-        pass
-
-    i = 1
-    while i != 0:
-        email = input("|Correo        |: ")
-        for key in range(len(email)):
-            if email[key] == "@":
-                i = 0
-                break
-
-    #  cellphone
-    i = 1
-    while i != 0:
-        try:
-            phone = int(input("|Telefono      |: "))
-            i = 0
-        except:
-            i = 1
-
-    capsule.append(ide)
-    capsule.append(name)
-    if lock == "cli":
-        capsule.append(last)
-    else:
-        pass
-    capsule.append(email)
-    capsule.append(phone)
-    return capsule
-
-
+class Supplier(Entity):
+    def add_entity(self):
+        return super().add_entity()
+        self.empresa = input("|Empresa      |: ")
 # add inventory
 def add_stock_func():
     ide = define_id("/poo/music-store-console/files/stocktaking.txt")

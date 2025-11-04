@@ -2,14 +2,9 @@ from parent_classes.entity_class import Entity
 
 
 class Supplier(Entity):
-    def __init__(self):
-        super().__init__()
-        self._supplier_info = {
-            "id": None,
-            "name": None,
-            "email": None,
-            "cellphone": None}
-
+    def add_entity(self):
+        super().add_entity()
+        self.empresa = input("|Empresa      |: ")
     @property
     def supplier(self):
         return self._supplier_info

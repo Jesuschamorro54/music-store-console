@@ -1,9 +1,15 @@
+#solucion de rutas
+import os 
+def main ():
+    ruta_base = os.path.dirname(os.path.abspath(__file__))
+
+
 #  from Parcial_III.child_classes.functions.methods import *
 from child_classes.client_class import *
 from child_classes.sale_class import *
 from child_classes.stocks import *
 from child_classes.buys_class import *
-from child_classes.supplier_class import *
+from child_classes.functions.methods import *
 
 
 client_ins = Client()
@@ -26,25 +32,21 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-<<<<<<< HEAD
     |                         \t\t 10. REPORTE DE VENTAS DE FECHA1 A FECHA2                      |
-=======
-    |  5. REGISTRAR INVENTARIO\t\t 0. SALIR                        |
->>>>>>> b0085d79b8cd7cde0772a838bdf4f49618250100
     
     Option: """
     )
 
     #  REGISTRAR CLIENTE
     if op == "1":
-        data = add_entity_func("cli")
+        data = client_ins.add_entity()
         client_ins.client = data  # Call the method setter
         print("\033[32mRegistro exitoso\033[39m")
         input()
 
     #  REGISTRAR PROVEEDOR
     elif op == "2":
-        data = add_entity_func("supp")
+        data = supplier_ins.add_entity()
         supplier_ins.supplier = data
         print("\033[32mRegistro exitoso\033[39m")
         input()
