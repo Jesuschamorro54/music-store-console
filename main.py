@@ -22,12 +22,12 @@ while True:
     __________________________________________________________________
     -----------------------------| MENU |-----------------------------
         
-    |  1. REGISTRAR CLIENTE   \t\t 6. CONSULTAR VENTAS POR FECHAS  |
-    |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
-    |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
-    |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 10. REPORTE DE VENTAS           |
-    |  0. SALIR
+    |  1. REGISTRAR CLIENTE   \t\t 5. CONSULTAR VENTAS POR FECHAS  |
+    |  2. REGISTRAR PROVEEDOR \t\t 6. CONSULTAR VENTA POR FACTURA  |
+    |  3. REGISTRAR VENTA     \t\t 7. CONSULTAR CLIENTE            |
+    |  4. REGISTRAR COMPRAS   \t\t 8. CONSULTAR INVENTARIO         |
+    |  9. REPORTE DE VENTAS   \t\t 0. SALIR                        |
+   
     Option: """
     )
 #jijijja
@@ -58,13 +58,6 @@ while True:
     elif op == "4":
         data = make_sale_buy("supplier")
         buy_ins.buy = data
-        print("\033[32mRegistro exitoso\033[39m")
-        input()
-
-    #  REGISTRAR INVENTARIO
-    elif op == "5":
-        data = add_stock_func()
-        stock_ins.stock = data
         print("\033[32mRegistro exitoso\033[39m")
         input()
 

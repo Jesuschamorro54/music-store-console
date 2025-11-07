@@ -1,23 +1,24 @@
-{"id": 1245, "name": "comodity", "email": "como@gmail.com", "cellphone": 322154686}
-{"id": 5241, "name": "Home center", "email": "home.info@company.co", "cellphone": 3206568}
-{"id": 1234, "name": "Niche", "email": "niche@client.com", "cellphone": 3564879}
-{"id": 3001, "name": "MusicPro Instruments", "email": "ventas@musicpro.com", "cellphone": 3001234567}
-{"id": 3002, "name": "Sound & Harmony", "email": "info@soundharmony.co", "cellphone": 3012345678}
-{"id": 3003, "name": "Melody Supplies", "email": "pedidos@melodysupplies.com", "cellphone": 3023456789}
-{"id": 3004, "name": "Rhythm Distributors", "email": "contact@rhythmdist.com", "cellphone": 3034567890}
-{"id": 3005, "name": "Harmony Central", "email": "sales@harmonycentral.net", "cellphone": 3045678901}
-{"id": 3006, "name": "Crescendo Music", "email": "orders@crescendomusic.com", "cellphone": 3056789012}
-{"id": 3007, "name": "Forte Instruments", "email": "ventas@forteinst.com", "cellphone": 3067890123}
-{"id": 3008, "name": "Allegro Suppliers", "email": "info@allegrosuppliers.co", "cellphone": 3078901234}
-{"id": 3009, "name": "Vivace Music Co", "email": "pedidos@vivacemusic.com", "cellphone": 3089012345}
-{"id": 3010, "name": "Staccato Distributors", "email": "contact@staccatodist.net", "cellphone": 3090123456}
-{"id": 3011, "name": "Pianissimo Pro", "email": "sales@pianissimopro.com", "cellphone": 3101234567}
-{"id": 3012, "name": "Forte & Piano", "email": "orders@fortepiano.co", "cellphone": 3112345678}
-{"id": 3013, "name": "Legato Instruments", "email": "ventas@legatoinst.com", "cellphone": 3123456789}
-{"id": 3014, "name": "Andante Music", "email": "info@andantemusic.net", "cellphone": 3134567890}
-{"id": 3015, "name": "Moderato Supplies", "email": "pedidos@moderatocom.com", "cellphone": 3145678901}
-{"id": 3016, "name": "Presto Distributors", "email": "contact@prestodist.co", "cellphone": 3156789012}
-{"id": 3017, "name": "Largo Music Co", "email": "sales@largomusic.com", "cellphone": 3167890123}
-{"id": 3018, "name": "Adagio Instruments", "email": "orders@adagioinst.net", "cellphone": 3178901234}
-{"id": 3019, "name": "Ritardando Pro", "email": "ventas@ritardandopro.com", "cellphone": 3189012345}
-{"id": 3020, "name": "Accelerando Music", "email": "info@accelerandomusic.co", "cellphone": 3190123456}
+[   {"id": 1245, "name": "comodity", "email": "como@gmail.com", "cellphone": 322154686},
+    {"id": 5241, "name": "Home center", "email": "home.info@company.co", "cellphone": 3206568},
+    {"id": 1234, "name": "Niche", "email": "niche@client.com", "cellphone": 3564879},
+    {"id": 3001, "name": "MusicPro Instruments", "email": "ventas@musicpro.com", "cellphone": 3001234567},
+    {"id": 3002, "name": "Sound & Harmony", "email": "info@soundharmony.co", "cellphone": 3012345678},
+    {"id": 3003, "name": "Melody Supplies", "email": "pedidos@melodysupplies.com", "cellphone": 3023456789},
+    {"id": 3004, "name": "Rhythm Distributors", "email": "contact@rhythmdist.com", "cellphone": 3034567890},
+    {"id": 3005, "name": "Harmony Central", "email": "sales@harmonycentral.net", "cellphone": 3045678901},
+    {"id": 3006, "name": "Crescendo Music", "email": "orders@crescendomusic.com", "cellphone": 3056789012},
+    {"id": 3007, "name": "Forte Instruments", "email": "ventas@forteinst.com", "cellphone": 3067890123},
+    {"id": 3008, "name": "Allegro Suppliers", "email": "info@allegrosuppliers.co", "cellphone": 3078901234},
+    {"id": 3009, "name": "Vivace Music Co", "email": "pedidos@vivacemusic.com", "cellphone": 3089012345},
+    {"id": 3010, "name": "Staccato Distributors", "email": "contact@staccatodist.net", "cellphone": 3090123456},
+    {"id": 3011, "name": "Pianissimo Pro", "email": "sales@pianissimopro.com", "cellphone": 3101234567},
+    {"id": 3012, "name": "Forte & Piano", "email": "orders@fortepiano.co", "cellphone": 3112345678},
+    {"id": 3013, "name": "Legato Instruments", "email": "ventas@legatoinst.com", "cellphone": 3123456789},
+    {"id": 3014, "name": "Andante Music", "email": "info@andantemusic.net", "cellphone": 3134567890},
+    {"id": 3015, "name": "Moderato Supplies", "email": "pedidos@moderatocom.com", "cellphone": 3145678901},
+    {"id": 3016, "name": "Presto Distributors", "email": "contact@prestodist.co", "cellphone": 3156789012},
+    {"id": 3017, "name": "Largo Music Co", "email": "sales@largomusic.com", "cellphone": 3167890123},
+    {"id": 3018, "name": "Adagio Instruments", "email": "orders@adagioinst.net", "cellphone": 3178901234},
+    {"id": 3019, "name": "Ritardando Pro", "email": "ventas@ritardandopro.com", "cellphone": 3189012345},
+    {"id": 3020, "name": "Accelerando Music", "email": "info@accelerandomusic.co", "cellphone": 3190123456}
+]
