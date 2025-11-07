@@ -43,11 +43,11 @@ music-store-console/
 │       ├── methods.py         # Métodos de entrada de datos
 │       └── validations.py     # Validaciones de datos
 └── files/                     # Archivos de persistencia
-    ├── client.txt             # Datos de clientes
-    ├── supplier.txt           # Datos de proveedores
-    ├── sale.txt               # Registro de ventas
-    ├── buys.txt               # Registro de compras
-    └── stocktaking.txt        # Inventario de productos
+    ├── client.json             # Datos de clientes
+    ├── supplier.json           # Datos de proveedores
+    ├── sale.json               # Registro de ventas
+    ├── buys.json               # Registro de compras
+    └── stocktaking.json        # Inventario de productos
 ```
 
 ## 🚀 Instalación

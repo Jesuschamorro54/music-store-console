@@ -45,7 +45,7 @@ def validate_exist(path, name):
 
 
 def valid_lot(product, lot):
-    container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.txt")
+    container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.json")
 
     for i in range(len(container)):
         if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:
