@@ -24,4 +24,4 @@ class Buy(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("/poo/music-store-console/files/buys.txt", self._sale_info)
+        self.write_into("/poo/music-store-console/files/buys.json", self._sale_info)

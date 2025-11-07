@@ -3,14 +3,9 @@ import json
 
 
 def define_id(path):
-    file = open(f"{path}", "r")
-    data = file.read()
-    data = data.split("\n")
+   
+    dictionary = return_exist(path)
     ide = 1
-    dictionary = []
-    for key in range(len(data) - 1):
-        dictionary.append(json.loads(data[key]))
-
     ids = []
     for i in range(len(dictionary)):
         ids.append(dictionary[i]["id"])
@@ -34,7 +29,7 @@ def validate_exist(path, name):
     x = [False, None]
 
     for i in range(len(container)):
-        if name in container[i]["name"] or name.lower() == container[i]["name"].lower():
+        
             x[0] = True
             x[1] = container[i]["id"]
             return x

@@ -9,6 +9,7 @@ from child_classes.client_class import *
 from child_classes.sale_class import *
 from child_classes.stocks import *
 from child_classes.buys_class import *
+from child_classes.supplier_class import *
 from child_classes.functions.methods import *
 
 

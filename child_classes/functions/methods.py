@@ -1,20 +1,8 @@
 from child_classes.functions.validations import *
+from datetime import datetime
 
-class Entity:
-    def add_entity(self):
-        self.id = int(input("|Identificacion|: "))
-        self.name = input("|Nombre        |: ")
-        self.email = input("|Correo        |: ")
-        self.phone = int(input("|Telefono      |: "))
 
-class Client(Entity):
-    def add_entity(self):
-        return super().add_entity()
 
-class Supplier(Entity):
-    def add_entity(self):
-        return super().add_entity()
-        self.empresa = input("|Empresa      |: ")
 # add inventory
 def add_stock_func():
     ide = define_id("/poo/music-store-console/files/stocktaking.txt")
@@ -41,8 +29,8 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id("/poo/music-store-console/files/sale.txt") if entity == "client" else define_id(
-        "/poo/music-store-console/files/buys.txt")
+    ide = define_id("/poo/music-store-console/files/sale.json") if entity == "client" else define_id(
+        "/poo/music-store-console/files/buys.json")
     product = {}
     capsule = []
 
@@ -53,15 +41,17 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist("/poo/music-store-console/files/client.txt", name_entity)
+            valid = validate_exist("/poo/music-store-console/files/client.json", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
             else:
                 print("El cliente no se ha agregado")
         else:
-            name_entity = input("|Proveedor         |: ")
-            valid = validate_exist("/poo/music-store-console/files/supplier.txt", name_entity)
+            id_entity = int(input("|ID Proveedor     |: "))
+            print(f"proveedor con id {id_entity} encontrado")
+           
+            valid = validate_exist("/poo/music-store-console/files/supplier.json", id_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -74,7 +64,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist("/poo/music-store-console/files/stocktaking.txt", name)
+            valid = validate_exist("/poo/music-store-console/files/stocktaking.json", name)
             if valid[0]:
                 val = False
             else:
@@ -96,12 +86,11 @@ def make_sale_buy(entity):
         if op == 0:state_product = False
         if op == 1: state_product = True
 
-    while state_date:
-        date = input("|Fecha aaaa-mm-dd  |: ")
-        if valid_date(date): state_date = False
+    fecha_actual = datetime.now()
+    print(fecha_actual)
 
     capsule.append(ide) # 0
     capsule.append(entity_id) # 1
     capsule.append(product) # 2
-    capsule.append(date)
+    capsule.append(fecha_actual)
     return capsule
