@@ -33,7 +33,7 @@ class Client(Entity):
         self.write_into("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/client.json", self._client_info)
 
     def show_client(self, ide, name):
-        self.container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/client.json")
+        self.container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/client.json", self._client_info)
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]
