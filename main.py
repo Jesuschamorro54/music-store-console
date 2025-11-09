@@ -6,6 +6,7 @@ from child_classes.buys_class import *
 from child_classes.supplier_class import *
 import json
 from datetime import datetime
+from child_classes.path_manager import get_file_path
 # import pyautogui
 
 client_ins = Client()
@@ -13,6 +14,8 @@ supplier_ins = Supplier()
 stock_ins = Stock()
 buy_ins = Buy()
 sale_ins = Sale()
+
+
 
 # Init the appplication
 while True:
@@ -29,7 +32,7 @@ while True:
     |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
     |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
     |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |  5. REGISTRAR INVENTARIO\t\t 10. CONSULTAR DE VENTAS         |
+    |                         \t\t 10. CONSULTAR DE VENTAS         |
     |  0. SALIR
     
     Option: """
@@ -44,7 +47,7 @@ while True:
     if op == "1":
         data = add_entity_func("cli")
         client_ins.client = data  # Call the method setter
-        print("\033[32mRegistro exitoso\033[39m")
+        print("\033[32mRegistro exitoso, se Ah guardado correctamente los datos en el archivo del Client\033[39m")
         input()
 
     #  REGISTRAR PROVEEDOR
@@ -65,13 +68,6 @@ while True:
     elif op == "4":
         data = make_sale_buy("supplier")
         buy_ins.buy = data
-        print("\033[32mRegistro exitoso\033[39m")
-        input()
-
-    #  REGISTRAR INVENTARIO
-    elif op == "5":
-        data = add_stock_func()
-        stock_ins.stock = data
         print("\033[32mRegistro exitoso\033[39m")
         input()
 
@@ -103,13 +99,14 @@ while True:
 
 #  CONSULTA LAS VENTAS EN UN PERIODO DE TIEMPO ESPECIFICO
     elif op == "10":
-        # en esta parte seda el parametro inicial para buscar el extremo de las fechas
         primer_parametro = input("Desde (YYYY-MM-DD): ")
         segundo_parametro = input("Hasta (YYYY-MM-DD): ")
-        # comienza a checar o abrir el archivo para poder registrarlo
-        f = open("files/sale.txt", "r")
-        ventas = f.readlines()
-        f.close()
+
+        file_path = get_file_path("sale.txt")
+        with open(file_path, "r") as f:
+            ventas = f.readlines()
+
+        # aqui elimine la Linea "f.close()" ya que la nueva funcion para la rutina dinamica lo tenia redundante
         # Imprime el Mensaje que saldra al mostrar los resultados de las ventas. (se puede modificar)
         print("\n--- VENTAS EN EL RANGO ESTIPULADO POR EL CLIENTE/ADMINISTRADOR---\n")
         encontrado = False

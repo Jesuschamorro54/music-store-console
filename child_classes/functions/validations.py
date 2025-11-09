@@ -1,5 +1,5 @@
 import json
-
+from child_classes.path_manager import get_file_path # funcion para la ruta dinamica
 
 def define_id(path):
     file = open(f"{path}", "r")
@@ -45,7 +45,7 @@ def validate_exist(path, name):
 
 
 def valid_lot(product, lot):
-    container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+    container = return_exist(get_file_path("stocktaking.txt")) # Dinamico
 
     for i in range(len(container)):
         if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:

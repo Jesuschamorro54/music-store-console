@@ -1,5 +1,5 @@
 from child_classes.functions.validations import *
-
+from child_classes.path_manager import get_file_path # funcion para la ruta dinamica
 
 # add client or supplier
 def add_entity_func(lock):
@@ -55,7 +55,7 @@ def add_entity_func(lock):
 
 # add inventory
 def add_stock_func():
-    ide = define_id("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+    ide = define_id(get_file_path("stocktaking.txt")) # dinamico
     lot = None
     capsule = []
 
@@ -79,8 +79,7 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/sale.txt") if entity == "client" else define_id(
-        "/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt")
+    ide = define_id(get_file_path("sale.txt")) if entity == "client" else define_id(get_file_path("buys.txt")) # Ruta dinamica
     product = {}
     capsule = []
 
@@ -91,7 +90,7 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/client.txt", name_entity)
+            valid = validate_exist(get_file_path("client.txt"), name_entity) # Dinamica
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -99,7 +98,7 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/supplier.txt", name_entity)
+            valid = validate_exist(get_file_path("supplier.txt"), name_entity) # Dinamica
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -112,7 +111,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", name)
+            valid = validate_exist(get_file_path("stocktaking.txt"), name) # Dinamico
             if valid[0]:
                 val = False
             else:

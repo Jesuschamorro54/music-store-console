@@ -1,6 +1,7 @@
 import os
 from parent_classes.entity_class import Entity
 from child_classes.functions.methods import *
+from child_classes.path_manager import get_file_path # importancio de funcion para la ruta dinamica
 
 class Client(Entity):
     def __init__(self):
@@ -29,10 +30,10 @@ class Client(Entity):
         # file_path = os.path.join(base_dir, "files", "client.txt")
 
         # self.write_into(file_path, self._client_info)
-        self.write_into("C:/Users/ESTUDIANTES/Documents/VisualJoss/Proyecto/music-store-console/child_classes/files/client.txt", self._client_info)
+        self.write_into(get_file_path("client.txt"), self._client_info) # funcion para la ruta dinamica
 
     def show_client(self, ide, name):
-        self.container = return_exist("C:/Users/ESTUDIANTES/Documents/VisualJoss/Proyecto/music-store-console/child_classes/files/client.txt")
+        self.container = return_exist(get_file_path("client.txt")) # funcion remplazada para la ruta dinamica
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]

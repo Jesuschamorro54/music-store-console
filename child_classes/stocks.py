@@ -1,5 +1,6 @@
 from child_classes.functions.methods import *
 import json
+from child_classes.path_manager import get_file_path # funcion para la ruta dinamica
 
 
 class Stock:
@@ -22,13 +23,13 @@ class Stock:
         for key in self._stock_info:
             self._stock_info[key] = info[i]
             i += 1
-        self.file = open(f"/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt", "a+")
+        self.file = open(get_file_path("stocktaking.txt"), "a+") # ruta dinamica
         text = json.dumps(self._stock_info)
         self.file.write(f"{text}\n")
         self.file.close()
 
     def show_stock(self, ide):
-        self.container = return_exist("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/stocktaking.txt")
+        self.container = return_exist(get_file_path("stocktaking.txt")) # dinamica
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
