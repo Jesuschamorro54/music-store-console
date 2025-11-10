@@ -47,17 +47,11 @@ def add_entity_func(lock):
     capsule.append(phone)
     return capsule
 
-
-# add inventory
 def add_stock_func():
     ide = define_id("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.json")
     lot = None
     capsule = []
-
-    #  Name
     name = input("|Nombre    |: ")
-
-    #  Lot
     i = 1
     while i != 0:
         try:
@@ -131,8 +125,8 @@ def make_sale_buy(entity):
         date = input("|Fecha aaaa-mm-dd  |: ")
         if valid_date(date): state_date = False
 
-    capsule.append(ide) # 0
-    capsule.append(entity_id) # 1
-    capsule.append(product) # 2
+    capsule.append(ide) 
+    capsule.append(entity_id) 
+    capsule.append(product) 
     capsule.append(date)
     return capsule

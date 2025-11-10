@@ -54,7 +54,6 @@ if __name__ == '__main__':
             input("Presione ENTER para continuar...")
 
         elif op == "2":
-        # Usando polimorfismo: el objeto proveedor captura sus propios datos
             data = supplier_ins.add_entity_func("supplier")
             supplier_ins.supplier = data
             print("\n\033[32m✓ Registro exitoso\033[39m")
@@ -105,6 +104,7 @@ if __name__ == '__main__':
             date1 = input("Desde: ")
             date2 = input("Hasta: ")
             sale_ins.show_range_date(date1, date2)
+            print(date1, date2)
             input("Presione ENTER para continuar...")
 
         elif op == "0":
