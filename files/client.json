@@ -208,6 +208,7 @@
         "last_name": "gonzalez",
         "email": "cg0954610@gmail.com",
         "cellphone": 3045810613
+<<<<<<< HEAD
     },
     {
         "id": 2091,
@@ -238,3 +239,8 @@
         "cellphone": 32145865
     }
 ]
+=======
+    }
+    
+]{"id": 2121, "name": "carlos", "last_name": "gonzalez", "email": "carlos12@cg21", "cellphone": 32145865}
+>>>>>>> 6d1c864ee5396e555d1adaaa4cbc922bcb051c07

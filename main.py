@@ -19,7 +19,7 @@ from child_classes.functions.methods import (
 # Instancias globales
 client_ins = Client()
 supplier_ins = Supplier()
-stock_ins = Stock()
+stock_ins = StockManager()
 buy_ins = Buy()
 sale_ins = Sale()
 
@@ -61,6 +61,7 @@ if __name__ == '__main__':
 
 
         elif op == "3":
+<<<<<<< HEAD
             data = make_sale_buy("client")
             if data: 
                 sale_ins.sale = data
@@ -73,6 +74,19 @@ if __name__ == '__main__':
                 print("\n\033[32m✓ Compra registrada exitosamente\033[39m")
             input("\nPresione ENTER para continuar...")
 
+=======
+            data = add_entity_func("sale")
+            sale_ins.sale = data
+            print("\033[32mRegistro exitoso\033[39m")
+            input("Presione ENTER para continuar...")
+
+        elif op == "4":
+           data = add_entity_func("buy")
+           buy_ins.buy = data
+           print("\033[32mRegistro exitoso\033[39m")
+           input("Presione ENTER para continuar...")
+           
+>>>>>>> 6d1c864ee5396e555d1adaaa4cbc922bcb051c07
         elif op == "5":
             print("opcion no valida en este momento...")
 
@@ -87,24 +101,41 @@ if __name__ == '__main__':
             sale_ins.show_by_id(id_sale)
             input("Presione ENTER para continuar...")
 
+        #  CONSULTAR CLIENTE
         elif op == "8":
+<<<<<<< HEAD
             id_client = int(input("Ingrese ID: "))
             client_ins.show_client(id_client, )
             input("Presione ENTER para continuar...")
+=======
+           id_client = int(input("Ingrese ID: "))
+           print(client_ins.show_client(id_client, ""))
+
+>>>>>>> 6d1c864ee5396e555d1adaaa4cbc922bcb051c07
 
 
             
         elif op == "9":
+<<<<<<< HEAD
             id_inventory = int(input("Ingrese ID: "))
             stock_ins.show_stock(id_inventory)
+=======
+            stock_ins.show_stock()
+>>>>>>> 6d1c864ee5396e555d1adaaa4cbc922bcb051c07
             input("Presione ENTER para continuar...")
 
         elif op == "10":
             print("\nREPORTE DE VENTAS")
+<<<<<<< HEAD
             date1 = input("Desde: ")
             date2 = input("Hasta: ")
             sale_ins.show_range_date(date1, date2)
             print(date1, date2)
+=======
+            d1 = input("Ingrese la fecha inicial (YYYY-MM-DD): ")
+            d2 = input("Ingrese la fecha final (YYYY-MM-DD): ")
+            sale_ins.report_sales_from_json(d1, d2)
+>>>>>>> 6d1c864ee5396e555d1adaaa4cbc922bcb051c07
             input("Presione ENTER para continuar...")
 
         elif op == "0":
