@@ -1,6 +1,7 @@
 import os
 from parent_classes.entity_class import Entity
 from child_classes.functions.methods import *
+import json
 
 
 class Client(Entity):
@@ -25,22 +26,28 @@ class Client(Entity):
             self._client_info[key] = info[i]
             i += 1
 
-        # Construir la ruta relativa al proyecto
-        # base_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está este archivo .py
-        # file_path = os.path.join(base_dir, "files", "client.txt")
-
-        # self.write_into(file_path, self._client_info)
         self.write_into("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.json", self._client_info)
 
-    def show_client(self, ide, name):
-        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.json")
-
+    def show_client(self, ide,):
         for i in range(len(self.container)):
-            name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]
-            if self.container[i]["id"] == ide and name.lower() in name_complet.lower():
+            if self.container[i]["id"] == ide:
                 print(f"|ID            |: {self.container[i]['id']}")
-                print(f"|Name            |: {name_complet}")
+                print(f"|Name            |: {self.container[i]['name']} {self.container[i]['last_name']}")
                 print(f"|Email           |: {self.container[i]['email']}")
                 print(f"|Cellphhone      |: {self.container[i]['cellphone']}")
                 return 0
         print("No se encuentra el cliente")
+
+    def return_exist(path):
+        data_list = []
+        with open(path, "r", encoding="utf-8") as file:
+            for line in file:
+                line = line.strip()
+                if line:  # si no está vacía
+                    try:
+                        data_list.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        print(f"Error al decodificar línea: {line}")
+        return data_list
+
+        

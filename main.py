@@ -48,36 +48,39 @@ if __name__ == '__main__':
         clear_screen()
 
         if op == "1":
-            data = add_entity_func("cli")
+            data = add_entity_func("client")
             client_ins.client = data
             print("\033[32mRegistro exitoso\033[39m")
             input("Presione ENTER para continuar...")
 
         elif op == "2":
-            data = add_entity_func("supp")
+        # Usando polimorfismo: el objeto proveedor captura sus propios datos
+            data = supplier_ins.add_entity_func("supplier")
             supplier_ins.supplier = data
-            print("\033[32mRegistro exitoso\033[39m")
+            print("\n\033[32m✓ Registro exitoso\033[39m")
             input("Presione ENTER para continuar...")
+
 
         elif op == "3":
-            data = add_entity_func("sale")
-            sale_ins.sale = data
-            print("\033[32mRegistro exitoso\033[39m")
-            input("Presione ENTER para continuar...")
+            data = make_sale_buy("client")
+            if data: 
+                sale_ins.sale = data
+            input("\nPresione ENTER para continuar...")
 
         elif op == "4":
-           data = add_entity_func("buy")
-           buy_ins.buy = data
-           print("\033[32mRegistro exitoso\033[39m")
-           input("Presione ENTER para continuar...")
-           
+            data = make_sale_buy("supplier")
+            if data: 
+                buy_ins.buy = data
+                print("\n\033[32m✓ Compra registrada exitosamente\033[39m")
+            input("\nPresione ENTER para continuar...")
+
         elif op == "5":
             print("opcion no valida en este momento...")
 
         elif op == "6":
-            d1 = input("Ingrese la fecha inicial (YYYY-MM-DD): ")
-            d2 = input("Ingrese la fecha final (YYYY-MM-DD): ")
-            sale_ins.show_range_date(d1, d2)
+            date1 = input("Desde: ")
+            date2 = input("Hasta: ")
+            sale_ins.show_range_date(date1, date2)
             input("Presione ENTER para continuar...")
 
         elif op == "7":
@@ -85,21 +88,23 @@ if __name__ == '__main__':
             sale_ins.show_by_id(id_sale)
             input("Presione ENTER para continuar...")
 
-        #  CONSULTAR CLIENTE
         elif op == "8":
-           id_client = int(input("Ingrese ID: "))
-           print(client_ins.show_client(id_client, ""))
+            id_client = int(input("Ingrese ID: "))
+            client_ins.show_client()
+            print((id_client))
+            input("Presione ENTER para continuar...")
 
-
+            
         elif op == "9":
-            stock_ins.show_stock()
+            id_inventory = int(input("Ingrese ID: "))
+            stock_ins.show_stock(id_inventory)
             input("Presione ENTER para continuar...")
 
         elif op == "10":
             print("\nREPORTE DE VENTAS")
-            d1 = input("Ingrese la fecha inicial (YYYY-MM-DD): ")
-            d2 = input("Ingrese la fecha final (YYYY-MM-DD): ")
-            sale_ins.report_sales_from_json(d1, d2)
+            date1 = input("Desde: ")
+            date2 = input("Hasta: ")
+            sale_ins.show_range_date(date1, date2)
             input("Presione ENTER para continuar...")
 
         elif op == "0":
