@@ -1,3 +1,4 @@
+import os
 from parent_classes.facture_class import Facture
 
 
@@ -24,4 +25,7 @@ class Buy(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("C:/desarrollo/music-store-console/files/buys.txt", self._sale_info)
+        base_path = os.path.dirname(os.path.abspath(__file__))  # ruta del archivo actual
+        file_path = os.path.join(base_path, "..", "files", "buys.json")  # sube un nivel y entra a 'files'
+        file_path = os.path.normpath(file_path)  # normaliza la ruta (para Windows/Linux)
+        self.write_into(file_path, self._sale_info)

@@ -1,8 +1,6 @@
 from parent_classes.facture_class import Facture
 from child_classes.functions.validations import *
-
-# clases que dan el funcionamiento de alguanas extructuras
-
+import datetime
 
 class Sale(Facture):
     def __init__(self):
@@ -21,19 +19,26 @@ class Sale(Facture):
 
     @sale.setter
     def sale(self, info):
-        # send products
-        self.update_stock(info[2], "sale")
-        i = 0
-        for key in self._sale_info:
-            self._sale_info[key] = info[i]
-            i += 1
-        self.write_into("C:/desarrollo/music-store-console/files/sale.txt", self._sale_info)
 
+        from datetime import datetime
+
+        self.update_stock(info[2], "sale")
+
+        self._sale_info["id"] = info[0]
+        self._sale_info["client"] = info[1]
+        self._sale_info["products"] = info[2]
+
+        self._sale_info["date"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        self.write_into(
+            "C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.json",
+            self._sale_info
+        )
     def show_range_date(self, date_init, date_final):
         if not valid_date(date_init) or not valid_date(date_final):
             return print("El rango de fecha es invalido")
 
-        self.container = return_exist("C:/desarrollo/music-store-console/files/sale.txt")
+        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.json")
 
         for i in range(len(self.container)):
             if date_init <= self.container[i]["date"] <= date_final or date_init >= self.container[i]["date"] >= date_final:
@@ -47,7 +52,7 @@ class Sale(Facture):
 
     
     def show_by_id(self, ide):
-        self.container = return_exist("C:/desarrollo/music-store-console/files/sale.txt")
+        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.json")
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
                 print(f"\033[36m\n-- Detalle de la compra --\033[39m")
@@ -60,8 +65,7 @@ class Sale(Facture):
                 return 0
         print("No se encuentra la compra")
 
-    def parse_date(fecha):
-        """Convierte una cadena o fecha a datetime.date. Permite 'YYYY-MM-DD', 'DD-MM-YYYY', 'DD/MM/YYYY'."""
+    def parse_date(self, fecha):
         if isinstance(fecha, datetime.date):
             return fecha
         if isinstance(fecha, datetime.datetime):
@@ -76,10 +80,7 @@ class Sale(Facture):
                 continue
         raise ValueError(f"Formato de fecha no reconocido: {fecha!r}. Use YYYY-MM-DD")
     
-    def report_sales_from_txt(self, date1, date2):
-        """
-        Lee files/sale.txt (cada línea es un JSON) y muestra las ventas entre date1 y date2 (inclusive).
-        """
+    def report_sales_from_json(self, date1, date2):
         try:
             start = self.parse_date(date1)
             end = self.parse_date(date2)
@@ -92,7 +93,7 @@ class Sale(Facture):
             return
 
         ventas = []
-        with open("C:/desarrollo/music-store-console/files/sale.txt", "r", encoding="utf-8", errors="ignore") as f:
+        with open("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/sale.json", "r", encoding="utf-8") as f:
             for ln in f:
                 ln = ln.strip()
                 if not ln:
@@ -100,15 +101,14 @@ class Sale(Facture):
                 try:
                     obj = json.loads(ln)
                 except Exception:
-                    print("Advertencia: línea de ventas inválida (se omite):", ln[:120])
+                    print("Advertencia: línea de ventas inválida:", ln[:120])
                     continue
 
-                # Normalizar campos
                 date_str = obj.get("date") or obj.get("fecha")
                 try:
                     date_obj = self.parse_date(date_str)
                 except Exception:
-                    print("Advertencia: fecha inválida en línea (se omite):", ln[:120])
+                    print("Advertencia: fecha inválida en línea:", ln[:120])
                     continue
 
                 ventas.append({
@@ -120,7 +120,7 @@ class Sale(Facture):
 
         ventas_filtradas = [v for v in ventas if start <= v["date"] <= end]
 
-        print(f"\n📊 REPORTE DE VENTAS DESDE {start.isoformat()} HASTA {end.isoformat()}")
+        print(f"\nREPORTE DE VENTAS DESDE {start.isoformat()} HASTA {end.isoformat()}")
         print("════════════════════════════════════════════════════════════\n")
         if not ventas_filtradas:
             print("No se encontraron ventas en el rango indicado.\n")
@@ -128,10 +128,10 @@ class Sale(Facture):
 
         total_productos = 0
         for i, venta in enumerate(ventas_filtradas, start=1):
-            print(f"📋 Venta #{i}")
-            print(f"   ├── ID Venta: {venta.get('id')}")
-            print(f"   ├── Cliente: {venta.get('client')}")
-            print(f"   ├── Fecha: {venta.get('date').isoformat()}")
+            print(f"Venta #{i}")
+            print(f"  ├── ID Venta: {venta.get('id')}")
+            print(f"  ├── Cliente: {venta.get('client')}")
+            print(f"  ├── Fecha: {venta.get('date').isoformat()}")
             print("   ├── Productos:")
             suma_venta = 0
             for prod, cant in (venta.get("products") or {}).items():
@@ -150,6 +150,6 @@ class Sale(Facture):
         print("┌─────────────────────────────────────────────────────────┐")
         print("│                    RESUMEN GENERAL                      │")
         print("└─────────────────────────────────────────────────────────┘\n")
-        print(f"💰 Total de ventas en el período: {len(ventas_filtradas)}")
-        print(f"📦 Total de productos vendidos: {total_productos}")
-        print(f"📅 Período consultado: {start.isoformat()} - {end.isoformat()}\n")
+        print(f"Total de ventas en el período: {len(ventas_filtradas)}")
+        print(f"Total de productos vendidos: {total_productos}")
+        print(f"Período consultado: {start.isoformat()} - {end.isoformat()}\n")

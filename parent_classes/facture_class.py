@@ -1,13 +1,11 @@
 import json
 
-
 class Facture:
     def __init__(self):
         self.dictionary = None
         self.file = None
         self.stock = None
 
-    #  Write file
     def write_into(self, path, data):
         print(path)
         self.file = open(f"{path}", "a+")
@@ -15,11 +13,10 @@ class Facture:
         self.file.write(f"{text}\n")
         self.file.close()
 
-    #  Read file
     def read_file(self, path):
         self.file = open(f"{path}", "r")
 
-        #  Read the file and convert it to a list
+
         data = self.file.read()
         data = data.split("\n")
 
@@ -29,17 +26,15 @@ class Facture:
         return dictionary
 
     def update_stock(self, products, doc):
-        self.file = open(f"C:/desarrollo/music-store-console/files/stocktaking.txt")
+        self.file = open(f"C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.json", "r")
         data = self.file.read()
         data = data.split("\n")
 
-        # array of dictionary
         dictionary = []
 
         for key in range(len(data) - 1):
             dictionary.append(json.loads(data[key]))
 
-        # Check if it is a purchase or a sale 
         if doc == "sale":
             for key in products:
                 for i in range(len(dictionary)):
@@ -51,8 +46,8 @@ class Facture:
                     if dictionary[i]["name"].lower() in key.lower():
                         dictionary[i]["lot"] += products[key]
         self.file.close()
-        self.file = open(f"C:/desarrollo/music-store-console/files/stocktaking.txt", "w")
-        self.file = open(f"C:/desarrollo/music-store-console/files/stocktaking.txt", "a+")
+        self.file = open(f"C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.json", "w")
+        self.file = open(f"C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/stocktaking.json", "a+")
         for i in range(len(dictionary)):
             text = json.dumps(dictionary[i])
             self.file.write(f"{text}\n")

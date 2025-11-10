@@ -1,0 +1,233 @@
+[
+    {
+        "id": 10,
+        "name": "clarinete",
+        "lot": 77,
+        "purchase_price": 500000,
+        "sale_price": 650000
+    },
+    {
+        "id": 11,
+        "name": "trombon",
+        "lot": 50,
+        "purchase_price": 700000,
+        "sale_price": 890000
+    },
+    {
+        "id": 12,
+        "name": "trompeta",
+        "lot": 162,
+        "purchase_price": 550000,
+        "sale_price": 720000
+    },
+    {
+        "id": 1,
+        "name": "Saxofon",
+        "lot": 95,
+        "purchase_price": 800000,
+        "sale_price": 1000000
+    },
+    {
+        "id": 2,
+        "name": "Corno",
+        "lot": 13,
+        "purchase_price": 600000,
+        "sale_price": 750000
+    },
+    {
+        "id": 3,
+        "name": "Flauta",
+        "lot": 0,
+        "purchase_price": 400000,
+        "sale_price": 520000
+    },
+    {
+        "id": 4,
+        "name": "guitarra",
+        "lot": 45,
+        "purchase_price": 350000,
+        "sale_price": 480000
+    },
+    {
+        "id": 5,
+        "name": "piano",
+        "lot": 12,
+        "purchase_price": 2500000,
+        "sale_price": 3000000
+    },
+    {
+        "id": 6,
+        "name": "violin",
+        "lot": 28,
+        "purchase_price": 600000,
+        "sale_price": 750000
+    },
+    {
+        "id": 7,
+        "name": "bateria",
+        "lot": 8,
+        "purchase_price": 1800000,
+        "sale_price": 2200000
+    },
+    {
+        "id": 8,
+        "name": "bajo",
+        "lot": 22,
+        "purchase_price": 800000,
+        "sale_price": 950000
+    },
+    {
+        "id": 9,
+        "name": "arco",
+        "lot": 35,
+        "purchase_price": 90000,
+        "sale_price": 120000
+    },
+    {
+        "id": 10,
+        "name": "platillos",
+        "lot": 15,
+        "purchase_price": 400000,
+        "sale_price": 520000
+    },
+    {
+        "id": 11,
+        "name": "boquilla",
+        "lot": 85,
+        "purchase_price": 50000,
+        "sale_price": 80000
+    },
+    {
+        "id": 12,
+        "name": "válvulas",
+        "lot": 42,
+        "purchase_price": 35000,
+        "sale_price": 60000
+    },
+    {
+        "id": 13,
+        "name": "cañas",
+        "lot": 120,
+        "purchase_price": 20000,
+        "sale_price": 40000
+    },
+    {
+        "id": 14,
+        "name": "limpieza",
+        "lot": 68,
+        "purchase_price": 25000,
+        "sale_price": 50000
+    },
+    {
+        "id": 15,
+        "name": "slide_oil",
+        "lot": 25,
+        "purchase_price": 30000,
+        "sale_price": 55000
+    },
+    {
+        "id": 16,
+        "name": "banqueta",
+        "lot": 18,
+        "purchase_price": 90000,
+        "sale_price": 130000
+    },
+    {
+        "id": 17,
+        "name": "cuerdas",
+        "lot": 95,
+        "purchase_price": 35000,
+        "sale_price": 60000
+    },
+    {
+        "id": 18,
+        "name": "púas",
+        "lot": 200,
+        "purchase_price": 5000,
+        "sale_price": 10000
+    },
+    {
+        "id": 19,
+        "name": "amplificador",
+        "lot": 14,
+        "purchase_price": 900000,
+        "sale_price": 1100000
+    },
+    {
+        "id": 20,
+        "name": "estuche",
+        "lot": 32,
+        "purchase_price": 60000,
+        "sale_price": 90000
+    },
+    {
+        "id": 21,
+        "name": "baquetas",
+        "lot": 55,
+        "purchase_price": 20000,
+        "sale_price": 35000
+    },
+    {
+        "id": 22,
+        "name": "partitura",
+        "lot": 180,
+        "purchase_price": 10000,
+        "sale_price": 20000
+    },
+    {
+        "id": 23,
+        "name": "cables",
+        "lot": 75,
+        "purchase_price": 25000,
+        "sale_price": 45000
+    },
+    {
+        "id": 24,
+        "name": "microfono",
+        "lot": 16,
+        "purchase_price": 200000,
+        "sale_price": 280000
+    },
+    {
+        "id": 25,
+        "name": "auriculares",
+        "lot": 28,
+        "purchase_price": 80000,
+        "sale_price": 120000
+    },
+    {
+        "id": 26,
+        "name": "metrónomo",
+        "lot": 12,
+        "purchase_price": 70000,
+        "sale_price": 100000
+    },
+    {
+        "id": 27,
+        "name": "afinador",
+        "lot": 35,
+        "purchase_price": 60000,
+        "sale_price": 90000
+    },
+    {
+        "id": 28,
+        "name": "soporte_partitura",
+        "lot": 22,
+        "purchase_price": 40000,
+        "sale_price": 70000
+    },
+    {
+        "id": 29,
+        "name": "atril",
+        "lot": 18,
+        "purchase_price": 30000,
+        "sale_price": 60000
+    },
+    {
+        "id": 30,
+        "name": "fundas",
+        "lot": 45,
+        "purchase_price": 25000,
+        "sale_price": 50000
+    }
+]
