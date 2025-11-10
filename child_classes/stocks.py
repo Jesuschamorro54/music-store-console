@@ -3,7 +3,7 @@ import json
 import os
 
 class Stock:
-    def __init__(self, id, name, lot, purchase_price, sale_price):
+    def _init_(self, id, name, lot, purchase_price, sale_price):
         self.id = id
         self.name = name
         self.lot = lot
@@ -18,11 +18,23 @@ class Stock:
             "purchase_price": None,
             "sale_price": None,
         }
-class StockManager:
-    def __init__(self):
-        self.file_path = os.path.join("files", "stock.json")
-        os.makedirs("files", exist_ok=True)
-        self.stocks = self.load_stock()
+
+    @property
+    def stock(self):
+        return self._stock_info
+
+    @stock.setter
+    def stock(self, info):
+        i = 0
+        for key in self._stock_info:
+            self._stock_info[key] = info[i]
+            i += 1
+        ("stocktaking.json", self._stock_info)
+
+    def show_stock(self, ide):
+        file_path = get_file_path("stocktaking.json")
+        self.container = return_exist(file_path)
+
 
     def load_stock(self):
         if not os.path.exists(self.file_path):

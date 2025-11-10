@@ -19,7 +19,7 @@ from child_classes.functions.methods import (
 # Instancias globales
 client_ins = Client()
 supplier_ins = Supplier()
-stock_ins = StockManager()
+stock_ins = Stock()
 buy_ins = Buy()
 sale_ins = Sale()
 
