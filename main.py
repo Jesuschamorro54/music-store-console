@@ -8,7 +8,7 @@ from child_classes.functions.methods import make_sale_buy
 
 client_ins = Client()
 supplier_ins = Supplier()
-stock_ins = Stock()
+stock_ins = StockManager()
 buy_ins = Buy()
 sale_ins = Sale()
 
