@@ -68,4 +68,4 @@ class StockManager:
         }
         self.stocks.append(new_product)
         self.save_stock()
-        print(f"✅ Producto '{name}' agregado correctamente al inventario.")
+        print(f"Producto '{name}' agregado correctamente al inventario.")

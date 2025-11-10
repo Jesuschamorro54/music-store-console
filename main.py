@@ -90,9 +90,9 @@ if __name__ == '__main__':
 
         elif op == "8":
             id_client = int(input("Ingrese ID: "))
-            client_ins.show_client()
-            print((id_client))
+            client_ins.show_client(id_client, )
             input("Presione ENTER para continuar...")
+
 
             
         elif op == "9":
