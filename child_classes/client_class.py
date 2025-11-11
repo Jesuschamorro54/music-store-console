@@ -8,11 +8,15 @@ class Client(Entity):
         super().__init__()
         self.container = None
         self._client_info = {
-            "id": None,
-            "name": None,
-            "last_name": None,
-            "email": None,
-            "cellphone": None}
+            "ID": None,
+            "Nombre": None,
+            "Email": None,
+            "Telefono": None
+        }
+
+        base_dir = os.path.dirname(os.path.abspath(__file__)) 
+        self.file_path = os.path.join(base_dir, "..", "files", "client.json")  
+        self.file_path = os.path.normpath(self.file_path)  
 
     @property
     def client(self):
@@ -25,22 +29,18 @@ class Client(Entity):
             self._client_info[key] = info[i]
             i += 1
 
-        # Construir la ruta relativa al proyecto
-        # base_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está este archivo .py
-        # file_path = os.path.join(base_dir, "files", "client.txt")
+        self.write_into(self.file_path, self._client_info)
 
-        # self.write_into(file_path, self._client_info)
-        self.write_into("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.json", self._client_info)
+    def show_client(self, ide=None, name=None):
+        self.container = return_exist(self.file_path)
 
-    def show_client(self, ide, name):
-        self.container = return_exist("C:/Users/LAPTOP/Desktop/proyecto semestre 2/music-store-console/files/client.json")
+        for client in self.container:
+            full_name = f"{client['name']} {client['last_name']}"
+            if (ide is None or client["id"] == ide) and (name is None or name.lower() in full_name.lower()):
+                print(f"|ID          |: {client['id']}")
+                print(f"|Nombre      |: {full_name}")
+                print(f"|Email       |: {client['email']}")
+                print(f"|Celular     |: {client['cellphone']}")
+                return
 
-        for i in range(len(self.container)):
-            name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]
-            if self.container[i]["id"] == ide and name.lower() in name_complet.lower():
-                print(f"|ID            |: {self.container[i]['id']}")
-                print(f"|Name            |: {name_complet}")
-                print(f"|Email           |: {self.container[i]['email']}")
-                print(f"|Cellphhone      |: {self.container[i]['cellphone']}")
-                return 0
         print("No se encuentra el cliente")

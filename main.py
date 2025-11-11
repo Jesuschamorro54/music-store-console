@@ -27,11 +27,12 @@ while True:
     __________________________________________________________________
     -----------------------------| MENU |-----------------------------
         
-    |  1. REGISTRAR CLIENTE   \t\t 6. CONSULTAR VENTAS POR FECHAS  |
-    |  2. REGISTRAR PROVEEDOR \t\t 7. CONSULTAR VENTA POR FACTURA  |
-    |  3. REGISTRAR VENTA     \t\t 8. CONSULTAR CLIENTE            |
-    |  4. REGISTRAR COMPRAS   \t\t 9. CONSULTAR INVENTARIO         |
-    |                         \t\t 0. SALIR                        |
+    |  1. REGISTRAR CLIENTE    \t\t 6.  CONSULTAR VENTAS POR FECHAS  |
+    |  2. REGISTRAR PROVEEDOR  \t\t 7.  CONSULTAR VENTA POR FACTURA  |
+    |  3. REGISTRAR VENTA      \t\t 8.  CONSULTAR CLIENTE            |
+    |  4. REGISTRAR COMPRAS    \t\t 9.  CONSULTAR INVENTARIO         |
+    |  5. AGREGAR INVENTARIO   \t\t 10. REPORTES DE VENTAS           |
+    |  0. SALIR                \t\t                                  |
     
     Option: """
     )
@@ -41,16 +42,28 @@ while True:
 
  
     if op == "1":
-        data = client_ins.capture_data()
+        print("\n--- Registro de Cliente ---")
+        client_ins = Client()
+        data = []
+        for campo in client_ins.client.keys():
+            valor = input(f"Ingrese {campo}: ").strip()
+            data.append(valor)
         client_ins.client = data
-        print("\n\033[32m✓ Registro exitoso\033[39m")
+        print("\n\033[32m✓ Cliente registrado exitosamente\033[39m")
         input("Presione ENTER para continuar...")
 
     elif op == "2":
-        data = supplier_ins.capture_data()
+        print("\nREGISTRO DE PROVEEDOR")
+        print("═══════════════════════════")
+        supplier_ins = Supplier()
+        data = []
+        for campo in supplier_ins.supplier.keys():
+            valor = input(f"Ingrese {campo}: ").strip()
+            data.append(valor)
         supplier_ins.supplier = data
-        print("\n\033[32m✓ Registro exitoso\033[39m")
+        print("\n\033[32m✓ Proveedor registrado exitosamente\033[39m")
         input("Presione ENTER para continuar...")
+
 
     elif op == "3":
         data = make_sale_buy("client")
@@ -64,6 +77,10 @@ while True:
             buy_ins.buy = data
             print("\n\033[32m✓ Compra registrada exitosamente\033[39m")
         input("\nPresione ENTER para continuar...")
+
+    elif op == "5":
+        print("\033[31mOpción inválida. Intente nuevamente cuando este activa...\033[39m")
+        input("Presione ENTER para continuar...")
    
     elif op == "6":
         date1 = input("Desde: ")
@@ -80,14 +97,18 @@ while True:
     
     elif op == "8":
         id_client = int(input("Ingrese ID: "))
-        name_client = input("Ingrese nombre: ")
-        client_ins.show_client(id_client, name_client)
+        client_ins.show_client(id_client,)
         input("Presione ENTER para continuar...")
 
    
     elif op == "9":
-        id_inventory = int(input("Ingrese ID: "))
-        stock_ins.show_stock(id_inventory)
+        stock_ins.show_stock()
+        input("Presione ENTER para continuar...")
+
+    elif op == "10":
+        sale = Sale()
+        sale.reporte_ventas()
+
         input("Presione ENTER para continuar...")
 
     elif op == "0":

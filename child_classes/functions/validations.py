@@ -1,6 +1,7 @@
 import json
 import os
 
+
 # ---------------------------
 # Función para obtener rutas dinámicas
 # ---------------------------

@@ -208,7 +208,26 @@
         "last_name": "gonzalez",
         "email": "cg0954610@gmail.com",
         "cellphone": 3045810613
-    }
-    
-]{"id": 2121, "name": "carlos", "last_name": "gonzalez", "email": "carlos12@cg21", "cellphone": 32145865}
-{"id": 20211, "name": "carlos", "last_name": "padilla", "email": "cars@jaj123", "cellphone": 312933493}
+    },
+    {
+        "id": 2121,
+        "name": "carlos",
+        "last_name": "gonzalez",
+        "email": "carlos12@cg21",
+        "cellphone": 32145865
+    },
+    {
+        "id": 20211,
+        "name": "carlos",
+        "last_name": "padilla",
+        "email": "cars@jaj123",
+        "cellphone": 312933493
+    },
+    {
+            "id": "2121",
+            "name": "carlos",
+            "last_name": "carlos",
+            "email": "nashbdb@kan123",
+            "cellphone": "32234842"
+        }
+]        
