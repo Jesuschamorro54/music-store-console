@@ -12,13 +12,10 @@ stock_ins = StockManager()
 buy_ins = Buy()
 sale_ins = Sale()
 
-
 def clear_screen():
     """Limpia la consola (Windows/Linux/Mac)."""
     os.system("cls" if os.name == "nt" else "clear")
 
-
-# Init the application
 while True:
     op = input(
         """\033[32m
@@ -37,10 +34,8 @@ while True:
     Option: """
     )
 
-  
     clear_screen()
 
- 
     if op == "1":
         print("\n--- Registro de Cliente ---")
         client_ins = Client()
@@ -63,7 +58,6 @@ while True:
         supplier_ins.supplier = data
         print("\n\033[32m✓ Proveedor registrado exitosamente\033[39m")
         input("Presione ENTER para continuar...")
-
 
     elif op == "3":
         data = make_sale_buy("client")
@@ -88,27 +82,25 @@ while True:
         sale_ins.show_range_date(date1, date2)
         input("Presione ENTER para continuar...")
 
-    
+
     elif op == "7":
         id_sale = int(input("Ingrese ID: "))
         sale_ins.show_by_id(id_sale)
         input("Presione ENTER para continuar...")
-
     
     elif op == "8":
         id_client = int(input("Ingrese ID: "))
         client_ins.show_client(id_client,)
         input("Presione ENTER para continuar...")
-
    
     elif op == "9":
         stock_ins.show_stock()
         input("Presione ENTER para continuar...")
 
     elif op == "10":
-        sale = Sale()
-        sale.reporte_ventas()
-
+        date1 = input("Desde: ")
+        date2 = input("Hasta: ")
+        sale_ins.show_range_date(date1, date2)
         input("Presione ENTER para continuar...")
 
     elif op == "0":

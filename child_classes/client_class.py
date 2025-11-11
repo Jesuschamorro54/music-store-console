@@ -2,7 +2,6 @@ import os
 from parent_classes.entity_class import Entity
 from child_classes.functions.methods import *
 
-
 class Client(Entity):
     def __init__(self):
         super().__init__()

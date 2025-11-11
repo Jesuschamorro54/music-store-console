@@ -16,7 +16,6 @@ class Facture:
     def read_file(self, path):
         self.file = open(f"{path}", "r")
 
-
         data = self.file.read()
         data = data.split("\n")
 

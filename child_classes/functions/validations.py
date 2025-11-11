@@ -1,23 +1,12 @@
 import json
 import os
 
-
-# ---------------------------
-# Función para obtener rutas dinámicas
-# ---------------------------
 def get_file_path(filename):
-    """
-    Retorna la ruta absoluta del archivo dentro de la carpeta 'files'
-    sin importar desde qué computador se ejecute el proyecto.
-    """
-    base_path = os.path.dirname(os.path.abspath(__file__))   # ruta actual (este archivo)
-    file_path = os.path.join(base_path, "..", "..", "files", filename)  # sube dos niveles y entra en 'files'
-    return os.path.normpath(file_path)  # normaliza la ruta (funciona igual en Windows y Linux)
+   
+    base_path = os.path.dirname(os.path.abspath(__file__))   
+    file_path = os.path.join(base_path, "..", "..", "files", filename) 
+    return os.path.normpath(file_path)  
 
-
-# ---------------------------
-# Define el siguiente ID disponible
-# ---------------------------
 def define_id(filename):
     path = get_file_path(filename)
 
@@ -33,7 +22,7 @@ def define_id(filename):
 
     ids = [item["id"] for item in dictionary if "id" in item]
 
-    if ids:  # si hay ids existentes
+    if ids:  
         while True:
             if ide in ids:
                 ide += 1
@@ -44,20 +33,12 @@ def define_id(filename):
 
     return ide
 
-
-# ---------------------------
-# Retorna el contenido de un archivo JSON
-# ---------------------------
 def return_exist(filename):
     path = get_file_path(filename)
     with open(path, "r", encoding="utf-8") as file:
         data = json.load(file)
     return data
 
-
-# ---------------------------
-# Verifica si un elemento ya existe por nombre
-# ---------------------------
 def validate_exist(filename, name):
     container = return_exist(filename)
     result = [False, None]
@@ -69,10 +50,6 @@ def validate_exist(filename, name):
             return result
     return result
 
-
-# ---------------------------
-# Valida que el lote sea correcto
-# ---------------------------
 def valid_lot(product, lot):
     container = return_exist("stocktaking.json")
 
@@ -81,10 +58,6 @@ def valid_lot(product, lot):
             return False
     return True
 
-
-# ---------------------------
-# Valida el formato y rango de una fecha
-# ---------------------------
 def valid_date(date):
     if date == '' or len(date) != 10:
         print("Invalid date")

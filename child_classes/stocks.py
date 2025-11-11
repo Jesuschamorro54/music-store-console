@@ -12,12 +12,13 @@ class Stock:
         self.file = None
         self.container = None
         self._stock_info = {
-            "id": None,
-            "name": None,
-            "lot": None,
-            "purchase_price": None,
-            "sale_price": None,
+            "ID": None,
+            "Name": None,
+            "Lot": None,
+            "Purchase_price": None,
+            "Sale_price": None,
         }
+
 class StockManager:
     def __init__(self):
         self.file_path = os.path.join("files", "stock.json")
@@ -68,4 +69,4 @@ class StockManager:
         }
         self.stocks.append(new_product)
         self.save_stock()
-        print(f"✅ Producto '{name}' agregado correctamente al inventario.")
+        print(f"Producto '{name}' agregado correctamente al inventario.")

@@ -1,14 +1,13 @@
 from parent_classes.entity_class import Entity
 
-
 class Supplier(Entity):
     def __init__(self):
         super().__init__()
         self._supplier_info = {
-            "id": None,
-            "name": None,
-            "email": None,
-            "cellphone": None}
+            "ID": None,
+            "Nombre": None,
+            "Email": None,
+            "Telefono": None}
 
     @property
     def supplier(self):
