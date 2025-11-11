@@ -20,20 +20,19 @@ class Client(Entity):
 
     @client.setter
     def client(self, info):
-        i = 0
-        for key in self._client_info:
+        
+        for i, key in enumerate(self._client_info):
             self._client_info[key] = info[i]
-            i += 1
+            
 
         # Construir la ruta relativa al proyecto
         # base_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está este archivo .py
         # file_path = os.path.join(base_dir, "files", "client.json")
 
         # self.write_into(file_path, self._client_info)
-        self.write_into("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/client.json", self._client_info)
-
+        self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/files/client.json")
     def show_client(self, ide, name):
-        self.container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/client.json", self._client_info)
+        self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/files/client.json")
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]

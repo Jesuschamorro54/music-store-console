@@ -2,161 +2,193 @@
     {
         "id": 10,
         "name": "clarinete",
-        "lot": 77
+        "lot": 77,
+        "price": 490060
     },
     {
         "id": 11,
         "name": "trombon",
-        "lot": 50
+        "lot": 50,
+        "price": 128657
     },
     {
         "id": 12,
         "name": "trompeta",
-        "lot": 162
+        "lot": 162,
+        "price": 297854
     },
     {
         "id": 1,
         "name": "Saxofon",
-        "lot": 95
+        "lot": 95,
+        "price": 181241
     },
     {
         "id": 2,
         "name": "Corno",
-        "lot": 13
+        "lot": 13,
+        "price": 453901
     },
     {
         "id": 3,
         "name": "Flauta",
-        "lot": 0
+        "lot": 0,
+        "price": 139353
     },
     {
         "id": 4,
         "name": "guitarra",
-        "lot": 45
+        "lot": 45,
+        "price": 476839
     },
     {
         "id": 5,
         "name": "piano",
-        "lot": 12
+        "lot": 12,
+        "price": 264356
     },
     {
         "id": 6,
         "name": "violin",
-        "lot": 28
+        "lot": 28,
+        "price": 488393
     },
     {
         "id": 7,
         "name": "bateria",
-        "lot": 8
+        "lot": 8,
+        "price": 180901
     },
     {
         "id": 8,
         "name": "bajo",
-        "lot": 22
+        "lot": 22,
+        "price": 248182
     },
     {
         "id": 9,
         "name": "arco",
-        "lot": 35
+        "lot": 35,
+        "price": 146570
     },
     {
         "id": 10,
         "name": "platillos",
-        "lot": 15
+        "lot": 15,
+        "price": 256286
     },
     {
         "id": 12,
         "name": "válvulas",
-        "lot": 42
+        "lot": 42,
+        "price": 460856
     },
     {
         "id": 13,
         "name": "cañas",
-        "lot": 120
+        "lot": 120,
+        "price": 131076
     },
     {
         "id": 14,
         "name": "limpieza",
-        "lot": 68
+        "lot": 68,
+        "price": 484101
     },
     {
         "id": 15,
         "name": "slide_oil",
-        "lot": 25
+        "lot": 25,
+        "price": 359673
     },
     {
         "id": 16,
         "name": "banqueta",
-        "lot": 18
+        "lot": 18,
+        "price": 294380
     },
     {
         "id": 17,
         "name": "cuerdas",
-        "lot": 95
+        "lot": 95,
+        "price": 423246
     },
     {
         "id": 18,
         "name": "púas",
-        "lot": 200
+        "lot": 200,
+        "price": 156518
     },
     {
         "id": 19,
         "name": "amplificador",
-        "lot": 14
+        "lot": 14,
+        "price": 354264
     },
     {
         "id": 20,
         "name": "estuche",
-        "lot": 32
+        "lot": 32,
+        "price": 148433
     },
     {
         "id": 21,
         "name": "baquetas",
-        "lot": 55
+        "lot": 55,
+        "price": 307058
     },
     {
         "id": 22,
         "name": "partitura",
-        "lot": 180
+        "lot": 180,
+        "price": 482847
     },
     {
         "id": 23,
         "name": "cables",
-        "lot": 75
+        "lot": 75,
+        "price": 188791
     },
     {
         "id": 24,
         "name": "microfono",
-        "lot": 16
+        "lot": 16,
+        "price": 291371
     },
     {
         "id": 25,
         "name": "auriculares",
-        "lot": 28
+        "lot": 28,
+        "price": 114203
     },
     {
         "id": 26,
         "name": "metrónomo",
-        "lot": 12
+        "lot": 12,
+        "price": 403323
     },
     {
         "id": 27,
         "name": "afinador",
-        "lot": 35
+        "lot": 35,
+        "price": 313217
     },
     {
         "id": 28,
         "name": "soporte_partitura",
-        "lot": 22
+        "lot": 22,
+        "price": 123115
     },
     {
         "id": 29,
         "name": "atril",
-        "lot": 18
+        "lot": 18,
+        "price": 226097
     },
     {
         "id": 30,
         "name": "fundas",
-        "lot": 45
+        "lot": 45,
+        "price": 403757
     }
 ]

@@ -27,13 +27,13 @@ class Sale(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-        self.write_into("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/sale.json", self._sale_info)
+        self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json", self._sale_info)
 
     def show_range_date(self, date_init, date_final):
         if not valid_date(date_init) and not valid_date(date_final):
             return print("El rango de fecha es invalido")
 
-        self.container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/sale.json", self._client_info)
+        self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json")
 
         for i in range(len(self.container)):
             if date_init <= self.container[i]["date"] <= date_final or date_init >= self.container[i]["date"] >= date_final:
@@ -46,7 +46,7 @@ class Sale(Facture):
                 print(f"|Date      | -> |{self.container[i]['date']}|")
 
     def show_by_id(self, ide):
-        self.container = return_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/sale.json", self._client_info)
+        self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json")
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
                 print(f"\033[36m\n-- Detalle de la compra --\033[39m")

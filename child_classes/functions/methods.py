@@ -55,7 +55,7 @@ def add_entity_func(lock):
 
 # add inventory
 def add_stock_func():
-    ide = define_id("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.json")
+    ide = define_id("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json")
     lot = None
     capsule = []
 
@@ -79,8 +79,8 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/sale.json") if entity == "client" else define_id(
-        "C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/buys.json")
+    ide = define_id("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json") if entity == "client" else define_id(
+        "C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/buys.json")
     product = {}
     capsule = []
 
@@ -91,7 +91,7 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/client.json", name_entity)
+            valid = validate_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/client.json", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -99,7 +99,7 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-            valid = validate_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/supplier.json", name_entity)
+            valid = validate_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/supplier.json", name_entity)
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -112,7 +112,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist("C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.json", name)
+            valid = validate_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", name)
             if valid[0]:
                 val = False
             else:

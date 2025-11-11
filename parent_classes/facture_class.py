@@ -29,7 +29,7 @@ class Facture:
         return dictionary
 
     def update_stock(self, products, doc):
-        self.file = open(f"C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.json")
+        self.file = open(f"C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json")
         data = self.file.read()
         data = data.split("\n")
 
@@ -51,8 +51,8 @@ class Facture:
                     if dictionary[i]["name"].lower() in key.lower():
                         dictionary[i]["lot"] += products[key]
         self.file.close()
-        self.file = open(f"C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.json", "w")
-        self.file = open(f"C:/Users/ESTUDIANTES/Documents/fundamntos_xd/music-store-console/files/stocktaking.json", "a+")
+        self.file = open(f"C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", "w")
+        self.file = open(f"C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", "a+")
         for i in range(len(dictionary)):
             text = json.dumps(dictionary[i])
             self.file.write(f"{text}\n")
