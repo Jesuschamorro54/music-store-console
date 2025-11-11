@@ -60,7 +60,7 @@ while True:
         input("Presione ENTER para continuar...")
 
     elif op == "3":
-        data = make_sale_buy("client")
+        data = Sale("client")
         if data: 
             sale_ins.sale = data
         input("\nPresione ENTER para continuar...")
