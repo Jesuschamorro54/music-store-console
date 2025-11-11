@@ -62,31 +62,31 @@ while True:
         input()
 
     #  CONSULTAR VENTA POR FECHA
-    elif op == "6":
+    elif op == "5":
         date1 = input("Desde: ")
         date2 = input("Hasta: ")
         sale_ins.show_range_date(date1, date2)
         input()
 
     #  CONSULTAR VENTA POR FACTURA
-    elif op == "7":
+    elif op == "6":
         id_sale = int(input("Ingrese ID: "))
         sale_ins.show_by_id(id_sale)
         input()
 
     #  CONSULTAR CLIENTE
-    elif op == "8":
+    elif op == "7":
         id_client = int(input("Ingrese ID: "))
         name_client = input("Ingrese nombre: ")
         client_ins.show_client(id_client, name_client)
         input()
 
     #  CONSULTAR INVENTARIO
-    elif op == "9":
+    elif op == "8":
         id_inventory = int(input("Ingrese ID: "))
         stock_ins.show_stock(id_inventory)
         input()
-    elif op == "10":
+    elif op == "9":
         date1 = input("Desde: ")
         date2 = input("Hasta: ")
         sale_ins.show_range_date(date1, date2)

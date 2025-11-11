@@ -1,128 +1,913 @@
 [
     {
-    "id": 1, 
-    "supplier": 1245, 
-    "products": {"trombon": 5}, 
-    "date": "2021-05-22"
+        "id": 1,
+        "supplier": 1245,
+        "products": {
+            "trombon": 5
+        },
+        "date": "2021-05-22"
     },
-
-
     {
-    "id": 2, 
-    "supplier": 1234, 
-    "products": {"saxofon": 7},
-    "date": "2021-05-22"
-    },    
-
-
-    {"id": 3, 
-    "supplier": 1234, 
-    "products": {"saxofon": 10, "Trompeta": 15},
-    "date": "2021-06-01"
+        "id": 2,
+        "supplier": 1234,
+        "products": {
+            "saxofon": 7
+        },
+        "date": "2021-05-22"
     },
-
-    {"id": 4, 
-    "supplier": 1234, 
-    "products": {"clarinete": 2, 
-    "Trompeta": 15}, 
-    "date": "2021-06-01"
-    },
-
-
     {
-    "id": 5, 
-    "supplier": 1234, 
-    "products": {"clarinete": 5, 
-    "trompeta": 15}, 
-    "date": "2021-06-01"
+        "id": 3,
+        "supplier": 1234,
+        "products": {
+            "saxofon": 10,
+            "Trompeta": 15
+        },
+        "date": "2021-06-01"
     },
-
-    
-    {"id": 6, "supplier": 1234, "products": {"clarinete": 5, "trompeta": 5}, "date": "2021-06-01"},
-    {"id": 7, "supplier": 1234, "products": {"clarinete": 5, "trompeta": 5, "saxofon": 5}, "date": "2021-06-03"},
-    {"id": 8, "supplier": 1234, "products": {"clarinete": 5, "Trompeta": 5, "saxofon": 5}, "date": "2021-06-03"},
-    {"id": 9, "supplier": 1234, "products": {"clarinete": 5, "trombon": 5, "trompeta": 5, "saxofon": 5}, "date": "2021-06-04"},
-    {"id": 10, "supplier": 1234, "products": {"clarinete": 5, "Trompeta": 5}, "date": "2021-06-04"},
-    {"id": 11, "supplier": 1234, "products": {"trompeta": 2, "clarinete": 8}, "date": "2021-06-03"},
-    {"id": 12, "supplier": 1234, "products": {"flauta": 5, "corno": 15, "saxofon": 20}, "date": "2021-06-04"},
-    {"id": 13, "supplier": 3001, "products": {"guitarra": 10, "cuerdas": 50, "púas": 100}, "date": "2024-01-10"},
-    {"id": 14, "supplier": 3002, "products": {"piano": 5, "banqueta": 8, "partitura": 50}, "date": "2024-01-15"},
-    {"id": 15, "supplier": 3003, "products": {"violin": 8, "arco": 12, "estuche": 10}, "date": "2024-01-20"},
-    {"id": 16, "supplier": 3004, "products": {"bateria": 3, "baquetas": 20, "platillos": 8}, "date": "2024-01-25"},
-    {"id": 17, "supplier": 3005, "products": {"bajo": 6, "amplificador": 4, "cables": 15}, "date": "2024-02-01"},
-    {"id": 18, "supplier": 3006, "products": {"saxofon": 12, "boquilla": 25, "cañas": 60}, "date": "2024-02-05"},
-    {"id": 19, "supplier": 3007, "products": {"trompeta": 8, "válvulas": 20, "estuche": 8}, "date": "2024-02-10"},
-    {"id": 20, "supplier": 3008, "products": {"clarinete": 15, "boquilla": 20, "cañas": 80}, "date": "2024-02-15"},
-    {"id": 21, "supplier": 3009, "products": {"flauta": 10, "limpieza": 25, "estuche": 10}, "date": "2024-02-20"},
-    {"id": 22, "supplier": 3010, "products": {"trombon": 6, "slide_oil": 15, "estuche": 6}, "date": "2024-02-25"},
-    {"id": 23, "supplier": 3011, "products": {"piano": 4, "partitura": 75, "banqueta": 6}, "date": "2024-03-01"},
-    {"id": 24, "supplier": 3012, "products": {"guitarra": 8, "amplificador": 6, "cuerdas": 40}, "date": "2024-03-05"},
-    {"id": 25, "supplier": 3013, "products": {"violin": 10, "arco": 15, "fundas": 12}, "date": "2024-03-10"},
-    {"id": 26, "supplier": 3014, "products": {"bateria": 5, "platillos": 12, "baquetas": 25}, "date": "2024-03-15"},
-    {"id": 27, "supplier": 3015, "products": {"bajo": 8, "estuche": 8, "cables": 20}, "date": "2024-03-20"},
-    {"id": 28, "supplier": 3016, "products": {"saxofon": 15, "boquilla": 30, "cañas": 100}, "date": "2024-03-25"},
-    {"id": 29, "supplier": 3017, "products": {"trompeta": 12, "válvulas": 30, "estuche": 12}, "date": "2024-04-01"},
-    {"id": 30, "supplier": 3018, "products": {"clarinete": 20, "boquilla": 25, "cañas": 120}, "date": "2024-04-05"},
-    {"id": 31, "supplier": 3019, "products": {"flauta": 15, "limpieza": 35, "estuche": 15}, "date": "2024-04-10"},
-    {"id": 32, "supplier": 3020, "products": {"trombon": 8, "slide_oil": 20, "estuche": 8}, "date": "2024-04-15"},
-    {"id": 33, "supplier": 3001, "products": {"guitarra": 12, "púas": 150, "cuerdas": 60}, "date": "2024-04-20"},
-    {"id": 34, "supplier": 3002, "products": {"piano": 6, "partitura": 100, "banqueta": 10}, "date": "2024-04-25"},
-    {"id": 35, "supplier": 3003, "products": {"violin": 12, "arco": 18, "fundas": 15}, "date": "2024-05-01"},
-    {"id": 36, "supplier": 3004, "products": {"bateria": 6, "platillos": 15, "baquetas": 30}, "date": "2024-05-05"},
-    {"id": 37, "supplier": 3005, "products": {"bajo": 10, "amplificador": 8, "cables": 25}, "date": "2024-05-10"},
-    {"id": 38, "supplier": 3006, "products": {"saxofon": 18, "boquilla": 35, "cañas": 140}, "date": "2024-05-15"},
-    {"id": 39, "supplier": 3007, "products": {"trompeta": 15, "válvulas": 40, "estuche": 15}, "date": "2024-05-20"},
-    {"id": 40, "supplier": 3008, "products": {"clarinete": 25, "boquilla": 30, "cañas": 150}, "date": "2024-05-25"},
-    {"id": 41, "supplier": 3009, "products": {"flauta": 20, "limpieza": 45, "estuche": 20}, "date": "2024-06-01"},
-    {"id": 42, "supplier": 3010, "products": {"trombon": 10, "slide_oil": 25, "estuche": 10}, "date": "2024-06-05"},
-    {"id": 43, "supplier": 3011, "products": {"piano": 8, "partitura": 125, "banqueta": 12}, "date": "2024-06-10"},
-    {"id": 44, "supplier": 3012, "products": {"guitarra": 15, "amplificador": 10, "cuerdas": 75}, "date": "2024-06-15"},
-    {"id": 45, "supplier": 3013, "products": {"violin": 15, "arco": 20, "fundas": 18}, "date": "2024-06-20"},
-    {"id": 46, "supplier": 3014, "products": {"bateria": 8, "platillos": 20, "baquetas": 40}, "date": "2024-06-25"},
-    {"id": 47, "supplier": 3015, "products": {"bajo": 12, "estuche": 12, "cables": 30}, "date": "2024-07-01"},
-    {"id": 48, "supplier": 3016, "products": {"saxofon": 20, "boquilla": 40, "cañas": 180}, "date": "2024-07-05"},
-    {"id": 49, "supplier": 3017, "products": {"trompeta": 18, "válvulas": 50, "estuche": 18}, "date": "2024-07-10"},
-    {"id": 50, "supplier": 3018, "products": {"clarinete": 30, "boquilla": 35, "cañas": 200}, "date": "2024-07-15"},
-    {"id": 51, "supplier": 3019, "products": {"flauta": 25, "limpieza": 55, "estuche": 25}, "date": "2024-07-20"},
-    {"id": 52, "supplier": 3020, "products": {"trombon": 12, "slide_oil": 30, "estuche": 12}, "date": "2024-07-25"},
-    {"id": 53, "supplier": 3001, "products": {"microfono": 8, "auriculares": 15, "cables": 20}, "date": "2024-08-01"},
-    {"id": 54, "supplier": 3002, "products": {"metrónomo": 6, "afinador": 10, "atril": 8}, "date": "2024-08-05"},
-    {"id": 55, "supplier": 3003, "products": {"soporte_partitura": 12, "fundas": 25, "estuche": 15}, "date": "2024-08-10"},
-    {"id": 56, "supplier": 3004, "products": {"guitarra": 18, "amplificador": 12, "púas": 200}, "date": "2024-08-15"},
-    {"id": 57, "supplier": 3005, "products": {"piano": 10, "partitura": 150, "banqueta": 15}, "date": "2024-08-20"},
-    {"id": 58, "supplier": 3006, "products": {"violin": 18, "arco": 25, "fundas": 20}, "date": "2024-08-25"},
-    {"id": 59, "supplier": 3007, "products": {"bateria": 10, "platillos": 25, "baquetas": 50}, "date": "2024-09-01"},
-    {"id": 60, "supplier": 3008, "products": {"bajo": 15, "estuche": 15, "cables": 35}, "date": "2024-09-05"},
-    {"id": 61, "supplier": 3009, "products": {"saxofon": 25, "boquilla": 45, "cañas": 220}, "date": "2024-09-10"},
-    {"id": 62, "supplier": 3010, "products": {"trompeta": 22, "válvulas": 60, "estuche": 22}, "date": "2024-09-15"},
-    {"id": 63, "supplier": 3011, "products": {"clarinete": 35, "boquilla": 40, "cañas": 250}, "date": "2024-09-20"},
-    {"id": 64, "supplier": 3012, "products": {"flauta": 30, "limpieza": 65, "estuche": 30}, "date": "2024-09-25"},
-    {"id": 65, "supplier": 3013, "products": {"trombon": 15, "slide_oil": 35, "estuche": 15}, "date": "2024-10-01"},
-    {"id": 66, "supplier": 3014, "products": {"piano": 12, "partitura": 175, "banqueta": 18}, "date": "2024-10-05"},
-    {"id": 67, "supplier": 3015, "products": {"guitarra": 20, "amplificador": 15, "cuerdas": 90}, "date": "2024-10-10"},
-    {"id": 68, "supplier": 3016, "products": {"violin": 20, "arco": 30, "fundas": 25}, "date": "2024-10-15"},
-    {"id": 69, "supplier": 3017, "products": {"bateria": 12, "platillos": 30, "baquetas": 60}, "date": "2024-10-20"},
-    {"id": 70, "supplier": 3018, "products": {"bajo": 18, "estuche": 18, "cables": 40}, "date": "2024-10-25"},
-    {"id": 71, "supplier": 3019, "products": {"saxofon": 30, "boquilla": 50, "cañas": 260}, "date": "2024-11-01"},
-    {"id": 72, "supplier": 3020, "products": {"trompeta": 25, "válvulas": 70, "estuche": 25}, "date": "2024-11-05"},
-    {"id": 73, "supplier": 3001, "products": {"clarinete": 40, "boquilla": 45, "cañas": 300}, "date": "2024-11-10"},
-    {"id": 74, "supplier": 3002, "products": {"flauta": 35, "limpieza": 75, "estuche": 35}, "date": "2024-11-15"},
-    {"id": 75, "supplier": 3003, "products": {"trombon": 18, "slide_oil": 40, "estuche": 18}, "date": "2024-11-20"},
-    {"id": 76, "supplier": 3004, "products": {"piano": 15, "partitura": 200, "banqueta": 20}, "date": "2024-11-25"},
-    {"id": 77, "supplier": 3005, "products": {"guitarra": 25, "amplificador": 18, "cuerdas": 120}, "date": "2024-12-01"},
-    {"id": 78, "supplier": 3006, "products": {"violin": 25, "arco": 35, "fundas": 30}, "date": "2024-12-05"},
-    {"id": 79, "supplier": 3007, "products": {"bateria": 15, "platillos": 35, "baquetas": 70}, "date": "2024-12-10"},
-    {"id": 80, "supplier": 3008, "products": {"bajo": 22, "estuche": 22, "cables": 45}, "date": "2024-12-15"},
-    {"id": 81, "supplier": 3009, "products": {"saxofon": 35, "boquilla": 55, "cañas": 300}, "date": "2024-12-20"},
-    {"id": 82, "supplier": 3010, "products": {"trompeta": 28, "válvulas": 80, "estuche": 28}, "date": "2024-12-25"},
-    {"id": 83, "supplier": 3011, "products": {"clarinete": 45, "boquilla": 50, "cañas": 350}, "date": "2024-12-30"},
-    {"id": 84, "supplier": 3012, "products": {"flauta": 40, "limpieza": 85, "estuche": 40}, "date": "2025-01-01"},
-    {"id": 85, "supplier": 3013, "products": {"trombon": 20, "slide_oil": 45, "estuche": 20}, "date": "2025-01-05"},
-    {"id": 86, "supplier": 3014, "products": {"piano": 18, "partitura": 225, "banqueta": 25}, "date": "2025-01-10"},
-    {"id": 87, "supplier": 3015, "products": {"guitarra": 30, "amplificador": 20, "cuerdas": 150}, "date": "2025-01-15"},
-    {"id": 88, "supplier": 3016, "products": {"violin": 30, "arco": 40, "fundas": 35}, "date": "2025-01-20"},
-    {"id": 89, "supplier": 3017, "products": {"bateria": 18, "platillos": 40, "baquetas": 80}, "date": "2025-01-25"},
-    {"id": 90, "supplier": 3018, "products": {"bajo": 25, "estuche": 25, "cables": 50}, "date": "2025-01-30"},
-    {"id": 91, "supplier": 3019, "products": {"saxofon": 40, "boquilla": 60, "cañas": 340}, "date": "2025-02-01"},
-    {"id": 92, "supplier": 3020, "products": {"trompeta": 30, "válvulas": 90, "estuche": 30}, "date": "2025-02-05"}
-]    
+    {
+        "id": 4,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 2,
+            "Trompeta": 15
+        },
+        "date": "2021-06-01"
+    },
+    {
+        "id": 5,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 5,
+            "trompeta": 15
+        },
+        "date": "2021-06-01"
+    },
+    {
+        "id": 6,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 5,
+            "trompeta": 5
+        },
+        "date": "2021-06-01"
+    },
+    {
+        "id": 7,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 5,
+            "trompeta": 5,
+            "saxofon": 5
+        },
+        "date": "2021-06-03"
+    },
+    {
+        "id": 8,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 5,
+            "Trompeta": 5,
+            "saxofon": 5
+        },
+        "date": "2021-06-03"
+    },
+    {
+        "id": 9,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 5,
+            "trombon": 5,
+            "trompeta": 5,
+            "saxofon": 5
+        },
+        "date": "2021-06-04"
+    },
+    {
+        "id": 10,
+        "supplier": 1234,
+        "products": {
+            "clarinete": 5,
+            "Trompeta": 5
+        },
+        "date": "2021-06-04"
+    },
+    {
+        "id": 11,
+        "supplier": 1234,
+        "products": {
+            "trompeta": 2,
+            "clarinete": 8
+        },
+        "date": "2021-06-03"
+    },
+    {
+        "id": 12,
+        "supplier": 1234,
+        "products": {
+            "flauta": 5,
+            "corno": 15,
+            "saxofon": 20
+        },
+        "date": "2021-06-04"
+    },
+    {
+        "id": 13,
+        "supplier": 3001,
+        "products": {
+            "guitarra": 10,
+            "cuerdas": 50,
+            "púas": 100
+        },
+        "date": "2024-01-10"
+    },
+    {
+        "id": 14,
+        "supplier": 3002,
+        "products": {
+            "piano": 5,
+            "banqueta": 8,
+            "partitura": 50
+        },
+        "date": "2024-01-15"
+    },
+    {
+        "id": 15,
+        "supplier": 3003,
+        "products": {
+            "violin": 8,
+            "arco": 12,
+            "estuche": 10
+        },
+        "date": "2024-01-20"
+    },
+    {
+        "id": 16,
+        "supplier": 3004,
+        "products": {
+            "bateria": 3,
+            "baquetas": 20,
+            "platillos": 8
+        },
+        "date": "2024-01-25"
+    },
+    {
+        "id": 17,
+        "supplier": 3005,
+        "products": {
+            "bajo": 6,
+            "amplificador": 4,
+            "cables": 15
+        },
+        "date": "2024-02-01"
+    },
+    {
+        "id": 18,
+        "supplier": 3006,
+        "products": {
+            "saxofon": 12,
+            "boquilla": 25,
+            "cañas": 60
+        },
+        "date": "2024-02-05"
+    },
+    {
+        "id": 19,
+        "supplier": 3007,
+        "products": {
+            "trompeta": 8,
+            "válvulas": 20,
+            "estuche": 8
+        },
+        "date": "2024-02-10"
+    },
+    {
+        "id": 20,
+        "supplier": 3008,
+        "products": {
+            "clarinete": 15,
+            "boquilla": 20,
+            "cañas": 80
+        },
+        "date": "2024-02-15"
+    },
+    {
+        "id": 21,
+        "supplier": 3009,
+        "products": {
+            "flauta": 10,
+            "limpieza": 25,
+            "estuche": 10
+        },
+        "date": "2024-02-20"
+    },
+    {
+        "id": 22,
+        "supplier": 3010,
+        "products": {
+            "trombon": 6,
+            "slide_oil": 15,
+            "estuche": 6
+        },
+        "date": "2024-02-25"
+    },
+    {
+        "id": 23,
+        "supplier": 3011,
+        "products": {
+            "piano": 4,
+            "partitura": 75,
+            "banqueta": 6
+        },
+        "date": "2024-03-01"
+    },
+    {
+        "id": 24,
+        "supplier": 3012,
+        "products": {
+            "guitarra": 8,
+            "amplificador": 6,
+            "cuerdas": 40
+        },
+        "date": "2024-03-05"
+    },
+    {
+        "id": 25,
+        "supplier": 3013,
+        "products": {
+            "violin": 10,
+            "arco": 15,
+            "fundas": 12
+        },
+        "date": "2024-03-10"
+    },
+    {
+        "id": 26,
+        "supplier": 3014,
+        "products": {
+            "bateria": 5,
+            "platillos": 12,
+            "baquetas": 25
+        },
+        "date": "2024-03-15"
+    },
+    {
+        "id": 27,
+        "supplier": 3015,
+        "products": {
+            "bajo": 8,
+            "estuche": 8,
+            "cables": 20
+        },
+        "date": "2024-03-20"
+    },
+    {
+        "id": 28,
+        "supplier": 3016,
+        "products": {
+            "saxofon": 15,
+            "boquilla": 30,
+            "cañas": 100
+        },
+        "date": "2024-03-25"
+    },
+    {
+        "id": 29,
+        "supplier": 3017,
+        "products": {
+            "trompeta": 12,
+            "válvulas": 30,
+            "estuche": 12
+        },
+        "date": "2024-04-01"
+    },
+    {
+        "id": 30,
+        "supplier": 3018,
+        "products": {
+            "clarinete": 20,
+            "boquilla": 25,
+            "cañas": 120
+        },
+        "date": "2024-04-05"
+    },
+    {
+        "id": 31,
+        "supplier": 3019,
+        "products": {
+            "flauta": 15,
+            "limpieza": 35,
+            "estuche": 15
+        },
+        "date": "2024-04-10"
+    },
+    {
+        "id": 32,
+        "supplier": 3020,
+        "products": {
+            "trombon": 8,
+            "slide_oil": 20,
+            "estuche": 8
+        },
+        "date": "2024-04-15"
+    },
+    {
+        "id": 33,
+        "supplier": 3001,
+        "products": {
+            "guitarra": 12,
+            "púas": 150,
+            "cuerdas": 60
+        },
+        "date": "2024-04-20"
+    },
+    {
+        "id": 34,
+        "supplier": 3002,
+        "products": {
+            "piano": 6,
+            "partitura": 100,
+            "banqueta": 10
+        },
+        "date": "2024-04-25"
+    },
+    {
+        "id": 35,
+        "supplier": 3003,
+        "products": {
+            "violin": 12,
+            "arco": 18,
+            "fundas": 15
+        },
+        "date": "2024-05-01"
+    },
+    {
+        "id": 36,
+        "supplier": 3004,
+        "products": {
+            "bateria": 6,
+            "platillos": 15,
+            "baquetas": 30
+        },
+        "date": "2024-05-05"
+    },
+    {
+        "id": 37,
+        "supplier": 3005,
+        "products": {
+            "bajo": 10,
+            "amplificador": 8,
+            "cables": 25
+        },
+        "date": "2024-05-10"
+    },
+    {
+        "id": 38,
+        "supplier": 3006,
+        "products": {
+            "saxofon": 18,
+            "boquilla": 35,
+            "cañas": 140
+        },
+        "date": "2024-05-15"
+    },
+    {
+        "id": 39,
+        "supplier": 3007,
+        "products": {
+            "trompeta": 15,
+            "válvulas": 40,
+            "estuche": 15
+        },
+        "date": "2024-05-20"
+    },
+    {
+        "id": 40,
+        "supplier": 3008,
+        "products": {
+            "clarinete": 25,
+            "boquilla": 30,
+            "cañas": 150
+        },
+        "date": "2024-05-25"
+    },
+    {
+        "id": 41,
+        "supplier": 3009,
+        "products": {
+            "flauta": 20,
+            "limpieza": 45,
+            "estuche": 20
+        },
+        "date": "2024-06-01"
+    },
+    {
+        "id": 42,
+        "supplier": 3010,
+        "products": {
+            "trombon": 10,
+            "slide_oil": 25,
+            "estuche": 10
+        },
+        "date": "2024-06-05"
+    },
+    {
+        "id": 43,
+        "supplier": 3011,
+        "products": {
+            "piano": 8,
+            "partitura": 125,
+            "banqueta": 12
+        },
+        "date": "2024-06-10"
+    },
+    {
+        "id": 44,
+        "supplier": 3012,
+        "products": {
+            "guitarra": 15,
+            "amplificador": 10,
+            "cuerdas": 75
+        },
+        "date": "2024-06-15"
+    },
+    {
+        "id": 45,
+        "supplier": 3013,
+        "products": {
+            "violin": 15,
+            "arco": 20,
+            "fundas": 18
+        },
+        "date": "2024-06-20"
+    },
+    {
+        "id": 46,
+        "supplier": 3014,
+        "products": {
+            "bateria": 8,
+            "platillos": 20,
+            "baquetas": 40
+        },
+        "date": "2024-06-25"
+    },
+    {
+        "id": 47,
+        "supplier": 3015,
+        "products": {
+            "bajo": 12,
+            "estuche": 12,
+            "cables": 30
+        },
+        "date": "2024-07-01"
+    },
+    {
+        "id": 48,
+        "supplier": 3016,
+        "products": {
+            "saxofon": 20,
+            "boquilla": 40,
+            "cañas": 180
+        },
+        "date": "2024-07-05"
+    },
+    {
+        "id": 49,
+        "supplier": 3017,
+        "products": {
+            "trompeta": 18,
+            "válvulas": 50,
+            "estuche": 18
+        },
+        "date": "2024-07-10"
+    },
+    {
+        "id": 50,
+        "supplier": 3018,
+        "products": {
+            "clarinete": 30,
+            "boquilla": 35,
+            "cañas": 200
+        },
+        "date": "2024-07-15"
+    },
+    {
+        "id": 51,
+        "supplier": 3019,
+        "products": {
+            "flauta": 25,
+            "limpieza": 55,
+            "estuche": 25
+        },
+        "date": "2024-07-20"
+    },
+    {
+        "id": 52,
+        "supplier": 3020,
+        "products": {
+            "trombon": 12,
+            "slide_oil": 30,
+            "estuche": 12
+        },
+        "date": "2024-07-25"
+    },
+    {
+        "id": 53,
+        "supplier": 3001,
+        "products": {
+            "microfono": 8,
+            "auriculares": 15,
+            "cables": 20
+        },
+        "date": "2024-08-01"
+    },
+    {
+        "id": 54,
+        "supplier": 3002,
+        "products": {
+            "metrónomo": 6,
+            "afinador": 10,
+            "atril": 8
+        },
+        "date": "2024-08-05"
+    },
+    {
+        "id": 55,
+        "supplier": 3003,
+        "products": {
+            "soporte_partitura": 12,
+            "fundas": 25,
+            "estuche": 15
+        },
+        "date": "2024-08-10"
+    },
+    {
+        "id": 56,
+        "supplier": 3004,
+        "products": {
+            "guitarra": 18,
+            "amplificador": 12,
+            "púas": 200
+        },
+        "date": "2024-08-15"
+    },
+    {
+        "id": 57,
+        "supplier": 3005,
+        "products": {
+            "piano": 10,
+            "partitura": 150,
+            "banqueta": 15
+        },
+        "date": "2024-08-20"
+    },
+    {
+        "id": 58,
+        "supplier": 3006,
+        "products": {
+            "violin": 18,
+            "arco": 25,
+            "fundas": 20
+        },
+        "date": "2024-08-25"
+    },
+    {
+        "id": 59,
+        "supplier": 3007,
+        "products": {
+            "bateria": 10,
+            "platillos": 25,
+            "baquetas": 50
+        },
+        "date": "2024-09-01"
+    },
+    {
+        "id": 60,
+        "supplier": 3008,
+        "products": {
+            "bajo": 15,
+            "estuche": 15,
+            "cables": 35
+        },
+        "date": "2024-09-05"
+    },
+    {
+        "id": 61,
+        "supplier": 3009,
+        "products": {
+            "saxofon": 25,
+            "boquilla": 45,
+            "cañas": 220
+        },
+        "date": "2024-09-10"
+    },
+    {
+        "id": 62,
+        "supplier": 3010,
+        "products": {
+            "trompeta": 22,
+            "válvulas": 60,
+            "estuche": 22
+        },
+        "date": "2024-09-15"
+    },
+    {
+        "id": 63,
+        "supplier": 3011,
+        "products": {
+            "clarinete": 35,
+            "boquilla": 40,
+            "cañas": 250
+        },
+        "date": "2024-09-20"
+    },
+    {
+        "id": 64,
+        "supplier": 3012,
+        "products": {
+            "flauta": 30,
+            "limpieza": 65,
+            "estuche": 30
+        },
+        "date": "2024-09-25"
+    },
+    {
+        "id": 65,
+        "supplier": 3013,
+        "products": {
+            "trombon": 15,
+            "slide_oil": 35,
+            "estuche": 15
+        },
+        "date": "2024-10-01"
+    },
+    {
+        "id": 66,
+        "supplier": 3014,
+        "products": {
+            "piano": 12,
+            "partitura": 175,
+            "banqueta": 18
+        },
+        "date": "2024-10-05"
+    },
+    {
+        "id": 67,
+        "supplier": 3015,
+        "products": {
+            "guitarra": 20,
+            "amplificador": 15,
+            "cuerdas": 90
+        },
+        "date": "2024-10-10"
+    },
+    {
+        "id": 68,
+        "supplier": 3016,
+        "products": {
+            "violin": 20,
+            "arco": 30,
+            "fundas": 25
+        },
+        "date": "2024-10-15"
+    },
+    {
+        "id": 69,
+        "supplier": 3017,
+        "products": {
+            "bateria": 12,
+            "platillos": 30,
+            "baquetas": 60
+        },
+        "date": "2024-10-20"
+    },
+    {
+        "id": 70,
+        "supplier": 3018,
+        "products": {
+            "bajo": 18,
+            "estuche": 18,
+            "cables": 40
+        },
+        "date": "2024-10-25"
+    },
+    {
+        "id": 71,
+        "supplier": 3019,
+        "products": {
+            "saxofon": 30,
+            "boquilla": 50,
+            "cañas": 260
+        },
+        "date": "2024-11-01"
+    },
+    {
+        "id": 72,
+        "supplier": 3020,
+        "products": {
+            "trompeta": 25,
+            "válvulas": 70,
+            "estuche": 25
+        },
+        "date": "2024-11-05"
+    },
+    {
+        "id": 73,
+        "supplier": 3001,
+        "products": {
+            "clarinete": 40,
+            "boquilla": 45,
+            "cañas": 300
+        },
+        "date": "2024-11-10"
+    },
+    {
+        "id": 74,
+        "supplier": 3002,
+        "products": {
+            "flauta": 35,
+            "limpieza": 75,
+            "estuche": 35
+        },
+        "date": "2024-11-15"
+    },
+    {
+        "id": 75,
+        "supplier": 3003,
+        "products": {
+            "trombon": 18,
+            "slide_oil": 40,
+            "estuche": 18
+        },
+        "date": "2024-11-20"
+    },
+    {
+        "id": 76,
+        "supplier": 3004,
+        "products": {
+            "piano": 15,
+            "partitura": 200,
+            "banqueta": 20
+        },
+        "date": "2024-11-25"
+    },
+    {
+        "id": 77,
+        "supplier": 3005,
+        "products": {
+            "guitarra": 25,
+            "amplificador": 18,
+            "cuerdas": 120
+        },
+        "date": "2024-12-01"
+    },
+    {
+        "id": 78,
+        "supplier": 3006,
+        "products": {
+            "violin": 25,
+            "arco": 35,
+            "fundas": 30
+        },
+        "date": "2024-12-05"
+    },
+    {
+        "id": 79,
+        "supplier": 3007,
+        "products": {
+            "bateria": 15,
+            "platillos": 35,
+            "baquetas": 70
+        },
+        "date": "2024-12-10"
+    },
+    {
+        "id": 80,
+        "supplier": 3008,
+        "products": {
+            "bajo": 22,
+            "estuche": 22,
+            "cables": 45
+        },
+        "date": "2024-12-15"
+    },
+    {
+        "id": 81,
+        "supplier": 3009,
+        "products": {
+            "saxofon": 35,
+            "boquilla": 55,
+            "cañas": 300
+        },
+        "date": "2024-12-20"
+    },
+    {
+        "id": 82,
+        "supplier": 3010,
+        "products": {
+            "trompeta": 28,
+            "válvulas": 80,
+            "estuche": 28
+        },
+        "date": "2024-12-25"
+    },
+    {
+        "id": 83,
+        "supplier": 3011,
+        "products": {
+            "clarinete": 45,
+            "boquilla": 50,
+            "cañas": 350
+        },
+        "date": "2024-12-30"
+    },
+    {
+        "id": 84,
+        "supplier": 3012,
+        "products": {
+            "flauta": 40,
+            "limpieza": 85,
+            "estuche": 40
+        },
+        "date": "2025-01-01"
+    },
+    {
+        "id": 85,
+        "supplier": 3013,
+        "products": {
+            "trombon": 20,
+            "slide_oil": 45,
+            "estuche": 20
+        },
+        "date": "2025-01-05"
+    },
+    {
+        "id": 86,
+        "supplier": 3014,
+        "products": {
+            "piano": 18,
+            "partitura": 225,
+            "banqueta": 25
+        },
+        "date": "2025-01-10"
+    },
+    {
+        "id": 87,
+        "supplier": 3015,
+        "products": {
+            "guitarra": 30,
+            "amplificador": 20,
+            "cuerdas": 150
+        },
+        "date": "2025-01-15"
+    },
+    {
+        "id": 88,
+        "supplier": 3016,
+        "products": {
+            "violin": 30,
+            "arco": 40,
+            "fundas": 35
+        },
+        "date": "2025-01-20"
+    },
+    {
+        "id": 89,
+        "supplier": 3017,
+        "products": {
+            "bateria": 18,
+            "platillos": 40,
+            "baquetas": 80
+        },
+        "date": "2025-01-25"
+    },
+    {
+        "id": 90,
+        "supplier": 3018,
+        "products": {
+            "bajo": 25,
+            "estuche": 25,
+            "cables": 50
+        },
+        "date": "2025-01-30"
+    },
+    {
+        "id": 91,
+        "supplier": 3019,
+        "products": {
+            "saxofon": 40,
+            "boquilla": 60,
+            "cañas": 340
+        },
+        "date": "2025-02-01"
+    },
+    {
+        "id": 92,
+        "supplier": 3020,
+        "products": {
+            "trompeta": 30,
+            "válvulas": 90,
+            "estuche": 30
+        },
+        "date": "2025-02-05"
+    }
+]
