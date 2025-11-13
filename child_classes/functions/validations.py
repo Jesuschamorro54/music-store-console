@@ -45,7 +45,7 @@ def validate_exist(path, name):
 
 
 def valid_lot(product, lot):
-    container = return_exist(get_file_path("stocktaking.txt")) # Dinamico
+    container = return_exist(get_file_path("stocktaking.json")) # Dinamico
 
     for i in range(len(container)):
         if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:

@@ -4,10 +4,11 @@ from child_classes.sale_class import *
 from child_classes.stocks import *
 from child_classes.buys_class import *
 from child_classes.supplier_class import *
+
 import json
 from datetime import datetime
 from child_classes.path_manager import get_file_path
-# import pyautogui
+# 
 
 client_ins = Client()
 supplier_ins = Supplier()
@@ -91,46 +92,57 @@ while True:
         client_ins.show_client(id_client, name_client)
         input()
 
-    #  CONSULTAR INVENTARIO
     elif op == "9":
-        id_inventory = int(input("Ingrese ID: "))
-        stock_ins.show_stock(id_inventory)
-        input()
+            date1 = input("Desde: ")
+            date2 = input("Hasta: ")
+            sale_ins.show_range_date(date1, date2)
+            input()
+            id_sale = int(input("Ingrese ID de venta: "))
+            sale_ins.show_by_id(id_sale)
+            input()
+            id_client = int(input("Ingrese ID de cliente: "))
+            name_client = input("Ingrese nombre de cliente: ")
+            client_ins.show_client(id_client, name_client)
+            input()
+            id_inventory = int(input("Ingrese ID de producto: "))
+            stock_ins.show_stock(id_inventory)
+            input()
+
+    #  CONSULTAR INVENTARIO
+    ## elif op == "9":
+      ##  id_inventory = int(input("Ingrese ID: "))
+      ##  stock_ins.show_stock(id_inventory)
+       ## input()
 
 #  CONSULTA LAS VENTAS EN UN PERIODO DE TIEMPO ESPECIFICO
     elif op == "10":
         primer_parametro = input("Desde (YYYY-MM-DD): ")
         segundo_parametro = input("Hasta (YYYY-MM-DD): ")
 
-        file_path = get_file_path("sale.txt")
-        with open(file_path, "r") as f:
-            ventas = f.readlines()
+        file_path = get_file_path("sale.json") # direccion del archivo de compras, tipo json
 
-        # aqui elimine la Linea "f.close()" ya que la nueva funcion para la rutina dinamica lo tenia redundante
-        # Imprime el Mensaje que saldra al mostrar los resultados de las ventas. (se puede modificar)
+        # Cargar el JSON como lista de ventas
+        with open(file_path, "r") as f:
+            ventas = json.load(f) # de acuerdo al estilo de extructuras
+
         print("\n--- VENTAS EN EL RANGO ESTIPULADO POR EL CLIENTE/ADMINISTRADOR---\n")
         encontrado = False
-        # da un rango para comenzar la revision de los parametros anteriores respectivo a las variables de los extremos
-        for linea in ventas:
-            venta = json.loads(linea)
+
+        for venta in ventas:
             fecha = venta["date"]
-            # Escribe , o se escribe los regristros de acuerdo a los valores del Archivo Json (pienso mejorarlo en el futuro para dar textos literales)
-            if fecha >= primer_parametro and fecha <= segundo_parametro:
+
+            if primer_parametro <= fecha <= segundo_parametro:
                 print("ID:", venta["id"], 
-                    "Cliente:", venta["client"], 
-                    "Productos:", venta["products"], 
+                    "Cliente/Proveedor:", venta.get("client", venta.get("supplier", "???")),
+                    "Productos:", venta["products"],
                     "Fecha:", venta["date"])
                 encontrado = True
 
         if not encontrado:
-            print("No se encontraron ventas en ese rango.") # por si el cliente se equivoca en una fecha o simplemente no hay ventas en elrango
+            print("No se encontraron ventas en ese rango.")
 
         input()
 
 
-    elif op == "0":
-        exit()
-    else:
-        pass
-    # fin del codigo
-
+    else:   "0"
+    exit()

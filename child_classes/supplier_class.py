@@ -20,4 +20,4 @@ class Supplier(Entity):
         for key in self._supplier_info:
             self._supplier_info[key] = info[i]
             i += 1
-        self.write_into(get_file_path("supplier.txt"), self._supplier_info) # dinamica
+        self.write_into(get_file_path("supplier.json"), self._supplier_info) # dinamica

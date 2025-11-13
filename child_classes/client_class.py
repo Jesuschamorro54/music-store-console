@@ -27,13 +27,13 @@ class Client(Entity):
 
         # Construir la ruta relativa al proyecto
         # base_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está este archivo .py
-        # file_path = os.path.join(base_dir, "files", "client.txt")
+        # file_path = os.path.join(base_dir, "files", "client.json")
 
         # self.write_into(file_path, self._client_info)
-        self.write_into(get_file_path("client.txt"), self._client_info) # funcion para la ruta dinamica
+        self.write_into(get_file_path("client.json"), self._client_info) # funcion para la ruta dinamica
 
     def show_client(self, ide, name):
-        self.container = return_exist(get_file_path("client.txt")) # funcion remplazada para la ruta dinamica
+        self.container = return_exist(get_file_path("client.json")) # funcion remplazada para la ruta dinamica
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]

@@ -55,7 +55,7 @@ def add_entity_func(lock):
 
 # add inventory
 def add_stock_func():
-    ide = define_id(get_file_path("stocktaking.txt")) # dinamico
+    ide = define_id(get_file_path("stocktaking.json")) # dinamico
     lot = None
     capsule = []
 
@@ -79,7 +79,7 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-    ide = define_id(get_file_path("sale.txt")) if entity == "client" else define_id(get_file_path("buys.txt")) # Ruta dinamica
+    ide = define_id(get_file_path("sale.json")) if entity == "client" else define_id(get_file_path("buys.json")) # Ruta dinamica
     product = {}
     capsule = []
 
@@ -90,7 +90,7 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-            valid = validate_exist(get_file_path("client.txt"), name_entity) # Dinamica
+            valid = validate_exist(get_file_path("client.json"), name_entity) # Dinamica
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -98,7 +98,7 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-            valid = validate_exist(get_file_path("supplier.txt"), name_entity) # Dinamica
+            valid = validate_exist(get_file_path("supplier.json"), name_entity) # Dinamica
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -111,7 +111,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-            valid = validate_exist(get_file_path("stocktaking.txt"), name) # Dinamico
+            valid = validate_exist(get_file_path("stocktaking.json"), name) # Dinamico
             if valid[0]:
                 val = False
             else:

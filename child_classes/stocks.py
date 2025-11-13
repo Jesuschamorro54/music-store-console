@@ -23,13 +23,13 @@ class Stock:
         for key in self._stock_info:
             self._stock_info[key] = info[i]
             i += 1
-        self.file = open(get_file_path("stocktaking.txt"), "a+") # ruta dinamica
+        self.file = open(get_file_path("stocktaking.json"), "a+") # ruta dinamica
         text = json.dumps(self._stock_info)
         self.file.write(f"{text}\n")
         self.file.close()
 
     def show_stock(self, ide):
-        self.container = return_exist(get_file_path("stocktaking.txt")) # dinamica
+        self.container = return_exist(get_file_path("stocktaking.json")) # dinamica
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
