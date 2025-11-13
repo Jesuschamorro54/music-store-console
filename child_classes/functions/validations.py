@@ -1,120 +1,69 @@
 import json
 import os
+from child_classes.functions.path_utils import get_file_path
+from child_classes.functions.json_utils import read_json_file
 
 
-def get_file_path(filename):
-    """
-    Retorna la ruta completa del archivo en la carpeta /files.
-    """
-    base_path = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(base_path, "..", "..", "files", filename)
-    return os.path.normpath(file_path)
-
-
-def define_id(filename):
-    """
-    Define un nuevo ID incremental para ventas o compras.
-    Soporta archivos vacíos o con líneas no válidas.
-    """
-    path = get_file_path(filename)
-
-    # Asegurar que el archivo exista
-    if not os.path.exists(path):
-        with open(path, "w", encoding="utf-8") as f:
-            f.write("")
-
-    with open(path, "r", encoding="utf-8") as file:
-        data = file.read().split("\n")
-
+def define_id(path):
+    # Extraer nombre del archivo
+    filename = os.path.basename(path)
+    dictionary = read_json_file(filename)
+    
     ide = 1
-    dictionary = []
-
-    # Evita errores de JSON en líneas vacías o corruptas
-    for key in range(len(data)):
-        line = data[key].strip()
-        if not line:
-            continue
-        try:
-            dictionary.append(json.loads(line))
-        except json.JSONDecodeError:
-            continue
-
-    # Buscar IDs existentes
-    ids = [item.get("id") for item in dictionary if isinstance(item, dict) and "id" in item]
+    ids = []
+    
+    for i in range(len(dictionary)):
+        ids.append(dictionary[i]["id"])
 
     if ids:
-        while ide in ids:
-            ide += 1
-    else:
-        ide = 1
-
+        while True:
+            if ide in ids: 
+                ide += 1
+            else: 
+                break
+    
     return ide
 
 
-def return_exist(filename):
-    """
-    Devuelve el contenido del archivo JSON como lista.
-    Si el archivo está vacío, devuelve lista vacía.
-    """
-    path = get_file_path(filename)
-
-    if not os.path.exists(path):
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump([], f)
-
-    with open(path, "r", encoding="utf-8") as file:
-        try:
-            data = json.load(file)
-        except json.JSONDecodeError:
-            data = []
-    return data
+def return_exist(path):
+    # Extraer nombre del archivo
+    filename = os.path.basename(path)
+    return read_json_file(filename)
 
 
-def validate_exist(filename, name):
-    """
-    Valida si existe una entidad (cliente o proveedor) por nombre.
-    Soporta tanto clave 'name' como 'nombre'.
-    """
-    container = return_exist(filename)
-    result = [False, None]
+def validate_exist(path, name):
+    container = return_exist(path)
+    x = [False, None]
 
-    for item in container:
-        item_name = item.get("name") or item.get("nombre")
-        if item_name and name.lower() == item_name.lower():
-            result[0] = True
-            result[1] = item.get("id")
-            return result
-
-    return result
+    for i in range(len(container)):
+        if name in container[i]["name"] or name.lower() == container[i]["name"].lower():
+            x[0] = True
+            x[1] = container[i]["id"]
+            return x
+    return x
 
 
 def valid_lot(product, lot):
-    """
-    Valida si el lote ingresado no es menor que los existentes.
-    """
-    container = return_exist("stocktaking.json")
+    file_path = get_file_path("stocktaking.json")
+    container = return_exist(file_path)
 
-    for item in container:
-        if item["name"].lower() == product.lower() and item["lot"] < lot:
+    for i in range(len(container)):
+        if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:
             return False
     return True
 
 
 def valid_date(date):
-    """
-    Valida que la fecha tenga formato YYYY-MM-DD y sea lógica.
-    """
     if date == '' or len(date) != 10:
         print("Invalid date")
         return False
 
     list_date = date.split('-')
     try:
+        day = int(list_date[2])
         year = int(list_date[0])
         month = int(list_date[1])
-        day = int(list_date[2])
     except:
-        print("Invalid format (YYYY-MM-DD expected)")
         return False
 
     if not (1 <= day <= 31):
@@ -127,3 +76,6 @@ def valid_date(date):
         print("Invalid year")
         return False
     return True
+
+#primer cambio
+#segundo cambio

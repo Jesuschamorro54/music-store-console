@@ -1,21 +1,19 @@
 import os
 from parent_classes.entity_class import Entity
 from child_classes.functions.methods import *
+from child_classes.functions.path_utils import get_file_path
+
 
 class Client(Entity):
-    def __init__(self):
-        super().__init__()
+    def _init_(self):
+        super()._init_()
         self.container = None
         self._client_info = {
-            "ID": None,
-            "Nombre": None,
-            "Email": None,
-            "Telefono": None
-        }
-
-        base_dir = os.path.dirname(os.path.abspath(__file__)) 
-        self.file_path = os.path.join(base_dir, "..", "files", "client.json")  
-        self.file_path = os.path.normpath(self.file_path)  
+            "id": None,
+            "name": None,
+            "last_name": None,
+            "email": None,
+            "cellphone": None}
 
     @property
     def client(self):
@@ -28,18 +26,47 @@ class Client(Entity):
             self._client_info[key] = info[i]
             i += 1
 
-        self.write_into(self.file_path, self._client_info)
+        file_path = get_file_path("client.json")
+        self.write_into(file_path, self._client_info)
 
-    def show_client(self, ide=None, name=None):
-        self.container = return_exist(self.file_path)
+    def capture_data(self):
+        """
+        Implementación polimórfica para capturar datos de un cliente.
+        Sobrescribe el método de la clase padre Entity.
+        """
+        print("\n=== REGISTRO DE CLIENTE ===")
+        
+        # Capturar ID usando validación de la clase padre
+        ide = self._validate_id()
+        
+        # Capturar nombre y apellido (específico de Cliente)
+        name = input("|Nombre        |: ").strip()
+        while not name:
+            print("❌ Error: El nombre no puede estar vacío")
+            name = input("|Nombre        |: ").strip()
+        
+        last_name = input("|Apellido      |: ").strip()
+        while not last_name:
+            print("❌ Error: El apellido no puede estar vacío")
+            last_name = input("|Apellido      |: ").strip()
+        
+        # Capturar email y teléfono usando validación de la clase padre
+        email = self._validate_email()
+        phone = self._validate_phone()
+        
+        # Retornar datos en el orden esperado
+        return [ide, name, last_name, email, phone]
 
-        for client in self.container:
-            full_name = f"{client['name']} {client['last_name']}"
-            if (ide is None or client["id"] == ide) and (name is None or name.lower() in full_name.lower()):
-                print(f"|ID          |: {client['id']}")
-                print(f"|Nombre      |: {full_name}")
-                print(f"|Email       |: {client['email']}")
-                print(f"|Celular     |: {client['cellphone']}")
-                return
+    def show_client(self, ide, name):
+        file_path = get_file_path("client.json")
+        self.container = return_exist(file_path)
 
+        for i in range(len(self.container)):
+            name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]
+            if self.container[i]["id"] == ide and name.lower() in name_complet.lower():
+                print(f"|ID              |: {self.container[i]['id']}")
+                print(f"|Name            |: {name_complet}")
+                print(f"|Email           |: {self.container[i]['email']}")
+                print(f"|Cellphhone      |: {self.container[i]['cellphone']}")
+                return 0
         print("No se encuentra el cliente")
