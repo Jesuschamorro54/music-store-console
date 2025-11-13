@@ -202,7 +202,7 @@
   {
     "id": 23,
     "name": "cables",
-    "lot": 75,
+    "lot": 73,
     "precio_compra": 13000,
     "precio_venta": 17000,
     "supplier_id": 5241
@@ -258,7 +258,7 @@
   {
     "id": 30,
     "name": "fundas",
-    "lot": 45,
+    "lot": 36,
     "precio_compra": 45000,
     "precio_venta": 60000,
     "supplier_id": 3005

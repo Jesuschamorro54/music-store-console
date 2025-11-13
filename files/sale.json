@@ -1814,5 +1814,32 @@
     },
     "date": "2025-10-20",
     "total": 537000
+  },
+  {
+    "id": 202,
+    "client": 4141,
+    "products": {
+      "fundas": 2
+    },
+    "date": "2025-11-13",
+    "total": 120000
+  },
+  {
+    "id": 203,
+    "client": 4141,
+    "products": {
+      "fundas": 2
+    },
+    "date": "2025-11-13",
+    "total": 240000
+  },
+  {
+    "id": 204,
+    "client": 1212,
+    "products": {
+      "cables": 2
+    },
+    "date": "2025-11-13",
+    "total": 34000
   }
 ]

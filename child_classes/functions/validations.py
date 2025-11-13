@@ -5,7 +5,6 @@ from child_classes.functions.json_utils import read_json_file
 
 
 def define_id(path):
-    # Extraer nombre del archivo
     filename = os.path.basename(path)
     dictionary = read_json_file(filename)
     
@@ -26,10 +25,8 @@ def define_id(path):
 
 
 def return_exist(path):
-    # Extraer nombre del archivo
     filename = os.path.basename(path)
     return read_json_file(filename)
-
 
 def validate_exist(path, name):
     container = return_exist(path)
@@ -42,7 +39,6 @@ def validate_exist(path, name):
             return x
     return x
 
-
 def valid_lot(product, lot):
     file_path = get_file_path("stocktaking.json")
     container = return_exist(file_path)
@@ -51,7 +47,6 @@ def valid_lot(product, lot):
         if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:
             return False
     return True
-
 
 def valid_date(date):
     if date == '' or len(date) != 10:

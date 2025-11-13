@@ -1,7 +1,6 @@
 from parent_classes.facture_class import Facture
 from child_classes.functions.path_utils import get_file_path
 
-
 class Buy(Facture):
     def _init_(self):
         super()._init_()
@@ -18,7 +17,6 @@ class Buy(Facture):
 
     @buy.setter
     def buy(self, info):
-        # send products for update
         self.update_stock(info[2], "buy")
 
         i = 0

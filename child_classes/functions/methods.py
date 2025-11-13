@@ -1,10 +1,11 @@
 from child_classes.functions.validations import *
 from child_classes.functions.path_utils import get_file_path
 from datetime import datetime
+from child_classes.functions.json_utils import read_json_file
+from child_classes.stocks import Stock
 
 
 def get_product_by_id(product_id):
-    """Busca un producto por su ID en el inventario"""
     from child_classes.functions.json_utils import read_json_file
     products = read_json_file("stocktaking.json")
     
@@ -15,7 +16,6 @@ def get_product_by_id(product_id):
 
 
 def get_client_by_id(client_id):
-    """Busca un cliente por su ID"""
     from child_classes.functions.json_utils import read_json_file
     clients = read_json_file("client.json")
     
@@ -26,7 +26,6 @@ def get_client_by_id(client_id):
 
 
 def get_supplier_by_id(supplier_id):
-    """Busca un proveedor por su ID"""
     from child_classes.functions.json_utils import read_json_file
     suppliers = read_json_file("supplier.json")
     
@@ -37,14 +36,11 @@ def get_supplier_by_id(supplier_id):
 
 
 def get_products_by_supplier(supplier_id):
-    """Obtiene todos los productos asociados a un proveedor específico"""
     from child_classes.functions.json_utils import read_json_file
     products = read_json_file("stocktaking.json")
     
-    # Filtrar productos por proveedor
     supplier_products = []
     for product in products:
-        # Si el producto tiene supplier_id y coincide, o si no tiene supplier_id (por compatibilidad)
         if product.get('supplier_id') == supplier_id:
             supplier_products.append(product)
     
@@ -52,11 +48,10 @@ def get_products_by_supplier(supplier_id):
 
 
 def show_supplier_catalog(supplier_id, supplier_name):
-    """Muestra el catálogo de productos de un proveedor específico"""
     products = get_products_by_supplier(supplier_id)
     
     if not products:
-        print(f"\n❌ El proveedor {supplier_name} no tiene productos registrados")
+        print(f"\n El proveedor {supplier_name} no tiene productos registrados")
         return False
     
     print(f"\n{'='*80}")
@@ -75,9 +70,8 @@ def show_supplier_catalog(supplier_id, supplier_name):
 
 
 def show_cart(carrito, total_venta):
-    """Muestra el contenido del carrito de compras"""
     print(f"\n{'='*70}")
-    print(f"  {'🛒 CARRITO DE COMPRAS':^66}")
+    print(f"  {'CARRITO DE COMPRAS':^66}")
     print(f"{'='*70}")
     if not carrito:
         print("  El carrito está vacío")
@@ -93,40 +87,29 @@ def show_cart(carrito, total_venta):
 
 
 def make_sale_buy(entity):
-    """
-    Función mejorada para registrar ventas y compras
-    - Ventas: Busca cliente por ID, muestra catálogo y carrito interactivo
-    - Compras: Busca proveedor por nombre (actualiza inventario)
-    - Fecha automática
-    """
-    from child_classes.functions.json_utils import read_json_file
-    from child_classes.stocks import Stock
-    
     sale_file_path = get_file_path("sale.json")
     buys_file_path = get_file_path("buys.json")
     ide = define_id(sale_file_path) if entity == "client" else define_id(buys_file_path)
     product = {}
     capsule = []
     entity_id = None
-    
-    # === BUSCAR CLIENTE O PROVEEDOR ===
+
     if entity == "client":
-        print("\n=== BUSCAR CLIENTE ===")
+        print("\n==BUSCAR CLIENTE==")
         while True:
             try:
                 client_id = int(input("|ID Cliente        |: "))
                 client = get_client_by_id(client_id)
                 if client:
                     entity_id = client_id
-                    print(f"✓ Cliente encontrado: {client['name']} {client['last_name']}")
+                    print(f"Cliente encontrado: {client['name']} {client['last_name']}")
                     break
                 else:
-                    print("❌ Cliente no encontrado. Intente nuevamente.")
+                    print("Cliente no encontrado. Intente nuevamente.")
             except ValueError:
-                print("❌ Debe ingresar un ID numérico válido")
+                print(" Debe ingresar un ID numérico válido")
     else:
-        # Para compras, buscar proveedor por ID
-        print("\n=== BUSCAR PROVEEDOR ===")
+        print("\n==BUSCAR PROVEEDOR==")
         while True:
             try:
                 supplier_id = int(input("|ID Proveedor      |: "))
@@ -136,47 +119,42 @@ def make_sale_buy(entity):
                     print(f"✓ Proveedor encontrado: {supplier['name']}")
                     break
                 else:
-                    print("❌ Proveedor no encontrado. Intente nuevamente.")
+                    print(" Proveedor no encontrado. Intente nuevamente.")
             except ValueError:
-                print("❌ Debe ingresar un ID numérico válido")
+                print("Debe ingresar un ID numérico válido")
 
-    # === MOSTRAR CATÁLOGO ===
     if entity == "client":
-        # Mostrar catálogo completo para ventas
         stock_ins = Stock()
         stock_ins.show_catalog()
     else:
-        # Mostrar solo productos del proveedor para compras
         if not show_supplier_catalog(entity_id, supplier['name']):
-            return None  # Si el proveedor no tiene productos, cancelar
+            return None  
     
     total_venta = 0
     carrito = []
     agregando_productos = True
     
     while agregando_productos:
-        print("\n=== AGREGAR PRODUCTOS ===")
+        print("\n==AGREGAR PRODUCTOS==")
         
         while True:
             try:
                 producto_id = int(input("|ID Producto       |: "))
                 if producto_id == 0:
                     if not carrito:
-                        print("❌ Debe agregar al menos un producto")
+                        print("Debe agregar al menos un producto")
                         continue
                     agregando_productos = False
                     break
                 
-                # Buscar producto por ID
                 producto = get_product_by_id(producto_id)
                 if not producto:
-                    print("❌ Producto no encontrado")
+                    print("Producto no encontrado")
                     continue
                 
-                # Para compras, verificar que el producto pertenezca al proveedor
                 if entity != "client":
                     if producto.get('supplier_id') != entity_id:
-                        print("❌ Este producto no pertenece a este proveedor")
+                        print("Este producto no pertenece a este proveedor")
                         continue
                 
                 print(f"✓ Producto: {producto['name']}")
@@ -187,29 +165,25 @@ def make_sale_buy(entity):
                     print(f"  Precio de compra: ${producto.get('precio_compra', 0):,.0f}")
                     print(f"  Stock actual: {producto['lot']} unidades")
                 
-                # Solicitar cantidad
                 while True:
                     try:
                         cantidad = int(input("|Cantidad          |: "))
                         if cantidad <= 0:
-                            print("❌ La cantidad debe ser mayor a 0")
+                            print("La cantidad debe ser mayor a 0")
                             continue
                         
-                        # Validar stock solo para ventas
                         if entity == "client":
                             if cantidad > producto['lot']:
-                                print(f"❌ Stock insuficiente. Disponible: {producto['lot']}")
+                                print(f"Stock insuficiente. Disponible: {producto['lot']}")
                                 continue
                         
                         break
                     except ValueError:
-                        print("❌ Debe ingresar un número válido")
+                        print("Debe ingresar un número válido")
                 
-                # Calcular subtotal
                 precio = producto.get('precio_venta', 0) if entity == "client" else producto.get('precio_compra', 0)
                 subtotal = precio * cantidad
                 
-                # Agregar al carrito
                 product[producto['name']] = cantidad
                 carrito.append({
                     'id': producto['id'],
@@ -222,7 +196,6 @@ def make_sale_buy(entity):
                 total_venta += subtotal
                 print(f"\n✓ Agregado: {cantidad}x {producto['name']} = ${subtotal:,.0f}")
                 
-                # === MENÚ DESPUÉS DE AGREGAR PRODUCTO ===
                 if entity == "client":
                     while True:
                         print(f"\n{'─'*50}")
@@ -235,24 +208,20 @@ def make_sale_buy(entity):
                             opcion = int(input("Seleccione una opción: "))
                             
                             if opcion == 1:
-                                # Continuar agregando productos
                                 break
                             elif opcion == 2:
-                                # Mostrar carrito
                                 show_cart(carrito, total_venta)
                             elif opcion == 3:
-                                # Ir a pagar
                                 agregando_productos = False
                                 break
                             else:
-                                print("❌ Opción inválida")
+                                print("Opción inválida")
                         except ValueError:
-                            print("❌ Debe ingresar un número válido")
+                            print(" Debe ingresar un número válido")
                     
                     if not agregando_productos:
                         break
                 else:
-                    # Para compras, también mostrar menú
                     while True:
                         print(f"\n{'─'*50}")
                         print("  [1] Agregar más productos")
@@ -271,25 +240,22 @@ def make_sale_buy(entity):
                                 agregando_productos = False
                                 break
                             else:
-                                print("❌ Opción inválida")
+                                print("Opción inválida")
                         except ValueError:
-                            print("❌ Debe ingresar un número válido")
+                            print("Debe ingresar un número válido")
                     
                     if not agregando_productos:
                         break
                 
             except ValueError:
-                print("❌ Debe ingresar un ID numérico válido")
+                print("Debe ingresar un ID numérico válido")
 
-    # === PROCESO DE PAGO (SOLO PARA VENTAS) ===
     if entity == "client":
-        # Mostrar resumen final
         print(f"\n{'='*70}")
-        print(f"  {'💳 RESUMEN FINAL DE LA VENTA':^66}")
+        print(f"  {'RESUMEN FINAL DE LA VENTA':^66}")
         print(f"{'='*70}")
         print(f"  Cliente: {client['name']} {client['last_name']} (ID: {client_id})")
-        
-        # Fecha automática
+    
         fecha_actual = datetime.now()
         date = fecha_actual.strftime("%Y-%m-%d")
         hora = fecha_actual.strftime("%H:%M:%S")
@@ -298,7 +264,6 @@ def make_sale_buy(entity):
         print(f"  Hora: {hora}")
         print(f"{'─'*70}")
         
-        # Detalle de productos
         print(f"{'CANT':>6}  {'PRODUCTO':<30} {'P.UNIT':>12} {'SUBTOTAL':>14}")
         print(f"{'-'*70}")
         for item in carrito:
@@ -309,26 +274,22 @@ def make_sale_buy(entity):
         print(f"{'TOTAL A PAGAR':>52} ${total_venta:>14,.0f}")
         print(f"{'='*70}")
         
-        # Confirmar pago
         print("\n¿Confirmar la venta?")
         confirmar = input("[S] Sí - Procesar pago  [N] No - Cancelar: ").lower()
         
         if confirmar != 's':
-            print("\n❌ Venta cancelada")
+            print("\nVenta cancelada")
             return None
         
-        print("\n✅ Venta procesada exitosamente!")
-        print(f"📄 Factura #: {ide}")
-        print(f"💰 Total: ${total_venta:,.0f}")
+        print("\nVenta procesada exitosamente!")
+        print(f"Factura #: {ide}")
+        print(f"Total: ${total_venta:,.0f}")
     else:
-        # === PROCESO DE COMPRA (FACTURA) ===
-        # Mostrar factura de compra
         print(f"\n{'='*70}")
-        print(f"  {'📦 FACTURA DE COMPRA':^66}")
+        print(f"  {'FACTURA DE COMPRA':^66}")
         print(f"{'='*70}")
         print(f"  Proveedor: {supplier['name']} (ID: {supplier_id})")
         
-        # Fecha automática
         fecha_actual = datetime.now()
         date = fecha_actual.strftime("%Y-%m-%d")
         hora = fecha_actual.strftime("%H:%M:%S")
@@ -337,7 +298,6 @@ def make_sale_buy(entity):
         print(f"  Hora: {hora}")
         print(f"{'─'*70}")
         
-        # Detalle de productos
         print(f"{'CANT':>6}  {'PRODUCTO':<30} {'P.UNIT':>12} {'SUBTOTAL':>14}")
         print(f"{'-'*70}")
         for item in carrito:
@@ -348,25 +308,24 @@ def make_sale_buy(entity):
         print(f"{'TOTAL DE LA COMPRA':>52} ${total_venta:>14,.0f}")
         print(f"{'='*70}")
         
-        # Confirmar compra
         print("\n¿Confirmar la compra?")
         confirmar = input("[S] Sí - Registrar compra  [N] No - Cancelar: ").lower()
         
         if confirmar != 's':
-            print("\n❌ Compra cancelada")
+            print("\n Compra cancelada")
             return None
         
-        print("\n✅ Compra registrada exitosamente!")
-        print(f"📄 Orden de Compra #: {ide}")
-        print(f"💰 Total: ${total_venta:,.0f}")
-        print(f"📦 Inventario actualizado")
+        print("\nCompra registrada exitosamente!")
+        print(f"Orden de Compra #: {ide}")
+        print(f"Total: ${total_venta:,.0f}")
+        print(f"Inventario actualizado")
 
-    capsule.append(ide)         # 0: ID de la venta/compra
-    capsule.append(entity_id)   # 1: ID del cliente/proveedor
-    capsule.append(product)     # 2: Diccionario de productos {nombre: cantidad}
-    capsule.append(date)        # 3: Fecha (automática)
+    capsule.append(ide)         
+    capsule.append(entity_id)  
+    capsule.append(product)    
+    capsule.append(date)       
     
     if entity == "client":
-        capsule.append(total_venta)  # 4: Total de la venta
+        capsule.append(total_venta) 
     
     return capsule

@@ -41,23 +41,21 @@ class Stock:
                 print(f"|Stock          |: {self.container[i]['lot']} unidades")
                 print(f"|Precio Compra  |: ${self.container[i].get('precio_compra', 0):,.2f}")
                 print(f"|Precio Venta   |: ${self.container[i].get('precio_venta', 0):,.2f}")
-                
-                # Calcular ganancia si existen los precios
+               
                 if self.container[i].get('precio_compra') and self.container[i].get('precio_venta'):
                     ganancia = self.container[i]['precio_venta'] - self.container[i]['precio_compra']
                     porcentaje = (ganancia / self.container[i]['precio_compra']) * 100
                     print(f"|Ganancia/Und   |: ${ganancia:,.2f} ({porcentaje:.1f}%)")
                 print(f"{'='*50}\n")
                 return 0
-        print("❌ No se encuentra el inventario")
+        print("No se encuentra el inventario")
     
     def show_catalog(self):
-        """Muestra el catálogo completo de productos disponibles"""
         file_path = get_file_path("stocktaking.json")
         self.container = return_exist(file_path)
         
         if not self.container:
-            print("❌ No hay productos en el inventario")
+            print("No hay productos en el inventario")
             return
         
         print(f"\n{'='*80}")
