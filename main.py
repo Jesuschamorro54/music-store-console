@@ -60,7 +60,7 @@ while True:
         input("Presione ENTER para continuar...")
 
     elif op == "3":
-        data = Sale("client")
+        data = make_sale_buy("client")
         if data: 
             sale_ins.sale = data
         input("\nPresione ENTER para continuar...")
@@ -81,7 +81,6 @@ while True:
         date2 = input("Hasta: ")
         sale_ins.show_range_date(date1, date2)
         input("Presione ENTER para continuar...")
-
 
     elif op == "7":
         id_sale = int(input("Ingrese ID: "))

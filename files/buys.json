@@ -116,7 +116,7 @@
         "products": {
             "guitarra": 10,
             "cuerdas": 50,
-            "púas": 100
+            "p\u00faas": 100
         },
         "date": "2024-01-10"
     },
@@ -166,7 +166,7 @@
         "products": {
             "saxofon": 12,
             "boquilla": 25,
-            "cañas": 60
+            "ca\u00f1as": 60
         },
         "date": "2024-02-05"
     },
@@ -175,7 +175,7 @@
         "supplier": 3007,
         "products": {
             "trompeta": 8,
-            "válvulas": 20,
+            "v\u00e1lvulas": 20,
             "estuche": 8
         },
         "date": "2024-02-10"
@@ -186,7 +186,7 @@
         "products": {
             "clarinete": 15,
             "boquilla": 20,
-            "cañas": 80
+            "ca\u00f1as": 80
         },
         "date": "2024-02-15"
     },
@@ -266,7 +266,7 @@
         "products": {
             "saxofon": 15,
             "boquilla": 30,
-            "cañas": 100
+            "ca\u00f1as": 100
         },
         "date": "2024-03-25"
     },
@@ -275,7 +275,7 @@
         "supplier": 3017,
         "products": {
             "trompeta": 12,
-            "válvulas": 30,
+            "v\u00e1lvulas": 30,
             "estuche": 12
         },
         "date": "2024-04-01"
@@ -286,7 +286,7 @@
         "products": {
             "clarinete": 20,
             "boquilla": 25,
-            "cañas": 120
+            "ca\u00f1as": 120
         },
         "date": "2024-04-05"
     },
@@ -315,7 +315,7 @@
         "supplier": 3001,
         "products": {
             "guitarra": 12,
-            "púas": 150,
+            "p\u00faas": 150,
             "cuerdas": 60
         },
         "date": "2024-04-20"
@@ -366,7 +366,7 @@
         "products": {
             "saxofon": 18,
             "boquilla": 35,
-            "cañas": 140
+            "ca\u00f1as": 140
         },
         "date": "2024-05-15"
     },
@@ -375,7 +375,7 @@
         "supplier": 3007,
         "products": {
             "trompeta": 15,
-            "válvulas": 40,
+            "v\u00e1lvulas": 40,
             "estuche": 15
         },
         "date": "2024-05-20"
@@ -386,7 +386,7 @@
         "products": {
             "clarinete": 25,
             "boquilla": 30,
-            "cañas": 150
+            "ca\u00f1as": 150
         },
         "date": "2024-05-25"
     },
@@ -466,7 +466,7 @@
         "products": {
             "saxofon": 20,
             "boquilla": 40,
-            "cañas": 180
+            "ca\u00f1as": 180
         },
         "date": "2024-07-05"
     },
@@ -475,7 +475,7 @@
         "supplier": 3017,
         "products": {
             "trompeta": 18,
-            "válvulas": 50,
+            "v\u00e1lvulas": 50,
             "estuche": 18
         },
         "date": "2024-07-10"
@@ -486,7 +486,7 @@
         "products": {
             "clarinete": 30,
             "boquilla": 35,
-            "cañas": 200
+            "ca\u00f1as": 200
         },
         "date": "2024-07-15"
     },
@@ -524,7 +524,7 @@
         "id": 54,
         "supplier": 3002,
         "products": {
-            "metrónomo": 6,
+            "metr\u00f3nomo": 6,
             "afinador": 10,
             "atril": 8
         },
@@ -546,7 +546,7 @@
         "products": {
             "guitarra": 18,
             "amplificador": 12,
-            "púas": 200
+            "p\u00faas": 200
         },
         "date": "2024-08-15"
     },
@@ -596,7 +596,7 @@
         "products": {
             "saxofon": 25,
             "boquilla": 45,
-            "cañas": 220
+            "ca\u00f1as": 220
         },
         "date": "2024-09-10"
     },
@@ -605,7 +605,7 @@
         "supplier": 3010,
         "products": {
             "trompeta": 22,
-            "válvulas": 60,
+            "v\u00e1lvulas": 60,
             "estuche": 22
         },
         "date": "2024-09-15"
@@ -616,7 +616,7 @@
         "products": {
             "clarinete": 35,
             "boquilla": 40,
-            "cañas": 250
+            "ca\u00f1as": 250
         },
         "date": "2024-09-20"
     },
@@ -696,7 +696,7 @@
         "products": {
             "saxofon": 30,
             "boquilla": 50,
-            "cañas": 260
+            "ca\u00f1as": 260
         },
         "date": "2024-11-01"
     },
@@ -705,7 +705,7 @@
         "supplier": 3020,
         "products": {
             "trompeta": 25,
-            "válvulas": 70,
+            "v\u00e1lvulas": 70,
             "estuche": 25
         },
         "date": "2024-11-05"
@@ -716,7 +716,7 @@
         "products": {
             "clarinete": 40,
             "boquilla": 45,
-            "cañas": 300
+            "ca\u00f1as": 300
         },
         "date": "2024-11-10"
     },
@@ -796,7 +796,7 @@
         "products": {
             "saxofon": 35,
             "boquilla": 55,
-            "cañas": 300
+            "ca\u00f1as": 300
         },
         "date": "2024-12-20"
     },
@@ -805,7 +805,7 @@
         "supplier": 3010,
         "products": {
             "trompeta": 28,
-            "válvulas": 80,
+            "v\u00e1lvulas": 80,
             "estuche": 28
         },
         "date": "2024-12-25"
@@ -816,7 +816,7 @@
         "products": {
             "clarinete": 45,
             "boquilla": 50,
-            "cañas": 350
+            "ca\u00f1as": 350
         },
         "date": "2024-12-30"
     },
@@ -896,7 +896,7 @@
         "products": {
             "saxofon": 40,
             "boquilla": 60,
-            "cañas": 340
+            "ca\u00f1as": 340
         },
         "date": "2025-02-01"
     },
@@ -905,9 +905,17 @@
         "supplier": 3020,
         "products": {
             "trompeta": 30,
-            "válvulas": 90,
+            "v\u00e1lvulas": 90,
             "estuche": 30
         },
         "date": "2025-02-05"
+    },
+    {
+        "ID": 1,
+        "Supplier": "123",
+        "Products": {
+            "trombon": 4
+        },
+        "Date": "2021-04-20"
     }
 ]

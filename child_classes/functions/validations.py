@@ -1,14 +1,27 @@
 import json
 import os
 
+
 def get_file_path(filename):
-   
-    base_path = os.path.dirname(os.path.abspath(__file__))   
-    file_path = os.path.join(base_path, "..", "..", "files", filename) 
-    return os.path.normpath(file_path)  
+    """
+    Retorna la ruta completa del archivo en la carpeta /files.
+    """
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(base_path, "..", "..", "files", filename)
+    return os.path.normpath(file_path)
+
 
 def define_id(filename):
+    """
+    Define un nuevo ID incremental para ventas o compras.
+    Soporta archivos vacíos o con líneas no válidas.
+    """
     path = get_file_path(filename)
+
+    # Asegurar que el archivo exista
+    if not os.path.exists(path):
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("")
 
     with open(path, "r", encoding="utf-8") as file:
         data = file.read().split("\n")
@@ -16,41 +29,69 @@ def define_id(filename):
     ide = 1
     dictionary = []
 
-    for key in range(len(data) - 1):
-        if data[key].strip() != "":
-            dictionary.append(json.loads(data[key]))
+    # Evita errores de JSON en líneas vacías o corruptas
+    for key in range(len(data)):
+        line = data[key].strip()
+        if not line:
+            continue
+        try:
+            dictionary.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
 
-    ids = [item["id"] for item in dictionary if "id" in item]
+    # Buscar IDs existentes
+    ids = [item.get("id") for item in dictionary if isinstance(item, dict) and "id" in item]
 
-    if ids:  
-        while True:
-            if ide in ids:
-                ide += 1
-            else:
-                break
+    if ids:
+        while ide in ids:
+            ide += 1
     else:
         ide = 1
 
     return ide
 
+
 def return_exist(filename):
+    """
+    Devuelve el contenido del archivo JSON como lista.
+    Si el archivo está vacío, devuelve lista vacía.
+    """
     path = get_file_path(filename)
+
+    if not os.path.exists(path):
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump([], f)
+
     with open(path, "r", encoding="utf-8") as file:
-        data = json.load(file)
+        try:
+            data = json.load(file)
+        except json.JSONDecodeError:
+            data = []
     return data
 
+
 def validate_exist(filename, name):
+    """
+    Valida si existe una entidad (cliente o proveedor) por nombre.
+    Soporta tanto clave 'name' como 'nombre'.
+    """
     container = return_exist(filename)
     result = [False, None]
 
     for item in container:
-        if name.lower() == item["name"].lower():
+        item_name = item.get("name") or item.get("nombre")
+        if item_name and name.lower() == item_name.lower():
             result[0] = True
-            result[1] = item["id"]
+            result[1] = item.get("id")
             return result
+
     return result
 
+
 def valid_lot(product, lot):
+    """
+    Valida si el lote ingresado no es menor que los existentes.
+    """
     container = return_exist("stocktaking.json")
 
     for item in container:
@@ -58,7 +99,11 @@ def valid_lot(product, lot):
             return False
     return True
 
+
 def valid_date(date):
+    """
+    Valida que la fecha tenga formato YYYY-MM-DD y sea lógica.
+    """
     if date == '' or len(date) != 10:
         print("Invalid date")
         return False
@@ -82,4 +127,3 @@ def valid_date(date):
         print("Invalid year")
         return False
     return True
-

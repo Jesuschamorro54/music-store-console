@@ -242,7 +242,7 @@
         "client": 1516,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2024-02-20"
     },
@@ -251,7 +251,7 @@
         "client": 1819,
         "products": {
             "clarinete": 2,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2024-02-25"
     },
@@ -288,7 +288,7 @@
         "products": {
             "guitarra": 1,
             "cuerdas": 6,
-            "púas": 10
+            "p\u00faas": 10
         },
         "date": "2024-03-15"
     },
@@ -342,7 +342,7 @@
         "client": 2030,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2024-04-15"
     },
@@ -415,7 +415,7 @@
         "products": {
             "saxofon": 1,
             "boquilla": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2024-05-25"
     },
@@ -424,7 +424,7 @@
         "client": 2039,
         "products": {
             "trompeta": 1,
-            "válvulas": 3,
+            "v\u00e1lvulas": 3,
             "estuche": 1
         },
         "date": "2024-06-01"
@@ -519,7 +519,7 @@
         "client": 2023,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2024-07-20"
     },
@@ -528,7 +528,7 @@
         "client": 2024,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2024-07-25"
     },
@@ -565,7 +565,7 @@
         "products": {
             "guitarra": 1,
             "cuerdas": 6,
-            "púas": 20
+            "p\u00faas": 20
         },
         "date": "2024-08-15"
     },
@@ -604,7 +604,7 @@
         "products": {
             "saxofon": 1,
             "boquilla": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2024-09-05"
     },
@@ -613,7 +613,7 @@
         "client": 2033,
         "products": {
             "trompeta": 1,
-            "válvulas": 3,
+            "v\u00e1lvulas": 3,
             "estuche": 1
         },
         "date": "2024-09-10"
@@ -624,7 +624,7 @@
         "products": {
             "clarinete": 1,
             "boquilla": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2024-09-15"
     },
@@ -705,7 +705,7 @@
         "client": 145,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2024-11-01"
     },
@@ -714,7 +714,7 @@
         "client": 1415,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2024-11-05"
     },
@@ -804,7 +804,7 @@
         "client": 2028,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2024-12-25"
     },
@@ -885,7 +885,7 @@
         "client": 2037,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-02-01"
     },
@@ -894,7 +894,7 @@
         "client": 2038,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2025-02-05"
     },
@@ -975,7 +975,7 @@
         "client": 2021,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-03-20"
     },
@@ -984,7 +984,7 @@
         "client": 2022,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2025-03-25"
     },
@@ -1021,7 +1021,7 @@
         "products": {
             "guitarra": 1,
             "cuerdas": 6,
-            "púas": 10
+            "p\u00faas": 10
         },
         "date": "2025-04-10"
     },
@@ -1068,7 +1068,7 @@
         "client": 2031,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-05-01"
     },
@@ -1077,7 +1077,7 @@
         "client": 2032,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2025-05-05"
     },
@@ -1150,7 +1150,7 @@
         "products": {
             "saxofon": 1,
             "boquilla": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2025-06-10"
     },
@@ -1159,7 +1159,7 @@
         "client": 654,
         "products": {
             "trompeta": 1,
-            "válvulas": 3,
+            "v\u00e1lvulas": 3,
             "estuche": 1
         },
         "date": "2025-06-15"
@@ -1251,7 +1251,7 @@
         "client": 2025,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-07-30"
     },
@@ -1260,7 +1260,7 @@
         "client": 2026,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2025-08-01"
     },
@@ -1341,7 +1341,7 @@
         "client": 2035,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-09-10"
     },
@@ -1350,7 +1350,7 @@
         "client": 2036,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2025-09-15"
     },
@@ -1432,7 +1432,7 @@
         "client": 1516,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-10-25"
     },
@@ -1441,7 +1441,7 @@
         "client": 1819,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2025-10-30"
     },
@@ -1522,7 +1522,7 @@
         "client": 2029,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2025-12-05"
     },
@@ -1531,7 +1531,7 @@
         "client": 2030,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2025-12-10"
     },
@@ -1612,7 +1612,7 @@
         "client": 2039,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2026-01-20"
     },
@@ -1621,7 +1621,7 @@
         "client": 456,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2026-01-25"
     },
@@ -1702,7 +1702,7 @@
         "client": 2023,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2026-03-01"
     },
@@ -1711,7 +1711,7 @@
         "client": 2024,
         "products": {
             "clarinete": 1,
-            "cañas": 5
+            "ca\u00f1as": 5
         },
         "date": "2026-03-05"
     },
@@ -1792,7 +1792,7 @@
         "client": 2033,
         "products": {
             "trompeta": 1,
-            "válvulas": 3
+            "v\u00e1lvulas": 3
         },
         "date": "2026-04-15"
     },
@@ -1801,8 +1801,20 @@
         "client": 2034,
         "products": {
             "clarinete": 1,
-            "cañas": 10
+            "ca\u00f1as": 10
         },
         "date": "2026-04-20"
+    },
+    {
+        "ID": null,
+        "Cliente": null,
+        "Products": {},
+        "Date": null,
+        "id": 1,
+        "client": 1819,
+        "products": {
+            "fundas": 4
+        },
+        "date": "2025-11-11 08:23:23"
     }
 ]

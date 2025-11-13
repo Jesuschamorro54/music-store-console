@@ -7,12 +7,12 @@ FILES_DIR = os.path.join(BASE_DIR, "files")
 
 CLIENT_PATH = os.path.join(FILES_DIR, "client.json")
 SUPPLIER_PATH = os.path.join(FILES_DIR, "supplier.json")
-STOCK_PATH = os.path.join(FILES_DIR, "stocktaking.json")
+STOCK_PATH = os.path.join(FILES_DIR, "stock.json")  
 SALE_PATH = os.path.join(FILES_DIR, "sale.json")
 BUY_PATH = os.path.join(FILES_DIR, "buys.json")
 
+
 def write_into(path, data):
-    """Agrega un registro (data) al archivo JSON en la ruta 'path'."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     all_data = return_exist(path)
     all_data.append(data)
@@ -20,7 +20,6 @@ def write_into(path, data):
         json.dump(all_data, f, indent=4)
 
 def return_exist(path):
-    """Devuelve la lista de registros desde un archivo JSON, o [] si no existe."""
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as f:
@@ -36,31 +35,29 @@ def add_entity_func(lock):
     phone = None
     capsule = []
 
-    i = 1
-    while i != 0:
+    while True:
         try:
             ide = int(input("|ID|: "))
-            i = 0
-        except:
-            i = 1
+            break
+        except ValueError:
+            print("ID inválido, debe ser un número.")
 
     name = input("|Nombre        |: ")
     if lock == "cli":
         last = input("|Apellido      |: ")
 
-    i = 1
-    while i != 0:
+    while True:
         email = input("|Correo        |: ")
         if "@" in email:
-            i = 0
+            break
+        print("Correo inválido, intente nuevamente.")
 
-    i = 1
-    while i != 0:
+    while True:
         try:
-            phone = int(input("|Telefono      |: "))
-            i = 0
-        except:
-            i = 1
+            phone = int(input("|Teléfono      |: "))
+            break
+        except ValueError:
+            print("Teléfono inválido, debe ser un número.")
 
     capsule.append(ide)
     capsule.append(name)
@@ -72,90 +69,110 @@ def add_entity_func(lock):
 
 def add_stock_func():
     ide = define_id(STOCK_PATH)
-    lot = None
     capsule = []
 
-    name = input("|Nombre    |: ")
+    name = input("|Nombre del producto |: ")
 
-    i = 1
-    while i != 0:
+    while True:
         try:
-            lot = int(input("|Cantidad  |: "))
-            i = 0
-        except:
-            i = 1
+            quantity = int(input("|Cantidad en stock   |: "))
+            break
+        except ValueError:
+            print("Cantidad inválida.")
+
+    while True:
+        try:
+            price = float(input("|Precio de venta     |: "))
+            break
+        except ValueError:
+            print("Precio inválido.")
 
     capsule.append(ide)
     capsule.append(name)
-    capsule.append(lot)
+    capsule.append(quantity)
+    capsule.append(price)
     return capsule
 
 def make_sale_buy(entity):
     global entity_id, date, lot
 
     ide = define_id(SALE_PATH if entity == "client" else BUY_PATH)
-    product = {}
+    products = {}
     capsule = []
 
-    state = True
-    state_product = True
-    state_date = True
-
-    while state:
+    while True:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
             valid = validate_exist(CLIENT_PATH, name_entity)
             if valid[0]:
                 entity_id = valid[1]
-                state = False
+                break
             else:
-                print("El cliente no se ha agregado")
+                print("El cliente no se ha agregado.")
         else:
             name_entity = input("|Proveedor         |: ")
             valid = validate_exist(SUPPLIER_PATH, name_entity)
             if valid[0]:
                 entity_id = valid[1]
-                state = False
+                break
             else:
-                print("El proveedor no se ha agregado")
+                print("El proveedor no se ha agregado.")
 
-    print("\nPRESIONE 0 PARA DEJAR DE AGREGAR AL CARRITO")
-    while state_product:
-        val = True
-        while val:
-            name = input("\n|Producto          |: ")
-            valid = validate_exist(STOCK_PATH, name)
-            if valid[0]:
-                val = False
-            else:
-                print("El producto no se ha agregado")
+    stock_data = return_exist(STOCK_PATH)
+    if not stock_data:
+        print("\nNo hay productos en el catálogo.\n")
+        return
 
-        val2 = True
-        while val2:
-            lot = int(input("|Cantidad          |: "))
+    print("\nCATÁLOGO DE PRODUCTOS DISPONIBLES ")
+    print("────────────────────────────────────────────")
+    for item in stock_data:
+        quantity = item.get("quantity") or item.get("lot") or 0
+        price = item.get("sale_price") or item.get("price") or 0
+        print(
+            f"ID: {item['id']} | {item['name']} - {quantity} unidades disponibles | "
+            f"Precio: ${price:,.2f}"
+        )
+    print("────────────────────────────────────────────\n")
+
+    while True:
+        try:
+            product_id = int(input("|ID del producto a agregar|: "))
+            lot = int(input("|Cantidad a vender|: "))
+
+            product = next((p for p in stock_data if p["id"] == product_id), None)
+
+            if not product:
+                print("ID de producto no encontrado. Intente nuevamente.")
+                continue
+
+            name_product = product["name"]
+            stock_quantity = product.get("quantity") or product.get("lot") or 0
+
             if entity == "client":
-                if valid_lot(name, lot):
-                    val2 = False
-                else:
-                    val2 = False
-                    print("No hay suficientes productos")
-            else:
-                val2 = False
+                if lot > stock_quantity:
+                    print(
+                        f"No hay suficiente stock. Solo hay {stock_quantity} unidades disponibles."
+                    )
+                    continue
 
-        product[name] = lot
-        op = int(input("¿Agregar más?: "))
-        if op == 0:
-            state_product = False
+            products[name_product] = lot
+            print(f"Producto agregado: {name_product} ({lot} unidades)\n")
 
-    while state_date:
-        date = input("|Fecha aaaa-mm-dd  |: ")
+            op = input("¿Desea agregar otro producto? (s/n): ").lower()
+            if op != "s":
+                break
+
+        except ValueError:
+            print("Entrada inválida. Debe ingresar números para el ID y la cantidad.\n")
+    while True:
+        date = input("|Fecha (aaaa-mm-dd)  |: ")
         if valid_date(date):
-            state_date = False
+            break
 
-    capsule.append(ide)          
-    capsule.append(entity_id)    
-    capsule.append(product)      
-    capsule.append(date)        
+    capsule.append(ide)
+    capsule.append(entity_id)
+    capsule.append(products)
+    capsule.append(date)
 
     return capsule
 
