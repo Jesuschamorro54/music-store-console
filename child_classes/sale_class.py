@@ -31,20 +31,25 @@ class Sale(Facture):
         self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json", self._sale_info)
 
     def show_range_date(self, date_init, date_final):
-        if not valid_date(date_init) and not valid_date(date_final):
-            return print("El rango de fecha es invalido")
+        if not valid_date(date_init) or not valid_date(date_final):
+            print("El rango de fecha es inválido")
+            return
 
         self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json")
+        total_ventas = 0
+        ventas_en_rango = 0
 
-        for i in range(len(self.container)):
-            if date_init <= self.container[i]["date"] <= date_final or date_init >= self.container[i]["date"] >= date_final:
-                print(f"\033[36m\n-- Detalle de la compra --\033[39m")
-                print(f"|ID buy    | -> |{self.container[i]['id']}|")
-                print(f"|ID Client | -> |{self.container[i]['client']}|")
-                print(f"|Products  |")
-                product_list = self.container[i]["products"]
-                for key in product_list: print(f"\t\033[31m{key}: {product_list[key]}\033[39m")
-                print(f"|Date      | -> |{self.container[i]['date']}|")
+        for venta in self.container:
+            
+            fecha_venta = venta["date"]
+            if date_init <= fecha_venta <= date_final or date_final <= fecha_venta <= date_init:
+                
+                total_ventas += venta.get("price", 0)  
+                ventas_en_rango += 1
+                
+
+        print(f"Se realizaron {ventas_en_rango} ventas en el rango de fechas especificado.")
+        print(f"El total de ventas en el rango es: {total_ventas}")
 
     def show_by_id(self, ide):
         self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json")

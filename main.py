@@ -21,6 +21,7 @@ sale_ins = Sale()
 # Init the appplication
 while True:
    # pyautogui.click(x=-926, y=525)
+
    # pyautogui.hotkey('Ctrl', 'l')
     op = input(
         """\033[32m
@@ -107,12 +108,6 @@ while True:
             id_inventory = int(input("Ingrese ID de producto: "))
             stock_ins.show_stock(id_inventory)
             input()
-
-    #  CONSULTAR INVENTARIO
-    ## elif op == "9":
-      ##  id_inventory = int(input("Ingrese ID: "))
-      ##  stock_ins.show_stock(id_inventory)
-       ## input()
 
 #  CONSULTA LAS VENTAS EN UN PERIODO DE TIEMPO ESPECIFICO
     elif op == "10":
