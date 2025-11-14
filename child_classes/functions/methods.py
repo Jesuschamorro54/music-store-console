@@ -48,59 +48,76 @@ def make_sale_buy(entity):
         "Partitura": 10000
     }
 
+    # ID sale o buy
     path = "files/sale.json" if entity == "client" else "files/buys.json"
     ide = define_id(path)
 
-    productos = []
     productos_dict = {}
 
+    # ================================
+    # VALIDAR CLIENTE o PROVEEDOR
+    # ================================
+    if entity == "client":
+        name = input("|Cliente           |: ")
+        valid = validate_exist("files/client.json", name)
+
+        if not valid:
+            print("❌ Cliente NO existe.")
+            return None
+
+        print("✔ Cliente encontrado")
+
+    else:
+        try:
+            id_entity = int(input("|ID Proveedor     |: "))
+        except ValueError:
+            print("❌ ID inválido.")
+            return None
+
+        valid = validate_exist("files/supplier.json", id_entity)
+
+        if not valid:
+            print("❌ Proveedor NO existe.")
+            return None
+
+        print("✔ Proveedor encontrado")
+
+    # ================================
+    # AGREGAR PRODUCTOS
+    # ================================
+    print("\nPRESIONE 0 PARA DEJAR DE AGREGAR PRODUCTOS")
+
     while True:
-        if entity == "client":
-            name = input("|Cliente           |: ")
-            valid = validate_exist("files/client.json", name)
-        else:
-            try:
-                id_entity = int(input("|ID Proveedor     |: "))
-            except:
-                print("ID inválido.")
-                continue
-            valid = validate_exist("files/supplier.json", id_entity)
+        nombre = input("\n|Producto           |: ").strip().title()
+        if nombre == "0":
+            break
 
-        if id_entity == True:
-            print("proveedor encontrado")
-        else:
-            print ("no existe")
+        if nombre not in PRECIOS:
+            print("❌ Producto no existe.")
+            continue
 
-        print("\nPRESIONE 0 PARA DEJAR DE AGREGAR PRODUCTOS")
+        try:
+            cantidad = int(input("|Cantidad         |: "))
+        except ValueError:
+            print("❌ Cantidad inválida.")
+            continue
 
-        while True:
-            nombre = input("\n|Producto           |: ").strip().title()
-            if nombre == "0":
-                break
+        precio = PRECIOS[nombre]
+        subtotal = precio * cantidad
 
-            if nombre not in PRECIOS:
-                print("Producto no existe.")
-                continue
+        productos_dict[nombre] = {
+            "cantidad": cantidad,
+            "precio": precio,
+            "subtotal": subtotal
+        }
 
-            try:
-                cantidad = int(input("|Cantidad         |: "))
-            except:
-                print("Cantidad inválida.")
-                continue
+        if input("¿Agregar más productos? (s/n): ").lower() != "s":
+            break
 
-            precio = PRECIOS[nombre]
-            subtotal = precio * cantidad
+    # ================================
+    # CREAR FECHA Y RETORNAR DATOS
+    # ================================
+    fecha_actual = datetime.now().isoformat()
 
-            productos_dict[nombre] = {
-                "cantidad": cantidad,
-                "precio": precio,
-                "subtotal": subtotal
-            }   
-
-            if input("¿Agregar más productos? (s/n): ").lower() == "n":
-                break
-
-        fecha_actual = datetime.now().isoformat()
-
-        return [ide, productos_dict, fecha_actual]
+    return [ide, productos_dict, fecha_actual]
 

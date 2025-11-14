@@ -2,17 +2,16 @@ import json
 import os
 
 class Facture:
+
     @staticmethod
     def write_into(path, obj):
+    
 
-        # Asegurar formato dict
+            # Convertir objetos a diccionario si tienen __dict__
         if hasattr(obj, "__dict__"):
             obj = obj.__dict__
 
-        if isinstance(obj, list):
-            obj = [x.__dict__ if hasattr(x, "__dict__") else x for x in obj]
-
-        # Crear carpeta si no existe
+        # Asegurar carpeta
         dirpath = os.path.dirname(path)
         if dirpath and not os.path.exists(dirpath):
             os.makedirs(dirpath, exist_ok=True)
@@ -23,21 +22,28 @@ class Facture:
                 json.dump([], f, indent=4, ensure_ascii=False)
 
         # Cargar contenido actual
-        with open(path, "r", encoding="utf-8") as f:
-            try:
+        try:
+            with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            except json.JSONDecodeError:
-                data = []
 
-        if isinstance(data, dict):
-            data = [data]
+                # Si no es lista, forzar a lista
+                if not isinstance(data, list):
+                    data = []
+        except json.JSONDecodeError:
+            data = []
 
-        # Añadir factura nueva
+    # Agregar la nueva factura
         data.append(obj)
 
-        # Guardar
+        # 🔥 GUARDAR CORRECTAMENTE 🔥
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
+
+    #    Debug opcional
+        print("\n=== FACTURA GUARDADA ===")
+        print(json.dumps(obj, indent=4, ensure_ascii=False))
+        print("========================\n")
+
 
     # =========================================================
     def load_last(self):
@@ -64,10 +70,11 @@ class Facture:
 
         print("\n=========== FACTURA RECIENTE ===========")
         print(f"Factura ID: {factura.get('factura_id', 'N/A')}")
-        print(f"Proveedor ID: {factura.get('supplier_id', 'N/A')}")
-        print(f"Proveedor Nombre: {factura.get('supplier_name', 'N/A')}")
+        print(f"Proveedor ID: {factura.get('supplier_id')}")
+
         if factura.get("fecha"):
             print(f"Fecha: {factura.get('fecha')}")
+
         print("\nProductos:")
 
         total = 0
@@ -97,3 +104,5 @@ class Facture:
 
         except Exception as e:
             print("Error actualizando stock:", e)
+
+

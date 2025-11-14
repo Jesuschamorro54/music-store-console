@@ -65,21 +65,21 @@ while True:
             if cont != "s":
                 input()
                 continue
+
         supplier_id = input("Ingrese ID del proveedor: ")
 
-
-        data = make_sale_buy ("supplier")
+        # Crear compra
+        data = make_sale_buy("supplier")
 
         factura_id = data[0]
-        productos = data[1]
+        productos = data[1]   # dict: {nombre:{cantidad:x, precio:y}}
         fecha = data[2]
-
 
         # Normalizar productos
         lista_productos = []
         for nombre, info in productos.items():
-            qty = info["cantidad"]
-            price = info["precio"]
+            qty = info.get("cantidad", 0)
+            price = info.get("precio", 0)
             subtotal = qty * price
 
             lista_productos.append({
@@ -93,7 +93,7 @@ while True:
 
         factura = {
             "factura_id": factura_id,
-            
+            "supplier_id": supplier_id,
             "products": lista_productos,
             "total": total,
             "fecha": fecha
@@ -102,14 +102,12 @@ while True:
         # Guardar factura
         Facture.write_into("files/factura.json", factura)
 
-        # Guardar compra
-        buy_ins.buy = data
-
         # Actualizar inventario
         facture_ins.update_stock(productos, mode="buy")
 
         print("\n\033[32mCompra registrada exitosamente.\033[39m\n")
         input()
+
 
     # 6. CONSULTAR VENTAS POR FECHA
     elif op == "6":
