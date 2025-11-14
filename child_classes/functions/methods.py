@@ -55,11 +55,8 @@ def add_entity_func(lock):
 
 # add inventory
 def add_stock_func():
-<<<<<<< HEAD
     ide = define_id("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json")
-=======
     ide = define_id(get_file_path("stocktaking.json")) # dinamico
->>>>>>> joss
     lot = None
     capsule = []
 
@@ -83,12 +80,9 @@ def add_stock_func():
 
 def make_sale_buy(entity):
     global entity_id, date, lot
-<<<<<<< HEAD
     ide = define_id("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json") if entity == "client" else define_id(
         "C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/buys.json")
-=======
     ide = define_id(get_file_path("sale.json")) if entity == "client" else define_id(get_file_path("buys.json")) # Ruta dinamica
->>>>>>> joss
     product = {}
     capsule = []
 
@@ -99,11 +93,8 @@ def make_sale_buy(entity):
     while state:
         if entity == "client":
             name_entity = input("|Cliente           |: ")
-<<<<<<< HEAD
             valid = validate_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/client.json", name_entity)
-=======
             valid = validate_exist(get_file_path("client.json"), name_entity) # Dinamica
->>>>>>> joss
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -111,11 +102,8 @@ def make_sale_buy(entity):
                 print("El cliente no se ha agregado")
         else:
             name_entity = input("|Proveedor         |: ")
-<<<<<<< HEAD
             valid = validate_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/supplier.json", name_entity)
-=======
             valid = validate_exist(get_file_path("supplier.json"), name_entity) # Dinamica
->>>>>>> joss
             if valid[0]:
                 entity_id = valid[1]
                 state = False
@@ -128,11 +116,7 @@ def make_sale_buy(entity):
         val = True
         while val:
             name = (input("\n|Producto          |: "))
-<<<<<<< HEAD
             valid = validate_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", name)
-=======
-            valid = validate_exist(get_file_path("stocktaking.json"), name) # Dinamico
->>>>>>> joss
             if valid[0]:
                 val = False
             else:

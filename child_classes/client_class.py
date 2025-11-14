@@ -30,16 +30,9 @@ class Client(Entity):
         # file_path = os.path.join(base_dir, "files", "client.json")
 
         # self.write_into(file_path, self._client_info)
-<<<<<<< HEAD
         self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/files/client.json")
     def show_client(self, ide, name):
         self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/files/client.json")
-=======
-        self.write_into(get_file_path("client.json"), self._client_info) # funcion para la ruta dinamica
-
-    def show_client(self, ide, name):
-        self.container = return_exist(get_file_path("client.json")) # funcion remplazada para la ruta dinamica
->>>>>>> joss
 
         for i in range(len(self.container)):
             name_complet = self.container[i]["name"] + " " + self.container[i]["last_name"]
