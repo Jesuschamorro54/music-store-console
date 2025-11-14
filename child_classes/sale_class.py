@@ -1,5 +1,6 @@
 from parent_classes.facture_class import Facture
 from child_classes.functions.validations import *
+from child_classes.path_manager import get_file_path # importancia de la funcion para la ruta dinamica
 
 # clases que dan el funcionamiento de alguanas extructuras
 
@@ -27,13 +28,23 @@ class Sale(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
+<<<<<<< HEAD
         self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json", self._sale_info)
+=======
+        self.write_into(get_file_path("sale.json"), self._sale_info) # funcion para la ruta dinamica
+
+>>>>>>> joss
 
     def show_range_date(self, date_init, date_final):
         if not valid_date(date_init) and not valid_date(date_final):
             return print("El rango de fecha es invalido")
 
+<<<<<<< HEAD
         self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json")
+=======
+        self.container = return_exist(get_file_path("sale.json")) # funcion para la ruta dinamica
+
+>>>>>>> joss
 
         for i in range(len(self.container)):
             if date_init <= self.container[i]["date"] <= date_final or date_init >= self.container[i]["date"] >= date_final:
@@ -46,7 +57,11 @@ class Sale(Facture):
                 print(f"|Date      | -> |{self.container[i]['date']}|")
 
     def show_by_id(self, ide):
+<<<<<<< HEAD
         self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/sale.json")
+=======
+        self.container = return_exist(get_file_path("sale.json")) # funcion remplazada para la ruta dinamica
+>>>>>>> joss
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:
                 print(f"\033[36m\n-- Detalle de la compra --\033[39m")

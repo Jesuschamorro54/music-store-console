@@ -1,5 +1,5 @@
 import json
-
+from child_classes.path_manager import get_file_path # funcion para la ruta dinamica
 
 class Facture:
     def __init__(self):
@@ -29,7 +29,11 @@ class Facture:
         return dictionary
 
     def update_stock(self, products, doc):
+<<<<<<< HEAD
         self.file = open(f"C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json")
+=======
+        self.file = open(get_file_path("stocktaking.json")) # Dinamico
+>>>>>>> joss
         data = self.file.read()
         data = data.split("\n")
 
@@ -51,8 +55,13 @@ class Facture:
                     if dictionary[i]["name"].lower() in key.lower():
                         dictionary[i]["lot"] += products[key]
         self.file.close()
+<<<<<<< HEAD
         self.file = open(f"C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", "w")
         self.file = open(f"C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", "a+")
+=======
+        self.file = open(get_file_path("stocktaking.json"), "w") # Dinamico
+        self.file = open(get_file_path("stocktaking.json"), "a+") # Dinamico
+>>>>>>> joss
         for i in range(len(dictionary)):
             text = json.dumps(dictionary[i])
             self.file.write(f"{text}\n")
