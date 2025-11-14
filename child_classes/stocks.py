@@ -23,21 +23,13 @@ class Stock:
         for key in self._stock_info:
             self._stock_info[key] = info[i]
             i += 1
-<<<<<<< HEAD
         self.file = open("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json", "a+", )
-=======
-        self.file = open(get_file_path("stocktaking.json"), "a+") # ruta dinamica
->>>>>>> joss
         text = json.dumps(self._stock_info)
         self.file.write(f"{text}/n")
         self.file.close()
 
     def show_stock(self, ide):
-<<<<<<< HEAD
         self.container = return_exist("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/stocktaking.json")
-=======
-        self.container = return_exist(get_file_path("stocktaking.json")) # dinamica
->>>>>>> joss
 
         for i in range(len(self.container)):
             if self.container[i]["id"] == ide:

@@ -20,8 +20,4 @@ class Supplier(Entity):
         for key in self._supplier_info:
             self._supplier_info[key] = info[i]
             i += 1
-<<<<<<< HEAD
         self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/supplier.json", self._supplier_info)
-=======
-        self.write_into(get_file_path("supplier.json"), self._supplier_info) # dinamica
->>>>>>> joss

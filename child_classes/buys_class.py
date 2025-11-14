@@ -24,8 +24,4 @@ class Buy(Facture):
         for key in self._sale_info:
             self._sale_info[key] = info[i]
             i += 1
-<<<<<<< HEAD
         self.write_into("C:/Users/ESTUDIANTE/Documents/music/music-store-console/files/buys.json", self._sale_info)
-=======
-        self.write_into(get_file_path("buys.json"), self._sale_info) # funcion para la ruta dinamica. antes "self.write_into("/Users/jesuschamorro/Downloads/dev/POO/Parcial_III/child_classes/files/buys.txt", self._sale_info)"
->>>>>>> joss
