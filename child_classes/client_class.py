@@ -20,10 +20,10 @@ class Client(Entity):
 
     @client.setter
     def client(self, info):
-        i = 0
-        for key in self._client_info:
+        
+        for i, key in enumerate(self._client_info):
             self._client_info[key] = info[i]
-            i += 1
+            
 
         # Construir la ruta relativa al proyecto
         # base_dir = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está este archivo .py

@@ -25,7 +25,7 @@ class Stock:
             i += 1
         self.file = open(get_file_path("stocktaking.json"), "a+") # ruta dinamica
         text = json.dumps(self._stock_info)
-        self.file.write(f"{text}\n")
+        self.file.write(f"{text}/n")
         self.file.close()
 
     def show_stock(self, ide):
