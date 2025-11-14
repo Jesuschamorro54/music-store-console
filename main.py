@@ -74,8 +74,8 @@ while True:
 
     #  CONSULTAR VENTA POR FECHA
     elif op == "6":
-        date1 = input("Desde: ")
-        date2 = input("Hasta: ")
+        date1 = input("Desde (YYYY-MM-DD): ")
+        date2 = input("Hasta (YYYY-MM-DD): ")
         sale_ins.show_range_date(date1, date2)
         input()
 
@@ -93,8 +93,8 @@ while True:
         input()
 
     elif op == "9":
-            date1 = input("Desde: ")
-            date2 = input("Hasta: ")
+            date1 = input("Desde (YYYY-MM-DD): ")
+            date2 = input("Hasta (YYYY-MM-DD): ")
             sale_ins.show_range_date(date1, date2)
             input()
             id_sale = int(input("Ingrese ID de venta: "))
