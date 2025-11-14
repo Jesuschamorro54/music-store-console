@@ -1,11 +1,12 @@
 from child_classes.functions.validations import *
 from datetime import datetime
+import json
 
 
 
 # add inventory
 def add_stock_func():
-    ide = define_id("/poo/music-store-console/files/stocktaking.txt")
+    ide = define_id("/Users/NEIDER/Desktop/PROYECTO MUSICA/music-store-console/files/stocktaking.txt")
     lot = None
     capsule = []
 
@@ -27,70 +28,79 @@ def add_stock_func():
     return capsule
 
 
+
+
 def make_sale_buy(entity):
-    global entity_id, date, lot
-    ide = define_id("/poo/music-store-console/files/sale.json") if entity == "client" else define_id(
-        "/poo/music-store-console/files/buys.json")
-    product = {}
-    capsule = []
+    from datetime import datetime
+    from child_classes.functions.validations import validate_exist, define_id
 
-    state = True
-    state_product = True
-    state_date = True
+    PRECIOS = {
+        "Guitarra Eléctrica": 1500000,
+        "Bajo": 1200000,
+        "Batería Acústica": 3000000,
+        "Ukelele": 250000,
+        "Piano Digital": 2000000,
+        "Teclado Yamaha": 850000,
+        "Micrófono Shure": 450000,
+        "Audífonos Pro": 350000,
+        "Violín": 900000,
+        "Trompeta": 1100000,
+        "Partitura": 10000
+    }
 
-    while state:
+    path = "files/sale.json" if entity == "client" else "files/buys.json"
+    ide = define_id(path)
+
+    productos = []
+    productos_dict = {}
+
+    while True:
         if entity == "client":
-            name_entity = input("|Cliente           |: ")
-            valid = validate_exist("/poo/music-store-console/files/client.json", name_entity)
-            if valid[0]:
-                entity_id = valid[1]
-                state = False
-            else:
-                print("El cliente no se ha agregado")
+            name = input("|Cliente           |: ")
+            valid = validate_exist("files/client.json", name)
         else:
-            id_entity = int(input("|ID Proveedor     |: "))
-            print(f"proveedor con id {id_entity} encontrado")
-           
-            valid = validate_exist("/poo/music-store-console/files/supplier.json", id_entity)
-            if valid[0]:
-                entity_id = valid[1]
-                state = False
-            else:
-                print("El proveedor no se ha agregado")
+            try:
+                id_entity = int(input("|ID Proveedor     |: "))
+            except:
+                print("ID inválido.")
+                continue
+            valid = validate_exist("files/supplier.json", id_entity)
 
-    print("\nPRESIONE 0 PARA DEJAR DE AGREGAR AL CARRITO")
-    while state_product:
-        global name
-        val = True
-        while val:
-            name = (input("\n|Producto          |: "))
-            valid = validate_exist("/poo/music-store-console/files/stocktaking.json", name)
-            if valid[0]:
-                val = False
-            else:
-                print("El producto no se ha agregado")
-        val2 = True
-        while val2:
-            lot = int(input("|Cantidad          |:"))
-            if entity == "client":
-                if valid_lot(name, lot):
-                    val2 = False
-                else:
-                    val2 = False, print("No hay suficientes productos")
-            else:
-                val2 = False
+        if id_entity == True:
+            print("proveedor encontrado")
+        else:
+            print ("no existe")
 
-#no dejaba seguir agregando productos, agregue una opcion mas para la confirmacion de agregar productos
-        product[name] = lot
-        op = int(input("¿Agregar más? elija 0 para no o 1 para sí: "))
-        if op == 0:state_product = False
-        if op == 1: state_product = True
+        print("\nPRESIONE 0 PARA DEJAR DE AGREGAR PRODUCTOS")
 
-    fecha_actual = datetime.now()
-    print(fecha_actual)
+        while True:
+            nombre = input("\n|Producto           |: ").strip().title()
+            if nombre == "0":
+                break
 
-    capsule.append(ide) # 0
-    capsule.append(entity_id) # 1
-    capsule.append(product) # 2
-    capsule.append(fecha_actual)
-    return capsule
+            if nombre not in PRECIOS:
+                print("Producto no existe.")
+                continue
+
+            try:
+                cantidad = int(input("|Cantidad         |: "))
+            except:
+                print("Cantidad inválida.")
+                continue
+
+            precio = PRECIOS[nombre]
+            subtotal = precio * cantidad
+
+            productos_dict[nombre] = {
+                "cantidad": cantidad,
+                "precio": precio,
+                "subtotal": subtotal
+            }   
+
+            if input("¿Agregar más productos? (s/n): ").lower() == "n":
+                break
+
+        fecha_actual = datetime.now().isoformat()
+
+        return [ide, productos_dict, fecha_actual]
+

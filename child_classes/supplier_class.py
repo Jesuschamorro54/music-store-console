@@ -15,4 +15,4 @@ class Supplier(Entity):
         for key in self._supplier_info:
             self._supplier_info[key] = info[i]
             i += 1
-        self.write_into("/poo/music-store-console/files/supplier.txt", self._supplier_info)
+        self.write_into("/Users/NEIDER/Desktop/PROYECTO MUSICA/music-store-console/files/supplier.txt", self._supplier_info)

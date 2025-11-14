@@ -1,73 +1,47 @@
 import json
-
-
+import os
+import random
 
 def define_id(path):
-   
-    dictionary = return_exist(path)
-    ide = 1
-    ids = []
-    for i in range(len(dictionary)):
-        ids.append(dictionary[i]["id"])
+    if not os.path.exists(path):
+        return random.randint(1000, 9999)
 
-    if ids is not None or ids != "null" or ids == []:
-        while True:
-            if ide in ids: ide += 1
-            else: break
-    else: ide = 1
-    return ide
-
-
-def return_exist(path):
-    with open(path, encoding='utf-8') as file:
-       datos = json.load(file)
-    return datos
-
-
-def validate_exist(path, name):
-    container = return_exist(path)
-    x = [False, None]
-
-    for i in range(len(container)):
-        
-            x[0] = True
-            x[1] = container[i]["id"]
-            return x
-    return x
-
-
-def valid_lot(product, lot):
-    container = return_exist("/poo/music-store-console/files/stocktaking.txt")
-
-    for i in range(len(container)):
-        if container[i]["name"].lower() == product.lower() and container[i]["lot"] < lot:
-            return False
-    return True
-
-
-def valid_date(date):
-    if date == '' or len(date) != 10:
-        print("Invalid date")
-        return False
-
-    list_date = date.split(sep='-')
     try:
-        day = int(list_date[2])
-        year = int(list_date[0])
-        month = int(list_date[1])
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        used_ids = [item.get("id") for item in data if "id" in item]
+        new_id = random.randint(1000, 9999)
+
+        while new_id in used_ids:
+            new_id = random.randint(1000, 9999)
+
+        return new_id
+
     except:
-        return False
+        return random.randint(1000, 9999)
 
-def validate_date(day, month, year):
-    validations = [
-        (1 <= day <= 31, "Invalid day"),
-        (1 <= month <= 12, "Invalid month"),
-        (year <= 2025, "Invalid year")
-    ]
 
-    for condition, message in validations:
-        if not condition:
-            print(message)
-            return False
-    return True
+def validate_exist(path, value):
+    if not os.path.exists(path):
+        return (False, None)
 
+    with open(path, "r", encoding="utf-8") as f:
+        try:
+            data = json.load(f)
+        except:
+            return (False, None)
+
+    for item in data:
+        if "id" in item:
+            try:
+                if int(item["id"]) == int(value):
+                    return (True, item["id"])
+            except:
+                pass
+
+        if isinstance(value, str) and "name" in item:
+            if item["name"].strip().lower() == value.strip().lower():
+                return (True, item["id"])
+
+    return (False, None)
